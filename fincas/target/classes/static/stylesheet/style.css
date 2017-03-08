@@ -1,0 +1,209 @@
+body {
+    padding-top: 50px;
+}
+
+.social-button {
+    margin-top: 7px;
+}
+
+.side-left {
+    margin-top: 30px;
+}
+
+.brand {
+    width: 40px;
+    height: 40px;
+    margin-top: -9px;
+}
+
+#page-top {
+    background-image: url(http://lorempixel.com/1000/400/city/);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: black;
+    height: 300px;
+}
+
+.header-info {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.header-user-info {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin-top: 80px;
+}
+
+.name {
+    color: white;
+    font-size: xx-large;
+}
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#title {
+    color: white;
+    font-size: 50px;
+    padding-left: 5em;
+    padding-right: 5em;
+    background-color: #333;
+}
+
+#title img {
+    width: 3em;
+}
+
+.report-link {
+    float: right;
+}
+
+.followers-container {
+    width: 100%;
+    text-align: center;
+}
+
+.side-middle {
+    margin-top: 30px;
+}
+
+.side-right {
+    margin-top: 30px;
+}
+
+.social {
+    padding-left: 0.5em;
+    width: 4.5em;
+    height: 4em;
+}
+
+#RedesSociales {
+    padding-top: 2em;
+}
+
+.myaccount-link {
+    padding: initial;
+    /*padding: 0px;
+    padding-right: 35px;*/
+}
+
+.img-profile-mini {
+    margin-top: -0.5em;
+    margin-right: 0.5em;
+    height: 2em;
+}
+
+.toUp a {
+    position: fixed;
+    bottom: 2em;
+    right: 3em;
+    background: #333;
+    color: white;
+    border-color: black;
+}
+
+.panel-profile {
+    margin-top: 50px;
+}
+
+.text-profile {
+    margin-top: 40px;
+}
+
+.profile-save-button {
+    float: right;
+}
+
+.save-profile-button {
+    background-color: darkgrey;
+}
+
+.edit-profile-right-side {
+    margin-top: 170px;
+}
+
+.list-group-item.active {
+    background-color: darkgray;
+    border-color: darkgray;
+}
+
+.alignment-profile {
+    float: right;
+}
+
+.separation-profile {
+    margin: 10px;
+}
+
+.menu-profile {
+    margin-top: 20px;
+}
+
+.nav-pills>li.active>a {
+    background-color: darkgray;
+}
+
+.nav-pills>li.active>a:hover {
+    background-color: #6d6d6d;
+}
+
+.button-followers {
+    float: right;
+}
+
+.profile-followers {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.social-network-post {
+    display: inline-block;
+}
+
+.social-post {
+    padding-left: 0.5em;
+    width: 3em;
+}
+
+.button-report-users {
+    height: 50px;
+    float: right;
+    margin-left: 5px;
+}
+
+#reportUsers-text {
+    text-align: center;
+    font-size: 15pt;
+}
+
+#page-top .followers-following {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 3px;
+    border-radius: 4px;
+    margin: 5px;
+}
+.alert-unFollowUser {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    margin-left: 170px;
+    padding: 10px;
+    border: 1px solid #d6d6ce;
+    visibility: hidden;
+}
+
+#follow {
+    background-color: #42a7f4;
+    color: white;
+    width: 10%;
+}
+
+.button-follow-user {
+    float: right;
+}

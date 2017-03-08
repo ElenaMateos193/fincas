@@ -1,0 +1,153 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../stylesheet/style.css" rel="stylesheet">
+    <link href="../stylesheet/stylePost.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../stylesheet/styleMensajes.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!--Contenido de la barra de navegación-->
+        <div class="container-fluid">
+            <!--Imagen-->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img class="brand" alt="Brand" src="../img/icon.png" /></a>
+            </div>
+            <!--Resto del contenido-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--Menus entre el logo y la busqueda-->
+                <ul class="nav navbar-nav">
+                    <li><a href="user-index.html">Hot</a></li>
+                    <li><a href="#">Trending</a></li>
+                    <li><a href="#">Fresh</a></li>
+                    <li><a href="#">Random</a></li>
+                    <!--Ejemplo de botón que se desprende desde abajo-->
+                    <li class="dropdown">
+                        <!--Título botón--><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tags <span class="caret"></span></a>
+                        <!--Submenú-->
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--Barra de búsqueda-->
+                <form class="navbar-form navbar-left" role="search">
+                    <!--Cuadro donde introducir el texto-->
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Type to search"> </div>
+                    <!--Botón de lupa-->
+                    <button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
+                </form>
+                <!--Menus después de la busqueda: Inicio de sesión-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="user-addPost.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add post</a></li>
+                    <li class="dropdown">
+                        <!--Título botón-->
+                        <a href="#" class="myaccount-link" data-toggle="dropdown" role="button" aria-expanded="false"><img alt="" class="img-profile-mini" src="../img/userPhoto.jpg" />User name <span class="caret"></span></a>
+                        <!--Submenú-->
+                        <ul class="dropdown-menu">
+                            <li><a href="user-profile.html">Profile</a></li>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="user-Settings.html">Tools</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="index.html">Log out</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="user-mensajes.html">E-mail <span class="badge">4</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div id="Up"></div>
+        <div class="hidden-xs col-md-12" id="title">
+            <div>LA FILA DE ATRAS <img alt="Brand" src="../img/logoTitulo_blanco.png" /></div>
+        </div>
+    </header>
+    <div class="container-fluid">
+
+        <div class="row">
+            <!--Para dejar margen-->
+            <div class="hidden-xs col-md-1"></div>
+
+
+            <!--Contenido Izquierda-->
+            <div class="col-xs-12 col-md-8">
+                <div id="legend">
+                    <legend class="">Mis Mensajes</legend>
+                </div>
+                <div class="hidden-xs col-md-3">
+
+                    <div class="side-left">
+                        <div class="menu">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="user-mensajes.html">RECIBIDOS</a></li>
+                                <li><a href="#">BORRADORES</a></li>
+                                <li><a href="#">ELIMINADOS</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--Posts - Contenido central -->
+                <div class="col-xs-12 col-md-9">
+                    <div class="side-middle">
+                        <div class="mailbox">
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputdefault">Destinatario:</label>
+                                    <input class="form-control" id="inputdefault" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputdefault">Mensaje:</label>
+                                    <textarea class="form-control" id="textarea-message" rows="10"></textarea>
+                                </div>
+                            </form>
+
+                            <div id="btn-message">
+                                <button type="button" class="btn btn-default navbar-right"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Enviar</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Redes sociales - Contenido derecha-->
+            <div class="hidden-xs col-md-3 ">
+                <div id="RedesSociales">
+                    <label>Siguenos en</label>
+                    <a href="user-index.html "><img src="../img/icon_twitter.png " class="social " /></a>
+                    <a href="user-index.html "><img src="../img/icon_instagram.png " class="social " /></a>
+                    <a href="user-index.html "><img src="../img/icon_facebook.png " class="social " /></a>
+                </div>
+            </div>
+            <!--Para dejar margen-->
+            <div class="hidden-xs col-md-1 "></div>
+        </div>
+    </div>
+
+    <!-- Boton ir arriba-->
+    <div class="col-md-12 toup">
+
+        <div class="toUp">
+            <a href="#Up" type="button" class="btn btn-primary  btn-toUp btn-md navbar-right"><span class="glyphicon glyphicon-arrow-up" aria-hidden="false"></span></a>
+        </div>
+    </div>
+</body>
+
+</html>

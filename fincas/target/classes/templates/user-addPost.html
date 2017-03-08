@@ -1,0 +1,138 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../stylesheet/style.css" rel="stylesheet">
+    <link href="../stylesheet/stylePost.css" rel="stylesheet">
+    <link href="stylesheet/addPost.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!--Contenido de la barra de navegación-->
+        <div class="container-fluid">
+            <!--Imagen-->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img class="brand" alt="Brand" src="../img/icon.png" /></a>
+            </div>
+            <!--Resto del contenido-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--Menus entre el logo y la busqueda-->
+                <ul class="nav navbar-nav">
+                    <li><a href="user-index.html">Hot</a></li>
+                    <li><a href="#">Trending</a></li>
+                    <li><a href="#">Fresh</a></li>
+                    <li><a href="#">Random</a></li>
+                    <!--Ejemplo de botón que se desprende desde abajo-->
+                    <li class="dropdown">
+                        <!--Título botón--><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tags <span class="caret"></span></a>
+                        <!--Submenú-->
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--Barra de búsqueda-->
+                <form class="navbar-form navbar-left" role="search">
+                    <!--Cuadro donde introducir el texto-->
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Type to search"> </div>
+                    <!--Botón de lupa-->
+                    <button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
+                </form>
+                <!--Menus después de la busqueda: Inicio de sesión-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="user-addPost.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add post</a></li>
+                    <li class="dropdown">
+                        <!--Título botón-->
+                        <a href="#" class="myaccount-link" data-toggle="dropdown" role="button" aria-expanded="false"><img alt="" class="img-profile-mini" src="../img/userPhoto.jpg" />User name <span class="caret"></span></a>
+                        <!--Submenú-->
+                        <ul class="dropdown-menu">
+                            <li><a href="user-profile.html">Profile</a></li>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="links-profile/Settings.html">Tools</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="index.html">Log out</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="user-mensajes.html">E-mail <span class="badge">4</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header id="page-top">
+        <div class="container header-info">
+            <div class="header-user-info"> <img class="img-center" alt="" src="../img/userPhoto.jpg" />
+                <div class="intro-text">
+                    <p><span class="name">User name</span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="row">
+        <div class="hidden-xs col-md-3">
+            <div class="btn-group-vertical separation-profile" role="group" aria-label="...">
+                <button type="button" class="btn btn-default">Profile photo<span class="glyphicon glyphicon-pencil alignment-profile" aria-hidden="true"></span></button>
+                <button type="button" class="btn btn-default">Header<span class="glyphicon glyphicon-pencil alignment-profile" aria-hidden="true"></span></button>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="menu-profile">
+                <ul class="nav nav-pills">
+                    <li role="presentation"><a href="user-profile.html">Home</a></li>
+                    <li role="presentation"><a class="followers-following" href="user-profile-followers.html"> Followers <span class="badge badge-header">42</span></a></li>
+                    <li role="presentation"><a class="followers-following" href="user-profile-following.html"> Following <span class="badge badge-header">42</span></a></li>
+                </ul>
+            </div>
+            <!-- Form to add a post-->
+            <div class="side-middle">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1>Subir post</h1> </div>
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <label class="control-label" for="postTitle">
+                                    <h3>Título del post</h3></label>
+                                <div class="controls">
+                                    <input type="text" id="postTitle" name="Titulo" placeholder="" class="input-xlarge"> <a href="#" class="btn btn-primary" role="button">OK</a> </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h3>Imagen del post</h3>
+                                <div class="upload">
+                                    <label class="control-label" for="postURL">URL de la imagen</label>
+                                    <input type="text" id="postURL" name="URL" placeholder="" class="input-xlarge"> <a href="#" class="btn btn-primary" role="button">OK</a> </div>
+                                <div class="upload">
+                                    <label class="control-label" for="postURL">O subir imagen</label>
+                                    <input type="text" id="postURL" name="URL" placeholder="" class="input-xlarge"> <a href="#" class="btn btn-primary" role="button">OK</a> </div>
+                            </div>
+                        </div>
+                        <div id="publishButton"> <a href="#" class="btn btn-primary" role="button">Publicar</a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Redes sociales-->
+        <div class="hidden-xs col-md-3">
+            <div id="RedesSociales">
+                <label>Siguenos en</label>
+                <a href="user-index.html"><img src="../img/icon_twitter.png" class="social" /></a>
+                <a href="user-index.html"><img src="../img/icon_instagram.png" class="social" /></a>
+                <a href="user-index.html"><img src="../img/icon_facebook.png" class="social" /></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

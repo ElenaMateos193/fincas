@@ -1,0 +1,116 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../stylesheet/style.css" rel=stylesheet>
+    <link href="../stylesheet/stylePost.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!--Contenido de la barra de navegación-->
+        <div class="container-fluid">
+            <!--Imagen-->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img class="brand" alt="Brand" src="../img/icon.png" /></a>
+            </div>
+            <!--Resto del contenido-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--Menus entre el logo y la busqueda-->
+                <ul class="nav navbar-nav">
+                    <li><a href="user-index.html">Hot</a></li>
+                    <li><a href="#">Trending</a></li>
+                    <li><a href="#">Fresh</a></li>
+                    <li><a href="#">Random</a></li>
+                    <!--Ejemplo de botón que se desprende desde abajo-->
+                    <li class="dropdown">
+                        <!--Título botón--><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tags <span class="caret"></span></a>
+                        <!--Submenú-->
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--Barra de búsqueda-->
+                <form class="navbar-form navbar-left" role="search">
+                    <!--Cuadro donde introducir el texto-->
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Type to search"> </div>
+                    <!--Botón de lupa-->
+                    <button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
+                </form>
+                <!--Menus después de la busqueda: Inicio de sesión-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="user-addPost.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add post</a></li>
+                    <li class="dropdown">
+                        <!--Título botón-->
+                        <a href="#" class="myaccount-link" data-toggle="dropdown" role="button" aria-expanded="false"><img alt="" class="img-profile-mini" src="../img/userPhoto.jpg" />User name <span class="caret"></span></a>
+                        <!--Submenú-->
+                        <ul class="dropdown-menu">
+                            <li><a href="user-profile.html">Profile</a></li>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="user-Settings.html">Tools</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="index.html">Log out</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="user-mensajes.html">E-mail <span class="badge">4</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <!--Para dejar margen-->
+        <div class="hidden-xs col-md-1"></div>
+        <!--Posts-->
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-inverse panel-profile">
+                <div class="panel-heading">
+                    <h1><strong>Edit profile</strong></h1> </div>
+                <div class="panel-body">
+                    <hr/>
+                    <div>
+                        <div class="input-group text-profile"> <span class="input-group-addon" id="basic-addon1">Username</span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1"> </div>
+                        <p><small>The name that appear in your profile</small></p>
+                        <div class="input-group text-profile"> <span class="input-group-addon" id="basic-addon1">E-mail</span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1"> </div>
+                        <div class="input-group text-profile"> <span class="input-group-addon" id="basic-addon1">Bibliography</span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1"> </div>
+                        <p><small>Tell something about you</small></p>
+                        <div class="input-group text-profile"> <span class="input-group-addon" id="basic-addon1">Ubication</span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1"> </div>
+                        <p><small>Where are you from?</small></p>
+                        <div class="input-group text-profile"> <span class="input-group-addon" id="basic-addon1">Links</span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1"> </div>
+                        <p><small>Have you a blog or a web site?</small></p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group btn-group-lg profile-save-button" role="group" aria-label="...">
+                <button type="button" class="btn btn-default save-profile-button"><strong>Save changes</strong></button>
+            </div>
+        </div>
+        <div class="hidden-xs col-md-1"></div>
+        <!--Redes sociales-->
+        <div class="hidden-xs col-md-3">
+            <div class="edit-profile-right-side">
+                <div class="list-group"> <a href="#" class="list-group-item active">Encuentra amigos</a> <a href="#" class="list-group-item">En twitter</a> <a href="#" class="list-group-item">En facebook</a> </div>
+                <div class="list-group"> <a href="#" class="list-group-item active">Invita amigos</a> <a href="#" class="list-group-item">En twitter</a> <a href="#" class="list-group-item">En facebook</a> </div>
+                <div class="list-group"> <a href="#" class="list-group-item active">Asocia cuentas</a> <a href="#" class="list-group-item">De twitter</a> <a href="#" class="list-group-item">De facebook</a> </div>
+            </div>
+        </div>
+        <div class="hidden-xs col-md-1"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+.login-method {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.login {
+    width: 25em;
+    padding-bottom: 1em;
+}
+
+.login:hover {
+    width: 26em;
+}
+
+#or {
+    padding-top: 17em;
+}
+
+#btnlogin {
+    padding-top: 1em;
+}
