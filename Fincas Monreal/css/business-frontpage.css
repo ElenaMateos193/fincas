@@ -23,6 +23,7 @@ body {
 
 .tagline {
     text-shadow: 0 0 10px #000;
+    font-size: -webkit-xxx-large;
     color: #fff;
 }
 
