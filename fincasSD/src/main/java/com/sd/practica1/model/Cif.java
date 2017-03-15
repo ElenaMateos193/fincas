@@ -1,20 +1,32 @@
 package com.sd.practica1.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Cif {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	long id;
 	private final char h ='H';
-	private int numeros;
+	private int numerosCif;
+	@OneToOne
+	private ComunidadDeVecinos comunidadCif;
 	
 	public Cif(int numbers) {
-		this.numeros = numbers;
+		this.numerosCif = numbers;
 	}
 
 	public int getNumbers() {
-		return numeros;
+		return numerosCif;
 	}
 
 	public void setNumbers(int numbers) {
-		this.numeros = numbers;
+		this.numerosCif = numbers;
 	}
 	
 	public char getH(){

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class ComunidadDeVecinos {
@@ -16,6 +17,7 @@ public class ComunidadDeVecinos {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 	
+	@OneToOne(mappedBy="comunidadCif")
 	private Cif cifComunidadVecinos;
 	
 	private String calleComunidadVecinos;

@@ -1,6 +1,17 @@
 package com.sd.practica1.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Direccion {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	long id;
 	
 	private String calleDireccion;
 	
@@ -11,6 +22,9 @@ public class Direccion {
 	private int plantaDireccion;
 	
 	private char letraDireccion;
+	
+	@OneToOne
+	private Propietario propietarioDireccion;
 
 	public Direccion(String calleDireccion, int portalDireccion, int numeroDireccion, int plantaDireccion,
 			char letraDireccion) {
