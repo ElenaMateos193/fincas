@@ -53,3 +53,8 @@ footer {
 .textAreaRight {
     padding-left: 10px;
 }
+
+.indexButton {
+    height: 100px;
+    width: 300px;
+}
