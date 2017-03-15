@@ -45,3 +45,11 @@ footer {
 }
 
 
+
+.infoPanel {
+    float: left;
+}
+
+.textAreaRight {
+    padding-left: 10px;
+}
