@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Propietario {
@@ -22,6 +23,7 @@ public class Propietario {
 	
 	private String dniPropietario;
 	
+	@OneToOne(mappedBy="propietarioDireccion")
 	private Direccion direccionPropietario;
 	
 	private int telefonoPropietario;
