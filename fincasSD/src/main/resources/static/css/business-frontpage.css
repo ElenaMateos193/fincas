@@ -75,3 +75,21 @@ footer {
     margin: 5px;
     visibility: hidden;
 }
+
+.modifyButton {
+    float: right;
+}
+
+.input {
+
+}
+
+
+
+.listaPropiedades {
+
+}
+
+.esconderTodo {
+    visibility: hidden;
+}
