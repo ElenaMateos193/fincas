@@ -37,3 +37,30 @@ footer {
 .icon {
     width: 120px;
 }
+
+
+
+.watchIt {
+    margin: 17px;
+}
+
+
+
+.infoPanel {
+    float: left;
+}
+
+.textAreaRight {
+    padding-left: 10px;
+    margin-bottom: 3px;
+}
+
+.indexButton {
+    height: 100px;
+    width: 300px;
+}
+
+.rightAlign {
+    float: right;
+    visibility: hidden;
+}

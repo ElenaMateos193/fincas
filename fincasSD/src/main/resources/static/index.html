@@ -32,16 +32,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img class="icon" src="img/logo.png"/></a>
+                <a class="navbar-brand" href="index.html"><img class="icon" src="img/logo.png" /></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">About</a>
+                        <a href="nowMore.html">About</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="services.html">Services</a>
                     </li>
                 </ul>
             </div>
@@ -61,17 +61,43 @@
             </div>
         </div>
     </header>
-    
+
+    <!-- Page Content -->
     <div class="container">
+        <hr>
+
+        <div classs="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-3">
+                <a href="services.html"><button type="button" class="btn btn-success indexButton"><h1>Try our service</h1></button></a>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
 
         <hr>
 
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-8">
                 <h2>What We Do</h2>
-                <p>Fincas Monreal se dedica a administrar fincas de distintas comunidades de vecinos. Podrás añadir, modificar y consultar comunidades de vecinos y sus propietarios; consulta nuestros propietarios mediante una serie de criterios como puede ser portal,
-                portal y planta, apellidos, DNI o todos los de la comunidad.</p>
+                <p>Fincas Monreal se dedica a administrar fincas de distintas comunidades de vecinos. Podrás añadir, modificar y consultar comunidades de vecinos y sus propietarios; consulta nuestros propietarios mediante una serie de criterios como puede ser portal, portal y planta, apellidos, DNI o todos los de la comunidad.</p>
                 <p>Cuando consultes algo de nuestra base de datos podrás modificarlo.</p>
+                <p>
+                    <a class="btn btn-default btn-lg" href="nowMore.html">Now more &raquo;</a>
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h2>Contact Us</h2>
+                <address>
+                    <strong>Fincas Monreal</strong>
+                    <br>3481 Melrose Place
+                    <br>Beverly Hills, CA 90210
+                    <br>
+                </address>
+                <address>
+                    <abbr title="Phone">P:</abbr>(123) 456-7890
+                    <br>
+                    <abbr title="Email">E:</abbr> <a href="mailto:#">fincasMonreal@example.com</a>
+                </address>
             </div>
         </div>
         <!-- /.row -->
@@ -79,12 +105,20 @@
         <hr>
 
         <div class="row">
-            <div class="col-sm-12">
-                <h2>How We Do It</h2>
-                <p>Se utiliza la base de datos relacional H2 para almacenar los datos de nuestras comunidades de vecinos y sus propietarios. De esta manera se podrá modificar, añadir y consultar las entidades que implementamos.</p>
-                <p>Para ayudar a nuestro equipo de desarrollo de nuestra pequeña empresa a construir un sistema basado en JVM de manera simple, portable, rápida y flexible. Para conseguirlo nos apoyaremos en Spring Tool Suite (STS) el cual es un IDE basado en Eclipse fabricado para servir a nuestras necesidades de construir aplicaciones con Spring. </p>
-                <p>STS se apoya en Spring 4.2 y este a su vez está apoyado en un servidor web Tomcat 8 (Java EE7) que puede usar las librerias de Java Enterprise Edition 7 (Java EE7) y aquellas que están en Java SE8 </p>
-                <p>Usaremos un proyecto Maven para gestionar las dependencias (librerías) que usaremos como Thymeleaf; el cual es un sistema de plantillas modernas de la parte del servidor. Además implementamos un modelo MVC (modelo-vista-controlador)donde el controlador es quien manipula los datos del modelo y se los pasa/coge a/de la vista (HTML).</p>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="img/finca1.jpg" alt="" />
+                <h2>Montepinar (Huelva)</h2>
+                <p>La comunidad Montepinar está localizada en la provincia de Huelva cerca del río Odiel situado cerca de la ciudad de Huelva con energía suministrada gracias a la central de energía solar</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="img/finca2.jpg" alt="" />
+                <h2>San José (Valladolid)</h2>
+                <p>En la provincia de Valladolid, Pinar de Antequera, cerca de la ciudad de Valladolid se encuentra San José. Puede ir al pueblo del Pinar de Antequera o a la propia ciudad </p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="img/finca3.jpg" alt="" />
+                <h2>El Chozo(Zamora)</h2>
+                <p>El Chozo se encuentra en la provincia de Zamora cerca del río Duero. Visite la ciudad de Zamora en donde se encuentra su catedral</p>
             </div>
         </div>
         <!-- /.row -->
@@ -109,6 +143,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    
-    </body>
+
+</body>
+
 </html>
