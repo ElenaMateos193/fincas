@@ -59,3 +59,8 @@ footer {
     height: 100px;
     width: 300px;
 }
+
+.rightAlign {
+    float: right;
+    visibility: hidden;
+}
