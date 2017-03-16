@@ -64,3 +64,14 @@ footer {
     float: right;
     visibility: hidden;
 }
+
+.positionStyle {
+    position: absolute;
+    margin-top:3px;
+}
+
+.bottonSavePos {
+    float: right;
+    margin: 5px;
+    visibility: hidden;
+}
