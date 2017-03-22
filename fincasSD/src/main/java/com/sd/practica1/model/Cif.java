@@ -17,6 +17,10 @@ public class Cif {
 	@OneToOne
 	private ComunidadDeVecinos comunidadCif;
 	
+	public Cif(){
+		
+	}
+	
 	public Cif(int numbers) {
 		this.numerosCif = numbers;
 	}
@@ -32,5 +36,15 @@ public class Cif {
 	public char getH(){
 		return h;
 	}
+
+	public ComunidadDeVecinos getComunidadCif() {
+		return comunidadCif;
+	}
+
+	public void setComunidadCif(ComunidadDeVecinos comunidadCif) {
+		this.comunidadCif = comunidadCif;
+	}
+	
+	
 	
 }

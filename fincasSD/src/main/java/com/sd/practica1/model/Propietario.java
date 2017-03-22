@@ -30,23 +30,25 @@ public class Propietario {
 	
 	private double porcentajeParticipacionPropietario;
 	
-	private int numeroCuentaPropietario;
+	private String numeroCuentaPropietario;
 	
 	@OneToMany(mappedBy="propietarioPropiedad")
 	private List<Propiedad> propiedadesPropietario = new ArrayList<>();
 
-	public Propietario(String nombrePropietario, String apellidosPropietarios, String dniPropietario,
-			Direccion direccionPropietario, int telefonoPropietario, double porcentajeParticipacionPropietario,
-			int numeroCuentaPropietario, List<Propiedad> propiedadesPropietario) {
-		super();
+	
+	
+	public Propietario() {
+	}
+
+	public Propietario(String nombrePropietario, String apellidosPropietarios, String dniPropietario, int telefonoPropietario, double porcentajeParticipacionPropietario,
+			String numeroCuentaPropietario) {
 		this.nombrePropietario = nombrePropietario;
 		this.apellidosPropietarios = apellidosPropietarios;
 		this.dniPropietario = dniPropietario;
-		this.direccionPropietario = direccionPropietario;
 		this.telefonoPropietario = telefonoPropietario;
 		this.porcentajeParticipacionPropietario = porcentajeParticipacionPropietario;
 		this.numeroCuentaPropietario = numeroCuentaPropietario;
-		this.propiedadesPropietario = propiedadesPropietario;
+		this.propiedadesPropietario = new ArrayList();
 	}
 
 	public String getNombrePropietario() {
@@ -97,11 +99,11 @@ public class Propietario {
 		this.porcentajeParticipacionPropietario = porcentajeParticipacionPropietario;
 	}
 
-	public int getNumeroCuentaPropietario() {
+	public String getNumeroCuentaPropietario() {
 		return numeroCuentaPropietario;
 	}
 
-	public void setNumeroCuentaPropietario(int numeroCuentaPropietario) {
+	public void setNumeroCuentaPropietario(String numeroCuentaPropietario) {
 		this.numeroCuentaPropietario = numeroCuentaPropietario;
 	}
 
@@ -113,6 +115,8 @@ public class Propietario {
 		this.propiedadesPropietario = propiedadesPropietario;
 	}
 	
-	
+	public void addPropiedad(Propiedad p){
+		propiedadesPropietario.add(p);
+	}
 	
 }

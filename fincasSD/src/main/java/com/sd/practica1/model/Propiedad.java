@@ -25,14 +25,15 @@ public class Propiedad {
 	@ManyToOne
 	private ComunidadDeVecinos comunidadPropiedad;
 
-	public Propiedad(int portalPropiedad, int plantaPropiedad, char letraPropiedad, Propietario propietarioPropiedad,
-			ComunidadDeVecinos comunidadPropiedad) {
-		super();
+	
+	
+	public Propiedad() {
+	}
+
+	public Propiedad(int portalPropiedad, int plantaPropiedad, char letraPropiedad) {
 		this.portalPropiedad = portalPropiedad;
 		this.plantaPropiedad = plantaPropiedad;
 		this.letraPropiedad = letraPropiedad;
-		this.propietarioPropiedad = propietarioPropiedad;
-		this.comunidadPropiedad = comunidadPropiedad;
 	}
 
 	public int getPortalPropiedad() {

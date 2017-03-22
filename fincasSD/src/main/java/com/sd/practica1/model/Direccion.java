@@ -16,9 +16,7 @@ public class Direccion {
 	private String calleDireccion;
 	
 	private int portalDireccion;
-	
-	private int numeroDireccion;
-	
+		
 	private int plantaDireccion;
 	
 	private char letraDireccion;
@@ -26,12 +24,14 @@ public class Direccion {
 	@OneToOne
 	private Propietario propietarioDireccion;
 
-	public Direccion(String calleDireccion, int portalDireccion, int numeroDireccion, int plantaDireccion,
+	public Direccion(){
+		
+	}
+	
+	public Direccion(String calleDireccion, int portalDireccion, int plantaDireccion,
 			char letraDireccion) {
-		super();
 		this.calleDireccion = calleDireccion;
 		this.portalDireccion = portalDireccion;
-		this.numeroDireccion = numeroDireccion;
 		this.plantaDireccion = plantaDireccion;
 		this.letraDireccion = letraDireccion;
 	}
@@ -52,14 +52,6 @@ public class Direccion {
 		this.portalDireccion = portalDireccion;
 	}
 
-	public int getNumeroDireccion() {
-		return numeroDireccion;
-	}
-
-	public void setNumeroDireccion(int numeroDireccion) {
-		this.numeroDireccion = numeroDireccion;
-	}
-
 	public int getPlantaDireccion() {
 		return plantaDireccion;
 	}
@@ -74,6 +66,14 @@ public class Direccion {
 
 	public void setLetraDireccion(char letraDireccion) {
 		this.letraDireccion = letraDireccion;
+	}
+
+	public Propietario getPropietarioDireccion() {
+		return propietarioDireccion;
+	}
+
+	public void setPropietarioDireccion(Propietario propietarioDireccion) {
+		this.propietarioDireccion = propietarioDireccion;
 	}
 	
 	

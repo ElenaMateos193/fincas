@@ -26,20 +26,22 @@ public class ComunidadDeVecinos {
 	
 	private int cpComunidadVecinos;
 	
-	private int numeroCuentaComunidadVecinos;
+	private String numeroCuentaComunidadVecinos;
 	
 	@OneToMany(mappedBy="comunidadPropiedad")
 	private List<Propiedad> propiedadComunidadVecinos = new ArrayList<>();
 
-	public ComunidadDeVecinos(Cif cifComunidadVecinos, String calleComunidadVecinos, int numeroComunidadVecinos,
-			int cpComunidadVecinos, int numeroCuentaComunidadVecinos, List<Propiedad> propiedadComunidadVecinos) {
-		super();
-		this.cifComunidadVecinos = cifComunidadVecinos;
+	public ComunidadDeVecinos(){
+		
+	}
+	
+	public ComunidadDeVecinos(String calleComunidadVecinos, int numeroComunidadVecinos,
+			int cpComunidadVecinos, String numeroCuentaComunidadVecinos) {
 		this.calleComunidadVecinos = calleComunidadVecinos;
 		this.numeroComunidadVecinos = numeroComunidadVecinos;
 		this.cpComunidadVecinos = cpComunidadVecinos;
 		this.numeroCuentaComunidadVecinos = numeroCuentaComunidadVecinos;
-		this.propiedadComunidadVecinos = propiedadComunidadVecinos;
+		propiedadComunidadVecinos= new ArrayList();
 	}
 
 	public Cif getCifComunidadVecinos() {
@@ -74,11 +76,11 @@ public class ComunidadDeVecinos {
 		this.cpComunidadVecinos = cpComunidadVecinos;
 	}
 
-	public int getNumeroCuentaComunidadVecinos() {
+	public String getNumeroCuentaComunidadVecinos() {
 		return numeroCuentaComunidadVecinos;
 	}
 
-	public void setNumeroCuentaComunidadVecinos(int numeroCuentaComunidadVecinos) {
+	public void setNumeroCuentaComunidadVecinos(String numeroCuentaComunidadVecinos) {
 		this.numeroCuentaComunidadVecinos = numeroCuentaComunidadVecinos;
 	}
 
@@ -90,6 +92,8 @@ public class ComunidadDeVecinos {
 		this.propiedadComunidadVecinos = propiedadComunidadVecinos;
 	}
 	
-	
+	public void addPropiedad(Propiedad p){
+		propiedadComunidadVecinos.add(p);
+	}
 	
 }
