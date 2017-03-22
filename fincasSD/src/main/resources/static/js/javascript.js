@@ -1,11 +1,7 @@
 $(function () {
     $('.mostrar').click(function () {
         $('.aniadirPropiedad').css("visibility","visible");
-    });
-    $('.esconder').click(function () {
-        $('.aniadirPropiedad').css("visibility","hidden");
-    });
-    
+    });    
     $('.modifyButton').click(function () {
         $('.input').removeAttr("readonly");
         $('.rightAlign').css("visibility","visible");

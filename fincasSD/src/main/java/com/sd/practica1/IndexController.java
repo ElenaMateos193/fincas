@@ -23,5 +23,27 @@ public class IndexController {
 		model.addAttribute("nombrePagina", nombre);
 		return "index";
 	}
+	
+	@RequestMapping(value="/services")
+	public String serviceController(Model model){
+		
+		return "services";
+	}
+	@RequestMapping(value="/nowMore")
+	public String nowMoreController(Model model){
+		
+		return "nowMore";
+	}
+	@RequestMapping(value="/services-properties")
+	public String propertiesController(Model model){
+		
+		return "services-properties";
+	}
+	
+	@RequestMapping(value="/aniadir")
+	public String aniadirController(Model model){
+		
+		return "aniadir";
+	}
 
 }
