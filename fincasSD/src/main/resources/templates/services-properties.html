@@ -68,9 +68,18 @@
         <hr></hr>
         <div class="row">
             <div class="col-sm-12">
+                <button href="aniadir.html" type="button" class="btn btn-success aniadir">Añadir</button>
+                <hr></hr>
                 <form class="navbar-form navbar-left">
+                    <select class="form-control" id="sel1">
+                        <option>Portal</option>
+                        <option>Portal y planta</option>
+                        <option>Apellidos</option>
+                        <option>DNI</option>
+                        <option>Todos los de la comunidad</option>
+                      </select>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Portal,portal y planta, apellidos, DNI o todos los de la comunidad." style="width:1000px"></input>
+                        <input type="text" class="form-control buscar"></input>
                     </div>
                     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                 </form>
@@ -91,8 +100,6 @@
                 </div>
             </div>
             <div class="col-sm-8">
-                <button href="aniadir.html" type="button" class="btn btn-success aniadir">Añadir</button>
-                <hr></hr>
                 <ul class="nav nav-tabs">
                     <li role="presentation"><a href="services.html">Comunidad</a>
                     </li>
