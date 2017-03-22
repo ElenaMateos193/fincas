@@ -97,6 +97,7 @@ footer {
 .aniadir {
     padding-left: 350px;
     padding-right: 350px;
+    margin-left: 190px;
 }
 
 .aniadirP {
@@ -109,4 +110,8 @@ footer {
 
 .aniadirPropiedad {
    visibility: hidden; 
+}
+
+.buscar {
+    padding-right: 600px;
 }
