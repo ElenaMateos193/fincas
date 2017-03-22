@@ -17,7 +17,7 @@ public class IndexController {
 	@Autowired
 	private ComunidadVecinosRepository comunidadDeVecinosRepository;
 	
-	@RequestMapping(value="/index")
+	@RequestMapping(value={"/","/index"})
 	public String index(Model model){
 		String nombre = "Fincas Garcia";
 		model.addAttribute("nombrePagina", nombre);
