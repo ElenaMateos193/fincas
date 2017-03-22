@@ -1,8 +1,4 @@
 $(function () {
-    $('.watchIt').click(function () {
-        $('.esconderTodo').css("visibility","visible");
-    });
-    
     $('.modifyButton').click(function () {
         $('.input').removeAttr("readonly");
         $('.rightAlign').css("visibility","visible");

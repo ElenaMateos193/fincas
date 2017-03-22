@@ -89,7 +89,7 @@ footer {
 .listaPropiedades {
     
 }
-
-.esconderTodo {
-    visibility: hidden;
+.bottonSave {
+    margin-top: 5px;
+    background-color: #5cb85c;
 }
