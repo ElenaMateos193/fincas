@@ -3,19 +3,19 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
 
     <title>Fincas Monreal</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet"></link>
 
     <!-- Custom CSS -->
-    <link href="css/business-frontpage.css" rel="stylesheet">
+    <link href="css/business-frontpage.css" rel="stylesheet"></link>
 
 </head>
 
@@ -65,19 +65,19 @@
     <!-- Page Content -->
     <div class="container">
 
-        <hr>
+        <hr></hr>
         <div class="row">
             <div class="col-sm-12">
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Portal,portal y planta, apellidos, DNI o todos los de la comunidad." style="width:1000px">
+                        <input type="text" class="form-control" placeholder="Portal,portal y planta, apellidos, DNI o todos los de la comunidad." style="width:1000px"></input>
                     </div>
                     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                 </form>
             </div>
         </div>
 
-        <hr>
+        <hr></hr>
 
         <div class="row">
             <div class="col-sm-1"></div>
@@ -91,56 +91,61 @@
                 </div>
             </div>
             <div class="col-sm-8">
+                <button href="aniadir.html" type="button" class="btn btn-success aniadir">Añadir</button>
+                <hr></hr>
                 <ul class="nav nav-tabs">
                     <li role="presentation"><a href="services.html">Comunidad</a>
                     </li>
                     <li role="presentation" class="active"><a href="services-properties.html">Propiedad seleccionada</a></li>
                 </ul>
-                <div class="panel panel-success positionStyle">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Propiedad: </h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="thumbnail infoPanel" style="width:300px">
-                            <img src="img/propiedad1.jpeg" alt="" class="imgFincaInfo" style="margin:0px" />
-                            <div class="caption">
-                                <button href="#" class="btn btn-success modifyButton" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Modify</button>
+                <form>
+                    <div class="panel panel-success positionStyle">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Propiedad: </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="thumbnail infoPanel" style="width:300px">
+                                <img src="img/propiedad1.jpeg" alt="" class="imgFincaInfo" style="margin:0px" />
+                                <div class="caption">
+                                    <button href="#" class="btn btn-success modifyButton" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Modificar</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Nº: </span>
+                                <input type="text" class="form-control input" placeholder="13" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </input>
+                                <span class="input-group-addon" id="basic-addon1">Planta: </span>
+                                <input type="text" class="form-control input" placeholder="1ª" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                <span class="input-group-addon" id="basic-addon1">Letra: </span>
+                                <input type="text" class="form-control input" placeholder="B" aria-describedby="basic-addon1" readonly="readonly"></input>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Nombre y apellidos: </span>
+                                <input type="text" class="form-control input" placeholder="Pedro Sánchez Díaz" aria-describedby="basic-addon1" readonly="readonly"></input>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">DNI: </span>
+                                <input type="text" class="form-control input" placeholder="123456789A" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                <span class="input-group-addon" id="basic-addon1">Tel: </span>
+                                <input type="text" class="form-control input" placeholder="123123123" aria-describedby="basic-addon1" readonly="readonly"></input>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Dirección: </span>
+                                <input type="text" class="form-control input" placeholder="C/Los Álamos, Nº12 1ª planta Alcorcón, Madrid" aria-describedby="basic-addon1" readonly="readonly"></input>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
+                                <input type="text" class="form-control input" placeholder="12345678901234567890" aria-describedby="basic-addon1" readonly="readonly"></input>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
+                                <input type="text" class="form-control input" placeholder="10%" aria-describedby="basic-addon1" readonly="readonly"></input>
                             </div>
                         </div>
-                        
-                        <div class="input-group textAreaRight">
-                            <span class="input-group-addon" id="basic-addon1">Nº: </span>
-                            <input type="text" class="form-control input" placeholder="13" aria-describedby="basic-addon1" readonly="readonly">
-                            <span class="input-group-addon" id="basic-addon1">Planta: </span>
-                            <input type="text" class="form-control input" placeholder="1ª" aria-describedby="basic-addon1" readonly="readonly">
-                            <span class="input-group-addon" id="basic-addon1">Letra: </span>
-                            <input type="text" class="form-control input" placeholder="B" aria-describedby="basic-addon1" readonly="readonly">
-                        </div>
-                        <div class="input-group textAreaRight">
-                            <span class="input-group-addon" id="basic-addon1">Nombre y apellidos: </span>
-                            <input type="text" class="form-control input" placeholder="Pedro Sánchez Díaz" aria-describedby="basic-addon1" readonly="readonly">
-                        </div>
-                        <div class="input-group textAreaRight">
-                            <span class="input-group-addon" id="basic-addon1">DNI: </span>
-                            <input type="text" class="form-control input" placeholder="123456789A" aria-describedby="basic-addon1" readonly="readonly">
-                            <span class="input-group-addon" id="basic-addon1">Tel: </span>
-                            <input type="text" class="form-control input" placeholder="123123123" aria-describedby="basic-addon1" readonly="readonly">
-                        </div>
-                        <div class="input-group textAreaRight">
-                            <span class="input-group-addon" id="basic-addon1">Dirección: </span>
-                            <input type="text" class="form-control input" placeholder="C/Los Álamos, Nº12 1ª planta Alcorcón, Madrid" aria-describedby="basic-addon1" readonly="readonly">
-                        </div>
-                        <div class="input-group textAreaRight">
-                            <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
-                            <input type="text" class="form-control input" placeholder="12345678901234567890" aria-describedby="basic-addon1" readonly="readonly">
-                        </div>
-                        <div class="input-group textAreaRight">
-                            <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
-                            <input type="text" class="form-control input" placeholder="10%" aria-describedby="basic-addon1" readonly="readonly">
-                        </div>
+                        <input type="submit" class="form-control input bottonSave" name="guardar" value="Guardar"></input>
                     </div>
-                    <button href="#" class="btn btn-success bottonSavePos" role="button"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>Save</button>
-                </div>
+                </form>
             </div>
         </div>
 

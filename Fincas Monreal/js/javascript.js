@@ -1,6 +1,9 @@
 $(function () {
-    $('.watchIt').click(function () {
-        $('.esconderTodo').css("visibility","visible");
+    $('.mostrar').click(function () {
+        $('.aniadirPropiedad').css("visibility","visible");
+    });
+    $('.esconder').click(function () {
+        $('.aniadirPropiedad').css("visibility","hidden");
     });
     
     $('.modifyButton').click(function () {

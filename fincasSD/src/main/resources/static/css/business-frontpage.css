@@ -81,15 +81,32 @@ footer {
 }
 
 .input {
-
+    
 }
 
 
 
 .listaPropiedades {
-
+    
+}
+.bottonSave {
+    margin-top: 5px;
+    background-color: #5cb85c;
 }
 
-.esconderTodo {
-    visibility: hidden;
+.aniadir {
+    padding-left: 350px;
+    padding-right: 350px;
+}
+
+.aniadirP {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.mostrar{
+   
+}
+
+.aniadirPropiedad {
+   visibility: hidden; 
 }
