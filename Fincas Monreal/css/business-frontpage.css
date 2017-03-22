@@ -98,3 +98,15 @@ footer {
     padding-left: 350px;
     padding-right: 350px;
 }
+
+.aniadirP {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.mostrar{
+   
+}
+
+.aniadirPropiedad {
+   visibility: hidden; 
+}
