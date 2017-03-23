@@ -13,9 +13,9 @@ public class Propiedad {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 
-	private int portalPropiedad;
+	private String portalPropiedad;
 	
-	private int plantaPropiedad;
+	private String plantaPropiedad;
 	
 	private char letraPropiedad;
 	
@@ -30,25 +30,25 @@ public class Propiedad {
 	public Propiedad() {
 	}
 
-	public Propiedad(int portalPropiedad, int plantaPropiedad, char letraPropiedad) {
+	public Propiedad(String portalPropiedad, String plantaPropiedad, char letraPropiedad) {
 		this.portalPropiedad = portalPropiedad;
 		this.plantaPropiedad = plantaPropiedad;
 		this.letraPropiedad = letraPropiedad;
 	}
 
-	public int getPortalPropiedad() {
+	public String getPortalPropiedad() {
 		return portalPropiedad;
 	}
 
-	public void setPortalPropiedad(int portalPropiedad) {
+	public void setPortalPropiedad(String portalPropiedad) {
 		this.portalPropiedad = portalPropiedad;
 	}
 
-	public int getPlantaPropiedad() {
+	public String getPlantaPropiedad() {
 		return plantaPropiedad;
 	}
 
-	public void setPlantaPropiedad(int plantaPropiedad) {
+	public void setPlantaPropiedad(String plantaPropiedad) {
 		this.plantaPropiedad = plantaPropiedad;
 	}
 
