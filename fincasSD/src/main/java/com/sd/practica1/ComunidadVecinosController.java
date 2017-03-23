@@ -27,7 +27,7 @@ public class ComunidadVecinosController {
 	
 	@PostConstruct
 	public void init(){
-		ComunidadDeVecinos cv = new ComunidadDeVecinos("Tulipan", 7, 28042, "1234567899874561230");
+		ComunidadDeVecinos cv = new ComunidadDeVecinos("Tulipan", 7, 28042, "1234567899874561230", "Móstoles");
 		comVecRepository.save(cv);
 		Cif cif1 = new Cif(12365478);
 		cif1.setComunidadCif(cv);

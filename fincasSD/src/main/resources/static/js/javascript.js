@@ -1,7 +1,10 @@
 $(function () {
     $('.mostrar').click(function () {
         $('.aniadirPropiedad').css("visibility","visible");
-    });    
+    });
+    $('.otraPropiedad').click(function (){
+    	document.getElementByClassName("form-control input resetear").reset();
+    });
     $('.modifyButton').click(function () {
         $('.input').removeAttr("readonly");
         $('.rightAlign').css("visibility","visible");

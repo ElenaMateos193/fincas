@@ -62,7 +62,7 @@
         <hr></hr>
         <div class="row">
             <div class="col-sm-9">
-                <form>
+                <form action="/uploadComunidad" method="POST">
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             <h3 class="panel-title">Comunidad: </h3>
@@ -95,11 +95,8 @@
                             </div>
                         </div>
                         <hr></hr>
-                        <input type="submit" class="form-control input bottonSave" name="guardar" value="Guardar comunidad"></input>
                     </div>
-                </form>
                 <a type="button" class="btn btn-success aniadirP mostrar">Añadir propiedad</a>
-                <form>
                 	<div class="aniadirPropiedad">
                         <div class="panel panel-success">
                             <div class="panel-heading">
@@ -112,38 +109,39 @@
 
                                 <div class="input-group textAreaRight">
                                     <span class="input-group-addon" id="basic-addon1">Nº: </span>
-                                    <input type="text" class="form-control input" name="numPropiedad" aria-describedby="basic-addon1"></input>
+                                    <input type="text" class="form-control input resetear" name="numPropiedad" aria-describedby="basic-addon1"></input>
                                     <span class="input-group-addon" id="basic-addon1">Planta: </span>
-                                    <input type="text" class="form-control input" name="planta" aria-describedby="basic-addon1"></input>
+                                    <input type="text" class="form-control input resetear" name="planta" aria-describedby="basic-addon1"></input>
                                     <span class="input-group-addon" id="basic-addon1">Letra: </span>
-                                    <input type="text" class="form-control input" name="letra" aria-describedby="basic-addon1"></input>
+                                    <input type="text" class="form-control input resetear" name="letra" aria-describedby="basic-addon1"></input>
                                 </div>
                                 <div class="input-group textAreaRight">
                                     <span class="input-group-addon" id="basic-addon1">Nombre y apellidos: </span>
-                                    <input type="text" class="form-control input" name="nomYape" aria-describedby="basic-addon1"></input>
+                                    <input type="text" class="form-control input resetear" name="nomYape" aria-describedby="basic-addon1"></input>
                                 </div>
                                 <div class="input-group textAreaRight">
                                     <span class="input-group-addon" id="basic-addon1">DNI: </span>
                                     <input type="text" class="form-control input" name="dni" aria-describedby="basic-addon1"></input>
                                     <span class="input-group-addon" id="basic-addon1">Tel: </span>
-                                    <input type="text" class="form-control input" name="telf" aria-describedby="basic-addon1"></input>
+                                    <input type="text" class="form-control input resetear" name="telf" aria-describedby="basic-addon1"></input>
                                 </div>
                                 <div class="input-group textAreaRight">
                                     <span class="input-group-addon" id="basic-addon1">Dirección: </span>
-                                    <input type="text" class="form-control input" name="dir" aria-describedby="basic-addon1"></input>
+                                    <input type="text" class="form-control input resetear" name="dir" aria-describedby="basic-addon1"></input>
                                 </div>
                                 <div class="input-group textAreaRight">
                                     <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
-                                    <input type="text" class="form-control input" name="numCuentaProp" aria-describedby="basic-addon1"></input>
+                                    <input type="text" class="form-control input resetear" name="numCuentaProp" aria-describedby="basic-addon1"></input>
                                 </div>
                                 <div class="input-group textAreaRight">
                                     <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
-                                    <input type="text" class="form-control input" name="porcentaje" aria-describedby="basic-addon1"></input>
+                                    <input type="text" class="form-control input resetear" name="porcentaje" aria-describedby="basic-addon1"></input>
                                 </div>
                             </div>
-                            <input type="submit" class="form-control input" name="guardarPropiedad" value="Guardar propiedad"></input>
                         </div>
+                        <a type="button" class="btn btn-success aniadirP otraPropiedad">Añadir otra propiedad</a>
                        </div>
+                       <input type="submit" class="form-control input bottonSave" name="guardar" value="Guardar comunidad"></input>
                 </form>
             </div>
             <div class="col-sm-3"></div>
