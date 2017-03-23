@@ -15,8 +15,4 @@ $(function () {
         $('.listaPropiedades').attr("href","services-properties.html");
         $('.bottonSavePos').css("visibility","hidden");        
     });
-    
-    $('.rightAlign').click(function () {
-        $(this).parent().remove();
-    });
 });
