@@ -85,10 +85,10 @@
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-3">
-                <div class="panel panel-default">
-                    <div class="panel-body" th:text="#{propietary}">
+                <div class="panel panel-default" th:each="prop : ${propietary}">
+                    <div class="panel-body">
                         <p> <img alt="" src="img/avatar.png" class="icon" /><button type="button" class="btn btn-success watchIt">Watch it</button>
-                            <p th:text="#{propietary.nombrePropietario}">Name</p>,<p th:text="#{propietary.apellidosPropietarios}">Apellidos</p>
+                            <p th:text="${prop.nombrePropietario}">Name</p><p th:text="${prop.apellidosPropietarios}">Apellidos</p>
                         </p>
                     </div>
                 </div>

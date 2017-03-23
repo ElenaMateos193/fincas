@@ -54,7 +54,7 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/uploadComunidad", method=RequestMethod.POST)
-	public String addComunidad(Model model, @RequestParam("cif") int cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, @RequestParam("codigoPostal") int codigoPostal, @RequestParam("numCuenta") String numCuenta){
+	public String addComunidad(Model model, @RequestParam("cif") String cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, @RequestParam("codigoPostal") int codigoPostal, @RequestParam("numCuenta") String numCuenta){
 		ComunidadDeVecinos cv = new ComunidadDeVecinos(calle, numero, codigoPostal, numCuenta, poblacion);
 		comunidadDeVecinosRepository.save(cv);
 		Cif cif1 = new Cif(cif);
