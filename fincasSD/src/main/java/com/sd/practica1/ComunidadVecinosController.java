@@ -37,7 +37,7 @@ public class ComunidadVecinosController {
 		Direccion dir = new Direccion("Manzano", 10, 2,'D');
 		dir.setPropietarioDireccion(proprio1);
 		direccionRepository.save(dir);
-		Propiedad propiedad= new Propiedad(10, 4, 'D');
+		Propiedad propiedad= new Propiedad("10", "4", 'D');
 		propiedad.setPropietarioPropiedad(proprio1);
 		propiedad.setComunidadPropiedad(cv);
 		propiedadRepository.save(propiedad);
