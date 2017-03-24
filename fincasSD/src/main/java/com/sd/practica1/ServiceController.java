@@ -55,9 +55,9 @@ public class ServiceController {
 			model.addAttribute("propietary", propietarioRepository.findBydniPropietario(consult.toString()));
 		}else{
 			String[] s= consult.split(" ");
-			ComunidadDeVecinos v=comunidadDeVecinosRepository.findBycifComunidadVecinos(s[0]);
+			List<ComunidadDeVecinos> v=comunidadDeVecinosRepository.findBycifComunidadVecinos(s[0]);
 			if(v!=null){
-				List<Propiedad> l= v.getPropiedadComunidadVecinos();
+				List<Propiedad> l= v.get(0).getPropiedadComunidadVecinos();
 				for(Propiedad p:l){
 					prop.add(p.getPropietarioPropiedad());
 				}
@@ -71,13 +71,20 @@ public class ServiceController {
 	@RequestMapping(value="/verConsulta/{prop.dniPropietario}")
 	public String verConsultaController(Model model, @PathVariable ("prop.dniPropietario") String id){
 		List<ComunidadDeVecinos> l= comunidadDeVecinosRepository.findDistinctBypropiedadComunidadVecinos_propietarioPropiedad_dniPropietario(id);
-		List<Propiedad> p= new LinkedList<Propiedad>();
-		for(ComunidadDeVecinos com: l){
-			p.add(propiedadRepository.findDistinctBycomunidadPropiedadAndPropietarioPropiedad_dniPropietario(com, id));
-		}
+		
 		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(id));
 		if(!l.isEmpty()){
 			model.addAttribute("comunities",l);
+		}
+		return "services";
+	}
+	@RequestMapping(value="/verConsulta/{prop.dniPropietario}/verPropiedades/{com.cifComunidad}")
+	public String verConsultaPropiedadController(Model model,@PathVariable ("com.cifComunidad") String cif, @PathVariable ("prop.dniPropietario") String id){
+		List<ComunidadDeVecinos> com= comunidadDeVecinosRepository.findBycifComunidadVecinos(cif);
+		System.out.println("OK");
+		List<Propiedad> p=propiedadRepository.findDistinctBycomunidadPropiedadAndPropietarioPropiedad_dniPropietario(com.get(0), id);
+		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(id));
+		if(!p.isEmpty()){
 			model.addAttribute("propertiescom",p);
 		}
 		return "services";

@@ -10,5 +10,5 @@ import com.sd.practica1.model.Propiedad;
 public interface PropiedadRepository extends JpaRepository<Propiedad, Long>{
 	List<Propiedad> findByportalPropiedad(String portalPropiedad);
 	List<Propiedad> findByportalPropiedadAndPlantaPropiedad(String portalPropiedad, String plantaPropiedad);
-	Propiedad findDistinctBycomunidadPropiedadAndPropietarioPropiedad_dniPropietario(ComunidadDeVecinos comunidadPropiedad,String dniPropietario);
+	List<Propiedad> findDistinctBycomunidadPropiedadAndPropietarioPropiedad_dniPropietario(ComunidadDeVecinos comunidadPropiedad,String dniPropietario);
 }
