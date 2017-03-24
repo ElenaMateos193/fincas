@@ -19,7 +19,7 @@ public class Propietario {
 	
 	private String nombrePropietario;
 	
-	private String apellidosPropietario;
+	private String apellidosPropietarios;
 	
 	private String dniPropietario;
 	
@@ -43,7 +43,7 @@ public class Propietario {
 	public Propietario(String nombrePropietario, String apellidosPropietarios, String dniPropietario, int telefonoPropietario, double porcentajeParticipacionPropietario,
 			String numeroCuentaPropietario) {
 		this.nombrePropietario = nombrePropietario;
-		this.apellidosPropietario = apellidosPropietarios;
+		this.apellidosPropietarios = apellidosPropietarios;
 		this.dniPropietario = dniPropietario;
 		this.telefonoPropietario = telefonoPropietario;
 		this.porcentajeParticipacionPropietario = porcentajeParticipacionPropietario;
@@ -60,11 +60,11 @@ public class Propietario {
 	}
 
 	public String getApellidosPropietarios() {
-		return apellidosPropietario;
+		return apellidosPropietarios;
 	}
 
 	public void setApellidosPropietarios(String apellidosPropietarios) {
-		this.apellidosPropietario = apellidosPropietarios;
+		this.apellidosPropietarios = apellidosPropietarios;
 	}
 
 	public String getDniPropietario() {

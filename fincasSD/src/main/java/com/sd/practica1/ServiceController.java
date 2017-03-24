@@ -76,9 +76,10 @@ public class ServiceController {
 			p.add(propiedadRepository.findDistinctBycomunidadPropiedadAndPropietarioPropiedad_dniPropietario(com, id));
 		}
 		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(id));
-		model.addAttribute("propertiescom",p);
-		if(!l.isEmpty())
+		if(!l.isEmpty()){
 			model.addAttribute("comunities",l);
+			model.addAttribute("propertiescom",p);
+		}
 		return "services";
 	}
 }
