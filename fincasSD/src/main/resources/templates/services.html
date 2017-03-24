@@ -95,15 +95,10 @@
                 </div>
             </div>
             <div class="col-sm-8">
-                <ul class="nav nav-tabs esconderTodo">
-                    <li role="presentation" class="active"><a href="/services">Comunidad</a>
-                    </li>
-                    <li role="presentation"><a href="/services-properties">Propiedad seleccionada</a></li>
-                </ul>
-                <form>
+                <form th:each="prop : ${comunity}">
                     <div class="panel panel-success positionStyle">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Comunidad de la propiedad: </h3>
+                            <h3 class="panel-title">Comunidad: </h3>
                         </div>
                         <div class="panel-body">
                             <div class="thumbnail infoPanel infoPanelWidth">
@@ -114,35 +109,69 @@
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">CIF: </span>
-                                <input type="text" class="form-control input" placeholder="H12345678" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                <input type="text" class="form-control input" name="cif" aria-describedby="basic-addon1" disabled="disabled"></input>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Población: </span>
-                                <input type="text" class="form-control input" placeholder="Alcorcón, Madrid" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                <input type="text" class="form-control input" name="poblacion" aria-describedby="basic-addon1" disabled="disabled"></input>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Calle: </span>
-                                <input type="text" class="form-control" placeholder="Tulipan" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                <input type="text" class="form-control" name="calle" aria-describedby="basic-addon1" disabled="disabled"></input>
                                 <span class="input-group-addon" id="basic-addon1">Nº: </span>
-                                <input type="text" class="form-control input" placeholder="13" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                <input type="text" class="form-control input" name="numero" aria-describedby="basic-addon1" disabled="disabled"></input>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Código postal: </span>
-                                <input type="text" class="form-control input" placeholder="28932" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                <input type="text" class="form-control input" name="codigoPostal" aria-describedby="basic-addon1" disabled="disabled"></input>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
-                                <input type="text" class="form-control input" placeholder="12345678901234567890" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                <input type="text" class="form-control input" name="numCuenta" aria-describedby="basic-addon1" disabled="disabled"></input>
                             </div>
                         </div>
-
-                        <!--Cuando se cambien los enlaces para Spring hay que cambiar en el javascript el enlace para enviar una petición Delete. Normalmente solamente nos enviaría a services-properties pero cuando se modifica la info no tiene que enviarme a alli sino cambiar el enlace mediante javascript a otro que me envie una petición delete-->
-                        <div class="list-group">
-                            <a href="#" class="list-group-item disabled">Propiedades disponibles</a>
-                            <a href="#" class="list-group-item listaPropiedades">Propiedad 2</a>
-                            <a href="#" class="list-group-item listaPropiedades">Propiedad 3</a>
-                            <a href="#" class="list-group-item listaPropiedades">Propiedad 4</a>
-                        </div>
+                        <div class="panel panel-success">
+	                    <div class="panel-heading">
+	                        <h3 class="panel-title">Propiedad: </h3>
+	                    </div>
+	                    <div class="panel-body">
+	                        <div class="thumbnail infoPanel infoPanelWidth">
+	                            <img src="img/propiedad1.jpeg" alt="" class="imgFincaInfo imgFincaMargin"/>
+	                        </div>
+	
+	                        <div class="input-group textAreaRight">
+	                            <span class="input-group-addon" id="basic-addon1">Nº: </span>
+	                            <input type="text" class="form-control input" name="numPropiedad" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                            <span class="input-group-addon" id="basic-addon1">Planta: </span>
+	                            <input type="text" class="form-control input" name="planta" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                            <span class="input-group-addon" id="basic-addon1">Letra: </span>
+	                            <input type="text" class="form-control input" name="letra" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                        </div>
+	                        <div class="input-group textAreaRight">
+	                            <span class="input-group-addon" id="basic-addon1">Nombre y apellidos: </span>
+	                            <input type="text" class="form-control input" name="nomYape" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                        </div>
+	                        <div class="input-group textAreaRight">
+	                            <span class="input-group-addon" id="basic-addon1">DNI: </span>
+	                            <input type="text" class="form-control input" name="dni" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                            <span class="input-group-addon" id="basic-addon1">Tel: </span>
+	                            <input type="text" class="form-control input" name="telf" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                        </div>
+	                        <div class="input-group textAreaRight">
+	                            <span class="input-group-addon" id="basic-addon1">Dirección: </span>
+	                            <input type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                        </div>
+	                        <div class="input-group textAreaRight">
+	                            <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
+	                            <input type="text" class="form-control input" name="numCuentaProp" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                        </div>
+	                        <div class="input-group textAreaRight">
+	                            <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
+	                            <input type="text" class="form-control input" name="porcentaje" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                        </div>
+	                    </div>
+<!--                             <input type="submit" class="form-control input" name="guardarPropiedad" value="Guardar propiedad"></input> -->
+                	</div>
                         <input type="submit" class="form-control input bottonSave" name="guardar" value="Guardar"></input>
                     </div>
                 </form>
