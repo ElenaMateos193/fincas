@@ -109,7 +109,7 @@
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">CIF: </span>
-                                <input type="text" class="form-control input" name="cif" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                <input th:value="*{com.cifComunidadVecinos}" type="text" class="form-control input" name="cif" aria-describedby="basic-addon1" disabled="disabled"></input>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Población: </span>
@@ -130,46 +130,55 @@
                                 <input th:value="*{com.numeroCuentaComunidadVecinos}" type="text" class="form-control input" name="numCuenta" aria-describedby="basic-addon1" disabled="disabled"></input>
                             </div>
                         </div>
-                        <div class="panel panel-success">
-	                    <div class="panel-heading">
-	                        <h3 class="panel-title">Propiedad: </h3>
-	                    </div>
-	                    <div class="panel-body">
-	                        <div class="thumbnail infoPanel infoPanelWidth">
-	                            <img src="/img/propiedad1.jpeg" alt="" class="imgFincaInfo imgFincaMargin"/>
-	                        </div>
-	
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Nº: </span>
-	                            <input type="text" class="form-control input" name="numPropiedad" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                            <span class="input-group-addon" id="basic-addon1">Planta: </span>
-	                            <input type="text" class="form-control input" name="planta" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                            <span class="input-group-addon" id="basic-addon1">Letra: </span>
-	                            <input type="text" class="form-control input" name="letra" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Nombre y apellidos: </span>
-	                            <input type="text" class="form-control input" name="nomYape" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">DNI: </span>
-	                            <input type="text" class="form-control input" name="dni" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                            <span class="input-group-addon" id="basic-addon1">Tel: </span>
-	                            <input type="text" class="form-control input" name="telf" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Dirección: </span>
-	                            <input type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
-	                            <input type="text" class="form-control input" name="numCuentaProp" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
-	                            <input type="text" class="form-control input" name="porcentaje" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                        </div>
-	                    </div>
+                        <div class="panel panel-success" th:each="prop : ${propertiescom}">
+		                    <div class="panel-heading">
+		                        <h3 class="panel-title">Propiedad: </h3>
+		                    </div>
+		                    <div class="panel-body">
+		                        <div class="thumbnail infoPanel infoPanelWidth">
+		                            <img src="/img/propiedad1.jpeg" alt="" class="imgFincaInfo imgFincaMargin"/>
+		                        </div>
+		
+		                        <div class="input-group textAreaRight">
+		                            <span class="input-group-addon" id="basic-addon1">Nº: </span>
+		                            <input th:value="*{prop.portalPropiedad}" type="text" class="form-control input" name="numPropiedad" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <span class="input-group-addon" id="basic-addon1">Planta: </span>
+		                            <input th:value="*{prop.plantaPropiedad}" type="text" class="form-control input" name="planta" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <span class="input-group-addon" id="basic-addon1">Letra: </span>
+		                            <input th:value="*{prop.letraPropiedad}" type="text" class="form-control input" name="letra" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                        </div>
+		                        <div class="input-group textAreaRight">
+		                            <span class="input-group-addon" id="basic-addon1">Nombre</span>
+		                            <input th:value="*{prop.propietarioPropiedad.nombrePropietario}" type="text" class="form-control input" name="nomYape" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <span class="input-group-addon" id="basic-addon1">Apellidos: </span>
+		                            <input th:value="*{prop.propietarioPropiedad.apellidosPropietario}" type="text" class="form-control input" name="nomYape" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                        </div>
+		                        <div class="input-group textAreaRight">
+		                            <span class="input-group-addon" id="basic-addon1">DNI: </span>
+		                            <input  th:value="*{prop.propietarioPropiedad.dniPropietario}" type="text" class="form-control input" name="dni" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <span class="input-group-addon" id="basic-addon1">Tel: </span>
+		                            <input th:value="*{prop.propietarioPropiedad.telefonoPropietario}" type="text" class="form-control input" name="telf" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                        </div>
+		                        <div class="input-group textAreaRight">
+		                            <span class="input-group-addon" id="basic-addon1">Dirección: </span>
+		                            <span class="input-group-addon" id="basic-addon1">Calle: </span>
+		                            <input th:value="*{prop.propietarioPropiedad.direccionPropietario.calleDireccion}" type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <span class="input-group-addon" id="basic-addon1">Portal: </span>
+		                            <input th:value="*{prop.propietarioPropiedad.direccionPropietario.portalDireccion}" type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <span class="input-group-addon" id="basic-addon1">Planta: </span>
+		                            <input th:value="*{prop.propietarioPropiedad.direccionPropietario.plantaDireccion}" type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <span class="input-group-addon" id="basic-addon1">Letra: </span>
+		                            <input th:value="*{prop.propietarioPropiedad.direccionPropietario.letroDireccion}" type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                        </div>
+		                        <div class="input-group textAreaRight">
+		                            <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
+		                            <input th:value="*{prop.propietarioPropiedad.numeroCuentaPropietario}" type="text" class="form-control input" name="numCuentaProp" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                        </div>
+		                        <div class="input-group textAreaRight">
+		                            <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
+		                            <input th:value="*{prop.propietarioPropiedad.porcentajeParticipacionPropietario}" type="text" class="form-control input" name="porcentaje" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                        </div>
+		                    </div>
 <!--                             <input type="submit" class="form-control input" name="guardarPropiedad" value="Guardar propiedad"></input> -->
                 	</div>
                         <input type="submit" class="form-control input bottonSave" name="guardar" value="Guardar"></input>
