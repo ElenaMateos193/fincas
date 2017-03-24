@@ -17,8 +17,7 @@ public class ComunidadDeVecinos {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 	
-	@OneToOne(mappedBy="comunidadCif")
-	private Cif cifComunidadVecinos;
+	private String cifComunidadVecinos;
 	
 	private String calleComunidadVecinos;
 	
@@ -37,7 +36,7 @@ public class ComunidadDeVecinos {
 		
 	}
 	
-	public ComunidadDeVecinos(String calleComunidadVecinos, int numeroComunidadVecinos,
+	public ComunidadDeVecinos(String cifComunidadVecinos, String calleComunidadVecinos, int numeroComunidadVecinos,
 			int cpComunidadVecinos, String numeroCuentaComunidadVecinos, String poblacionComunidadVecinos) {
 		this.calleComunidadVecinos = calleComunidadVecinos;
 		this.numeroComunidadVecinos = numeroComunidadVecinos;
@@ -45,13 +44,14 @@ public class ComunidadDeVecinos {
 		this.numeroCuentaComunidadVecinos = numeroCuentaComunidadVecinos;
 		this.poblacionComunidadVecinos = poblacionComunidadVecinos;
 		propiedadComunidadVecinos= new ArrayList();
+		this.cifComunidadVecinos = cifComunidadVecinos;
 	}
 
-	public Cif getCifComunidadVecinos() {
+	public String getCifComunidadVecinos() {
 		return cifComunidadVecinos;
 	}
 
-	public void setCifComunidadVecinos(Cif cifComunidadVecinos) {
+	public void setCifComunidadVecinos(String cifComunidadVecinos) {
 		this.cifComunidadVecinos = cifComunidadVecinos;
 	}
 

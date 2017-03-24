@@ -73,25 +73,25 @@
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">CIF: </span>
-                                <input type="text" class="form-control input" name="cif" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                <p class="form-control input" th:text="${Comunidad.cifComunidad}"></p>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Población: </span>
-                                <input type="text" class="form-control input" name="poblacion" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                <p class="form-control input" th:text="${Comunidad.poblacionComunidadVecinos}"></p>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Calle: </span>
-                                <input type="text" class="form-control" name="calle" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                <p class="form-control input" th:text="${Comunidad.calleComunidadVecinos}"></p>
                                 <span class="input-group-addon" id="basic-addon1">Nº: </span>
-                                <input type="text" class="form-control input" name="numero" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                <p class="form-control input" th:text="${Comunidad.numeroComunidad}"></p>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Código postal: </span>
-                                <input type="text" class="form-control input" name="codigoPostal" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                <p class="form-control input" th:text="${Comunidad.codigoPostalComunidad}"></p>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
-                                <input type="text" class="form-control input" name="numCuenta" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                <p class="form-control input" th:text="${Comunidad.codigoPostalComunidad}"></p>
                             </div>
                         </div>
                         <hr></hr>
@@ -111,33 +111,42 @@
 	
 	                        <div class="input-group textAreaRight">
 	                            <span class="input-group-addon" id="basic-addon1">Nº: </span>
-	                            <input type="text" class="form-control input" name="numPropiedad" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                            <p class="form-control input" th:text="${Propiedad.numeroPropiedad}"></p>
 	                            <span class="input-group-addon" id="basic-addon1">Planta: </span>
-	                            <input type="text" class="form-control input" name="planta" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                            <p class="form-control input" th:text="${Propiedad.plantaPropiedad}"></p>
 	                            <span class="input-group-addon" id="basic-addon1">Letra: </span>
-	                            <input type="text" class="form-control input" name="letra" aria-describedby="basic-addon1" disabled="disabled"></input>
+	                            <p class="form-control input" th:text="${Propiedad.letraPropiedad}"></p>
 	                        </div>
 	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Nombre y apellidos: </span>
-	                            <input type="text" class="form-control input" name="nomYape" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                        </div>
+                                    <span class="input-group-addon" id="basic-addon1">Nombre del propietario: </span>
+                                    <p class="form-control input" th:text="${Propietario.nombrePropietario}"></p>
+                                    <span class="input-group-addon" id="basic-addon1">Apellidos del propietario: </span>
+                                    <p class="form-control input" th:text="${Propietario.apellidosPropietario}"></p>
+                                </div>
 	                        <div class="input-group textAreaRight">
 	                            <span class="input-group-addon" id="basic-addon1">DNI: </span>
-	                            <input type="text" class="form-control input" name="dni" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                    <p class="form-control input" th:text="${Propietario.dniPropietario}"></p>
 	                            <span class="input-group-addon" id="basic-addon1">Tel: </span>
-	                            <input type="text" class="form-control input" name="telf" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                    <p class="form-control input" th:text="${Propietario.telefonoPropietario}"></p>
 	                        </div>
 	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Dirección: </span>
-	                            <input type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" disabled="disabled"></input>
-	                        </div>
+                                    <span class="input-group-addon" id="basic-addon1">Dirección del propietario:</span>
+                                    <span class="input-group-addon" id="basic-addon1">Calle:</span>
+                                    <p class="form-control input" th:text="${Direccion.calleDireccion}"></p>
+                                    <span class="input-group-addon" id="basic-addon1">Portal:</span>
+                                    <p class="form-control input" th:text="${Direccion.portalDireccion}"></p>
+                                    <span class="input-group-addon" id="basic-addon1">Planta:</span>
+                                    <p class="form-control input" th:text="${Direccion.plantaDireccion}"></p>
+                                    <span class="input-group-addon" id="basic-addon1">Letra:</span>
+                                    <p class="form-control input" th:text="${Direccion.letraDireccion}"></p>
+                                </div>
 	                        <div class="input-group textAreaRight">
 	                            <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
-	                            <input type="text" class="form-control input" name="numCuentaProp" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                    <p class="form-control input" th:text="${Propietario.numeroCuentaPropietario}"></p>
 	                        </div>
 	                        <div class="input-group textAreaRight">
 	                            <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
-	                            <input type="text" class="form-control input" name="porcentaje" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                    <p class="form-control input" th:text="${Propietario.porcentajeParticipacionPropietario}"></p>
 	                        </div>
 	                    </div>
 <!--                             <input type="submit" class="form-control input" name="guardarPropiedad" value="Guardar propiedad"></input> -->
