@@ -1016,3 +1016,8 @@
 2017-03-24 11:15:42,410 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2017-03-24 11:15:42,413 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-03-24 11:15:42,413 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /media/miguel/0914-ABE8/Universidad/3º/Sistemas Distribuidos/Practicas/prac1/fincasSD/src/test/resources
+2017-03-24 11:20:25,644 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-24 11:20:25,644 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-03-24 11:20:25,645 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-24 11:20:25,654 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-24 11:20:25,654 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /media/miguel/0914-ABE8/Universidad/3º/Sistemas Distribuidos/Practicas/prac1/fincasSD/src/test/resources
