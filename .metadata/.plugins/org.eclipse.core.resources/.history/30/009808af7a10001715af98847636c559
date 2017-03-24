@@ -100,49 +100,50 @@
                 </form>
 <!--                 <a type="button" class="btn btn-success aniadirP mostrar">Añadir propiedad</a> -->
                 <form>
-                	<div class="panel panel-success">
-	                    <div class="panel-heading">
-	                        <h3 class="panel-title">Propiedad: </h3>
-	                    </div>
-	                    <div class="panel-body">
-	                        <div class="thumbnail infoPanel infoPanelWidth">
-	                            <img src="img/propiedad1.jpeg" alt="" class="imgFincaInfo imgFincaMargin"/>
-	                        </div>
-	
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Nº: </span>
-	                            <input type="text" class="form-control input" name="numPropiedad" aria-describedby="basic-addon1" readonly="readonly"></input>
-	                            <span class="input-group-addon" id="basic-addon1">Planta: </span>
-	                            <input type="text" class="form-control input" name="planta" aria-describedby="basic-addon1" readonly="readonly"></input>
-	                            <span class="input-group-addon" id="basic-addon1">Letra: </span>
-	                            <input type="text" class="form-control input" name="letra" aria-describedby="basic-addon1" readonly="readonly"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Nombre y apellidos: </span>
-	                            <input type="text" class="form-control input" name="nomYape" aria-describedby="basic-addon1" readonly="readonly"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">DNI: </span>
-	                            <input type="text" class="form-control input" name="dni" aria-describedby="basic-addon1" readonly="readonly"></input>
-	                            <span class="input-group-addon" id="basic-addon1">Tel: </span>
-	                            <input type="text" class="form-control input" name="telf" aria-describedby="basic-addon1" readonly="readonly"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Dirección: </span>
-	                            <input type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" readonly="readonly"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
-	                            <input type="text" class="form-control input" name="numCuentaProp" aria-describedby="basic-addon1" readonly="readonly"></input>
-	                        </div>
-	                        <div class="input-group textAreaRight">
-	                            <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
-	                            <input type="text" class="form-control input" name="porcentaje" aria-describedby="basic-addon1" readonly="readonly"></input>
-	                        </div>
-	                    </div>
+                	<div class="aniadirPropiedad">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Propiedad: </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="thumbnail infoPanel infoPanelWidth">
+                                    <img src="img/propiedad1.jpeg" alt="" class="imgFincaInfo imgFincaMargin"/>
+                                </div>
+
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Nº: </span>
+                                    <input type="text" class="form-control input" name="numPropiedad" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                    <span class="input-group-addon" id="basic-addon1">Planta: </span>
+                                    <input type="text" class="form-control input" name="planta" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                    <span class="input-group-addon" id="basic-addon1">Letra: </span>
+                                    <input type="text" class="form-control input" name="letra" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Nombre y apellidos: </span>
+                                    <input type="text" class="form-control input" name="nomYape" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">DNI: </span>
+                                    <input type="text" class="form-control input" name="dni" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                    <span class="input-group-addon" id="basic-addon1">Tel: </span>
+                                    <input type="text" class="form-control input" name="telf" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Dirección: </span>
+                                    <input type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
+                                    <input type="text" class="form-control input" name="numCuentaProp" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
+                                    <input type="text" class="form-control input" name="porcentaje" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                            </div>
 <!--                             <input type="submit" class="form-control input" name="guardarPropiedad" value="Guardar propiedad"></input> -->
-                	</div>
-                       
+                        </div>
+                       </div>
                 </form>
             </div>
             <div class="col-sm-3"></div>
