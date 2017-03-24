@@ -1,0 +1,4 @@
+HLINT_EXECUTABLE=/home/miguel/.eclipsefp/sandbox/bin/hlint
+SCION_BROWSER_EXTRA_HOOGLE_PATH=/home/miguel/.eclipsefp/sandbox/bin/hoogle
+STYLISHHASKELL_EXECUTABLE=/home/miguel/.eclipsefp/sandbox/bin/stylish-haskell
+eclipse.preferences.version=1

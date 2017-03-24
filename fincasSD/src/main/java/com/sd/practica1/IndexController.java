@@ -40,6 +40,11 @@ public class IndexController {
 		return "services-properties";
 	}
 	
+	@RequestMapping(value="/mostrar")
+	public String mostrarComunidad(Model model){
+		return "mostrar";
+	}
+	
 	@RequestMapping(value="/aniadir")
 	public String aniadirController(Model model){
 		
