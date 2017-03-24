@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+
+    <title>Fincas Monreal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet"></link>
+
+    <!-- Custom CSS -->
+    <link href="/css/business-frontpage.css" rel="stylesheet"></link>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/index"><img class="icon" src="img/logo.png" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/nowMore">About</a>
+                    </li>
+                    <li>
+                        <a href="/services">Services</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">Fincas Monreal</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr></hr>
+        <div class="row">
+            <div class="col-sm-9">
+                <form>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Comunidad: </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="thumbnail infoPanel infoPanelWidth">
+                                <img src="img/finca1.jpg" alt="" class="imgFincaInfo imgFincaMargin" />
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">CIF: </span>
+                                <input type="text" class="form-control input" name="cif" aria-describedby="basic-addon1" disabled="disabled"></input>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Población: </span>
+                                <input type="text" class="form-control input" name="poblacion" aria-describedby="basic-addon1" disabled="disabled"></input>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Calle: </span>
+                                <input type="text" class="form-control" name="calle" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                <span class="input-group-addon" id="basic-addon1">Nº: </span>
+                                <input type="text" class="form-control input" name="numero" aria-describedby="basic-addon1" disabled="disabled"></input>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Código postal: </span>
+                                <input type="text" class="form-control input" name="codigoPostal" aria-describedby="basic-addon1" disabled="disabled"></input>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
+                                <input type="text" class="form-control input" name="numCuenta" aria-describedby="basic-addon1" disabled="disabled"></input>
+                            </div>
+                        </div>
+                        <hr></hr>
+<!--                         <input type="submit" class="form-control input bottonSave" name="guardar" value="Guardar comunidad"></input> -->
+                    </div>
+                </form>
+<!--                 <a type="button" class="btn btn-success aniadirP mostrar">Añadir propiedad</a> -->
+                <form>
+                	<div class="aniadirPropiedad">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Propiedad: </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="thumbnail infoPanel infoPanelWidth">
+                                    <img src="img/propiedad1.jpeg" alt="" class="imgFincaInfo imgFincaMargin"/>
+                                </div>
+
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Nº: </span>
+                                    <input type="text" class="form-control input" name="numPropiedad" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                    <span class="input-group-addon" id="basic-addon1">Planta: </span>
+                                    <input type="text" class="form-control input" name="planta" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                    <span class="input-group-addon" id="basic-addon1">Letra: </span>
+                                    <input type="text" class="form-control input" name="letra" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Nombre y apellidos: </span>
+                                    <input type="text" class="form-control input" name="nomYape" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">DNI: </span>
+                                    <input type="text" class="form-control input" name="dni" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                    <span class="input-group-addon" id="basic-addon1">Tel: </span>
+                                    <input type="text" class="form-control input" name="telf" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Dirección: </span>
+                                    <input type="text" class="form-control input" name="dir" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
+                                    <input type="text" class="form-control input" name="numCuentaProp" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                                <div class="input-group textAreaRight">
+                                    <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
+                                    <input type="text" class="form-control input" name="porcentaje" aria-describedby="basic-addon1" readonly="readonly"></input>
+                                </div>
+                            </div>
+<!--                             <input type="submit" class="form-control input" name="guardarPropiedad" value="Guardar propiedad"></input> -->
+                        </div>
+                       </div>
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/javascript.js"></script>
+
+</body>
+
+</html>

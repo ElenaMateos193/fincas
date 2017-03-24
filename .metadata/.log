@@ -1294,3 +1294,21 @@ Binding(ALT+SHIFT+D R,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-03-24 10:37:14.795
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-03-24 10:37:14.802
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY net.sf.eclipsefp.haskell.ui 4 0 2017-03-24 10:37:49.877
+!MESSAGE Expected executable /home/miguel/.eclipsefp/sandbox/bin/buildwrapper not found!
+
+!ENTRY net.sf.eclipsefp.haskell.ui 4 0 2017-03-24 10:38:09.216
+!MESSAGE Expected executable /home/miguel/.eclipsefp/sandbox/bin/scion-browser not found!
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-24 10:58:32.541
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-03-24 10:58:32.542
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
