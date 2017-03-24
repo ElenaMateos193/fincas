@@ -1,8 +1,6 @@
 $(function () {
     $('.modifyButton').click(function () {
-        $('.input').removeAttr("readonly");
-        $('.rightAlign').css("visibility","visible");
-        $('.listaPropiedades').removeAttr("href");
+        $('.input').removeAttr("disabled");
         $('.bottonSavePos').css("visibility","visible");
     });
     

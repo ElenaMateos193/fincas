@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -67,5 +68,14 @@ public class ServiceController {
 		}
 			
 			return "services";
+	}
+	
+	@RequestMapping(value="/verConsulta/{prop.dniPropietario}")
+	public String verConsultaController(Model model, @PathVariable ("prop.dniPropietario") String id){
+		List<ComunidadDeVecinos> l= comunidadDeVecinosRepository.findDistinctBypropiedadComunidadVecinos_propietarioPropiedad_dniPropietario(id);
+		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(id));
+		if(!l.isEmpty())
+			model.addAttribute("comunities",l);
+		return "services";
 	}
 }

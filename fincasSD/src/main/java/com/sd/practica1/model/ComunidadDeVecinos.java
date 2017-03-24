@@ -43,7 +43,7 @@ public class ComunidadDeVecinos {
 		this.numeroComunidadVecinos = numeroComunidadVecinos;
 		this.cpComunidadVecinos = cpComunidadVecinos;
 		this.numeroCuentaComunidadVecinos = numeroCuentaComunidadVecinos;
-		this.poblacionComunidadVecinos = poblacionComunidadVecinos;
+		this.setPoblacionComunidadVecinos(poblacionComunidadVecinos);
 		propiedadComunidadVecinos= new ArrayList();
 	}
 
@@ -97,6 +97,14 @@ public class ComunidadDeVecinos {
 	
 	public void addPropiedad(Propiedad p){
 		propiedadComunidadVecinos.add(p);
+	}
+
+	public String getPoblacionComunidadVecinos() {
+		return poblacionComunidadVecinos;
+	}
+
+	public void setPoblacionComunidadVecinos(String poblacionComunidadVecinos) {
+		this.poblacionComunidadVecinos = poblacionComunidadVecinos;
 	}
 	
 }
