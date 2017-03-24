@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sd.practica1.model.Cif;
+import com.sd.practica1.model.ComunidadDeVecinos;
 import com.sd.practica1.model.Propiedad;
 import com.sd.practica1.model.Propietario;
 
@@ -32,9 +33,10 @@ public class ServiceController {
 	 
 	@RequestMapping(value="/search")
 	public String postSearch(Model model, @RequestParam("attribute") String attribute, @RequestParam("searchedPropietary") String consult){
-		List<Propietario> prop= new LinkedList();
+		List<Propietario> prop= new LinkedList<Propietario>();
 		if(attribute.toString().equals("Portal")){
-			List<Propiedad> l= propiedadRepository.findByportalPropiedad(consult.toString());
+			String[] s= consult.split(" ");
+			List<Propiedad> l= propiedadRepository.findByportalPropiedad(s[0].toString());
 			for(Propiedad p:l){
 				prop.add(p.getPropietarioPropiedad());
 			}
@@ -56,7 +58,8 @@ public class ServiceController {
 		}else{
 			String s= consult.substring(1);
 			Cif c= cifRepository.findBynumerosCif(s);
-			List<Propiedad> l= comunidadDeVecinosRepository.findBycifComunidadVecinos(c).getPropiedadComunidadVecinos();
+			ComunidadDeVecinos v=comunidadDeVecinosRepository.findBycifComunidadVecinos_numerosCif(c.getNumbers());
+			List<Propiedad> l= v.getPropiedadComunidadVecinos();
 			for(Propiedad p:l){
 				prop.add(p.getPropietarioPropiedad());
 			}
