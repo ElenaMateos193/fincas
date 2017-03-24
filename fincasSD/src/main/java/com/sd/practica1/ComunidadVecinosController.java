@@ -14,9 +14,6 @@ public class ComunidadVecinosController {
 	ComunidadVecinosRepository comVecRepository;
 	
 	@Autowired
-	CifRepository cifRepository;
-	
-	@Autowired
 	PropiedadRepository propiedadRepository;
 	
 	@Autowired
@@ -27,11 +24,8 @@ public class ComunidadVecinosController {
 	
 	@PostConstruct
 	public void init(){
-		ComunidadDeVecinos cv = new ComunidadDeVecinos("Tulipan", 7, 28042, "1234567899874561230", "Móstoles");
+		ComunidadDeVecinos cv = new ComunidadDeVecinos("H12354687","Tulipan", 7, 28042, "1234567899874561230", "Móstoles");
 		comVecRepository.save(cv);
-		Cif cif1 = new Cif("12365478");
-		cif1.setComunidadCif(cv);
-		cifRepository.save(cif1);
 		Propietario proprio1 = new Propietario("Manuel", "Ruiz Lopez", "42561379846M", 632541789, 52, "4578961231452879631");
 		propietarioRepository.save(proprio1);
 		Direccion dir = new Direccion("Manzano", 10, 2,'D');
