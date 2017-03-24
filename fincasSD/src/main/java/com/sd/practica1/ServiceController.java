@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sd.practica1.model.Cif;
 import com.sd.practica1.model.ComunidadDeVecinos;
 import com.sd.practica1.model.Propiedad;
 import com.sd.practica1.model.Propietario;
@@ -28,8 +27,6 @@ public class ServiceController {
 	@Autowired
 	private ComunidadVecinosRepository comunidadDeVecinosRepository;
 	
-	@Autowired
-	private CifRepository cifRepository;
 	
 	 
 	@RequestMapping(value="/search")
@@ -57,9 +54,8 @@ public class ServiceController {
 		}else if(attribute.toString().equals("DNI")){
 			model.addAttribute("propietary", propietarioRepository.findBydniPropietario(consult.toString()));
 		}else{
-			String s= consult.substring(1);
-			Cif c= cifRepository.findBynumerosCif(s);
-			ComunidadDeVecinos v=comunidadDeVecinosRepository.findBycifComunidadVecinos_numerosCif(c.getNumbers());
+			String[] s= consult.split(" ");
+			ComunidadDeVecinos v=comunidadDeVecinosRepository.findBycifComunidadVecinos(s[0]);
 			List<Propiedad> l= v.getPropiedadComunidadVecinos();
 			for(Propiedad p:l){
 				prop.add(p.getPropietarioPropiedad());
