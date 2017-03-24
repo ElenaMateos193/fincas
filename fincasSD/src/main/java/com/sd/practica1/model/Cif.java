@@ -13,7 +13,7 @@ public class Cif {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 	private final char h ='H';
-	private int numerosCif;
+	private String numerosCif;
 	@OneToOne
 	private ComunidadDeVecinos comunidadCif;
 	
@@ -21,15 +21,15 @@ public class Cif {
 		
 	}
 	
-	public Cif(int numbers) {
+	public Cif(String numbers) {
 		this.numerosCif = numbers;
 	}
 
-	public int getNumbers() {
+	public String getNumbers() {
 		return numerosCif;
 	}
 
-	public void setNumbers(int numbers) {
+	public void setNumbers(String numbers) {
 		this.numerosCif = numbers;
 	}
 	

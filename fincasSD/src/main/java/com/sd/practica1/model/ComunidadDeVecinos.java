@@ -24,6 +24,8 @@ public class ComunidadDeVecinos {
 	
 	private int numeroComunidadVecinos;
 	
+	private String poblacionComunidadVecinos;
+	
 	private int cpComunidadVecinos;
 	
 	private String numeroCuentaComunidadVecinos;
@@ -36,11 +38,12 @@ public class ComunidadDeVecinos {
 	}
 	
 	public ComunidadDeVecinos(String calleComunidadVecinos, int numeroComunidadVecinos,
-			int cpComunidadVecinos, String numeroCuentaComunidadVecinos) {
+			int cpComunidadVecinos, String numeroCuentaComunidadVecinos, String poblacionComunidadVecinos) {
 		this.calleComunidadVecinos = calleComunidadVecinos;
 		this.numeroComunidadVecinos = numeroComunidadVecinos;
 		this.cpComunidadVecinos = cpComunidadVecinos;
 		this.numeroCuentaComunidadVecinos = numeroCuentaComunidadVecinos;
+		this.poblacionComunidadVecinos = poblacionComunidadVecinos;
 		propiedadComunidadVecinos= new ArrayList();
 	}
 
