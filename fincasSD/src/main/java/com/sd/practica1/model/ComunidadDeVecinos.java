@@ -3,6 +3,7 @@ package com.sd.practica1.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class ComunidadDeVecinos {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long id;
 	
+	@Column(unique=true)
 	private String cifComunidadVecinos;
 	
 	private String calleComunidadVecinos;
