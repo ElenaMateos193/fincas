@@ -130,7 +130,7 @@
                                 <input th:value="*{com.numeroCuentaComunidadVecinos}" type="text" class="form-control input" name="numCuenta" aria-describedby="basic-addon1" disabled="disabled"></input>
                             </div>
                         </div>
-                        <a th:href="@{/verConsulta}+ '/'+ ${prop.dniPropietario} +{/verPropiedades} + '/'+ ${com.cifComunidad}"></a>
+                        <a th:href="@{/verPropiedades} + '/'+ ${com.cifComunidadVecinos}+ '/' + ${dniUser}" th:text="${username}">nombre</a>
                         <div class="panel panel-success" th:each="prop : ${propertiescom}">
 		                    <div class="panel-heading">
 		                        <h3 class="panel-title">Propiedad: </h3>

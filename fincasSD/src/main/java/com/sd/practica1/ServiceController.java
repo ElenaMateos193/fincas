@@ -70,20 +70,43 @@ public class ServiceController {
 	
 	@RequestMapping(value="/verConsulta/{prop.dniPropietario}")
 	public String verConsultaController(Model model, @PathVariable ("prop.dniPropietario") String id){
-		List<ComunidadDeVecinos> l= comunidadDeVecinosRepository.findDistinctBypropiedadComunidadVecinos_propietarioPropiedad_dniPropietario(id);
-		
 		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(id));
+		Propietario pAux= propietarioRepository.findBydniPropietario(id);
+		List<Propiedad> l= pAux.getPropiedadesPropietario();
+		List<ComunidadDeVecinos> c= new LinkedList<ComunidadDeVecinos>();
 		if(!l.isEmpty()){
-			model.addAttribute("comunities",l);
+			for(Propiedad prop: l){
+				if(!c.contains(prop.getComunidadPropiedad()))
+					c.add(prop.getComunidadPropiedad());
+			}
+			model.addAttribute("comunities",c);
+			model.addAttribute("dniUser",id);
+			Propietario aux=propietarioRepository.findBydniPropietario(id);
+			model.addAttribute("username",aux.getNombrePropietario()+" "+aux.getApellidosPropietarios());
 		}
 		return "services";
 	}
-	@RequestMapping(value="/verConsulta/{prop.dniPropietario}/verPropiedades/{com.cifComunidad}")
-	public String verConsultaPropiedadController(Model model,@PathVariable ("com.cifComunidad") String cif, @PathVariable ("prop.dniPropietario") String id){
+	@RequestMapping(value="/verPropiedades/{com.cifComunidad}/{dniUser}")
+	public String verConsultaPropiedadController(Model model,@PathVariable ("com.cifComunidad") String cif, @PathVariable ("dniUser") String dni){
+		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(dni));
+
+		Propietario pAux= propietarioRepository.findBydniPropietario(dni);
+		List<Propiedad> l= pAux.getPropiedadesPropietario();
+		List<ComunidadDeVecinos> c= new LinkedList<ComunidadDeVecinos>();
+		for(Propiedad prop: l){
+			c.add(prop.getComunidadPropiedad());
+		}
+		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(dni));
+		if(!l.isEmpty()){
+			model.addAttribute("comunities",c);
+			model.addAttribute("dniUser",dni);
+			Propietario aux=propietarioRepository.findBydniPropietario(dni);
+			model.addAttribute("username",aux.getNombrePropietario()+" "+aux.getApellidosPropietarios());
+		}
+		
 		List<ComunidadDeVecinos> com= comunidadDeVecinosRepository.findBycifComunidadVecinos(cif);
-		System.out.println("OK");
-		List<Propiedad> p=propiedadRepository.findDistinctBycomunidadPropiedadAndPropietarioPropiedad_dniPropietario(com.get(0), id);
-		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(id));
+		List<Propiedad> p=propiedadRepository.findDistinctBycomunidadPropiedadAndPropietarioPropiedad_dniPropietario(com.get(0), dni);
+		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(dni));
 		if(!p.isEmpty()){
 			model.addAttribute("propertiescom",p);
 		}
