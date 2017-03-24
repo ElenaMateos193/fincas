@@ -81,8 +81,6 @@ public class ServiceController {
 			}
 			model.addAttribute("comunities",c);
 			model.addAttribute("dniUser",id);
-			Propietario aux=propietarioRepository.findBydniPropietario(id);
-			model.addAttribute("username",aux.getNombrePropietario()+" "+aux.getApellidosPropietarios());
 		}
 		return "services";
 	}
@@ -100,8 +98,6 @@ public class ServiceController {
 		if(!l.isEmpty()){
 			model.addAttribute("comunities",c);
 			model.addAttribute("dniUser",dni);
-			Propietario aux=propietarioRepository.findBydniPropietario(dni);
-			model.addAttribute("username",aux.getNombrePropietario()+" "+aux.getApellidosPropietarios());
 		}
 		
 		List<ComunidadDeVecinos> com= comunidadDeVecinosRepository.findBycifComunidadVecinos(cif);
