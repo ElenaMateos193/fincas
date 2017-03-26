@@ -10,7 +10,7 @@ import com.sd.practica1.model.Propiedad;
 
 public interface ComunidadVecinosRepository extends JpaRepository<ComunidadDeVecinos, Long>{
 	
-	List<ComunidadDeVecinos> findBycifComunidadVecinos(String cifComunidadVecinos);
+	ComunidadDeVecinos findBycifComunidadVecinos(String cifComunidadVecinos);
 	List<ComunidadDeVecinos> findDistinctBypropiedadComunidadVecinos_propietarioPropiedad_dniPropietario(String dniPropietario);
 	
 }
