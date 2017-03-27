@@ -109,6 +109,15 @@ public class ServiceController {
 		}
 		return "services";
 	}
+	@RequestMapping(value="/service-properties/{com.cifComunidad}/{dniUser}/{prop.portalPropiedad}/{prop.plantaPropiedad}/{prop.letraPropiedad}")
+	public String modificarPropiedadController(Model model,@PathVariable ("com.cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("prop.portalPropiedad") String portal, @PathVariable ("prop.plantaPropiedad") String planta, @PathVariable ("prop.letraPropiedad") char letra){
+		model.addAttribute("propietary", propietarioRepository.findBydniPropietario(dniUser));
+		Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, planta, letra, cif);
+		
+		model.addAttribute("propertie", p);
+
+		return "services-properties";
+	}
 	
 	@RequestMapping(value="/modifyComunidad", method=RequestMethod.POST)
 	public String modificarComunidad(Model model, @RequestParam("cif") String cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, 
