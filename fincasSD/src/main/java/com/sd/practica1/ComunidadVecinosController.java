@@ -40,13 +40,6 @@ public class ComunidadVecinosController {
 		propiedad2.setPropietarioPropiedad(proprio1);
 		propiedad2.setComunidadPropiedad(cv);
 		propiedadRepository.save(propiedad2);
-		
-		ComunidadDeVecinos cv2 = new ComunidadDeVecinos("H12333347","Tullipan", 7, 28052, "1234563339874561230", "Móstoles");
-		comVecRepository.save(cv2);
-		Propiedad propiedad3= new Propiedad("20", "Bajo", 'D');
-		propiedad.setPropietarioPropiedad(proprio1);
-		propiedad.setComunidadPropiedad(cv2);
-		propiedadRepository.save(propiedad3);
 
 	}
 }

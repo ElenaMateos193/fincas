@@ -60,7 +60,9 @@ public class ServiceController {
 			if(v!=null){
 				List<Propiedad> l= v.getPropiedadComunidadVecinos();
 				for(Propiedad p:l){
-					prop.add(p.getPropietarioPropiedad());
+					if(!prop.contains(p.getPropietarioPropiedad())){
+						prop.add(p.getPropietarioPropiedad());
+					}
 				}
 			}
 			model.addAttribute("propietary",prop);
