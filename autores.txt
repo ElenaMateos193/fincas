@@ -1,0 +1,8 @@
+Elena Mateos Martín 48203289G
+Miguel Ángel Monreal 06597297T
+Helena García González 54032293A
+
+Helena García González y Miguel Ángel Monreal HTML y CSS
+Elena Mateos Martín implementación de la base de datos
+Helena García González, Elena Mateos Martin y Miguel Ángel Monreal implementación de modelos, controllers y
+repositorios así como los métodos necesarios para hacer consultas, añadir y modificar.
