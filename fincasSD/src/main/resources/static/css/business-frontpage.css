@@ -128,12 +128,6 @@ footer {
 .verPropiedad{
 	margin:5px;
 }
-.verAniadirPropietario{
-	margin:10px;
-}
-.newPropietario{
-	visibility:hidden;
-}
 .bAniadirNew{
 	margin-left:10px;
 	float:left;
@@ -159,4 +153,13 @@ footer {
 .verAniadirPropietario{
 	margin:10px;
 	margin-botton:10px:
+}
+.tamletra{
+	float: right;
+    font-size: 12px;
+}
+
+.aniadir2 {
+    padding-left: 70px;
+    padding-right: 70px;
 }

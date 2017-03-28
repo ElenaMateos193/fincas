@@ -64,8 +64,8 @@
             <div class="col-sm-12">
             	<div class="btn-group" role="group" aria-label="...">
 				  <a href="/aniadir"><button type="button" class="btn btn-success aniadir">Añadir comunidad</button></a>
-				  <a href="/aniadir"><button type="button" class="btn btn-success aniadir">Añadir propiedad</button></a>
-				  <a href="/aniadir"><button type="button" class="btn btn-success aniadir">Añadir propietario</button></a>
+				  <a href="/aniadirPropiedad"><button type="button" class="btn btn-success aniadir">Añadir propiedad</button></a>
+				  <a href="/aniadirPropietario"><button type="button" class="btn btn-success aniadir">Añadir propietario</button></a>
 				</div>
                 
                 <hr></hr>
@@ -89,7 +89,7 @@
         <hr></hr>
 
         <div class="row">
-            <div class="col-sm-1"></div>
+            <div class="col-sm-1"><a href="/verTodo" class="btn btn-success">Ver todo</a></div>
             <div class="col-sm-3">
                 <div class="panel panel-default" th:each="prop : ${propietary}">
                     <div class="panel-body">
@@ -161,6 +161,17 @@
             </div>
         </div>
 
+        <hr/>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
     </div>
     <!-- /.container -->
 
