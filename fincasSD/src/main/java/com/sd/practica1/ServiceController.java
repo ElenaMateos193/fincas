@@ -124,7 +124,7 @@ public class ServiceController {
 		return "services-properties";
 	}
 	
-	@RequestMapping(value="/modifyComunidad/{com.cifComunidad}", method=RequestMethod.POST)
+	@RequestMapping(value="/modifyComunidad/*{com.cifComunidad}/", method=RequestMethod.POST)
 	public String modificarComunidad(Model model, @PathVariable("com.cifComunidad") String cifC, @RequestParam("cif") String cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, 
 			@RequestParam("codigoPostal") int codigoPostal, @RequestParam("numCuenta") String numCuenta){
 		ComunidadDeVecinos cv =comunidadDeVecinosRepository.findBycifComunidadVecinos(cifC);
