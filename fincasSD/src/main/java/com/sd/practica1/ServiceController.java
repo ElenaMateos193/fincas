@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sd.practica1.model.ComunidadDeVecinos;
+import com.sd.practica1.model.Direccion;
 import com.sd.practica1.model.Propiedad;
 import com.sd.practica1.model.Propietario;
 
@@ -27,6 +28,9 @@ public class ServiceController {
 	
 	@Autowired
 	private ComunidadVecinosRepository comunidadDeVecinosRepository;
+	
+	@Autowired
+	private DireccionRepository direccionRepository;
 	
 	
 	 
@@ -117,19 +121,13 @@ public class ServiceController {
 		Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, planta, letra, cif);
 		
 		model.addAttribute("propertie", p);
-
 		return "services-properties";
 	}
 	
-	@RequestMapping(value="/modifyComunidad", method=RequestMethod.POST)
-	public String modificarComunidad(Model model, @RequestParam("cif") String cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, 
+	@RequestMapping(value="/modifyComunidad/{com.cifComunidad}", method=RequestMethod.POST)
+	public String modificarComunidad(Model model, @PathVariable("com.cifComunidad") String cifC, @RequestParam("cif") String cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, 
 			@RequestParam("codigoPostal") int codigoPostal, @RequestParam("numCuenta") String numCuenta){
-		System.out.println(poblacion);
-		System.out.println(calle);
-		System.out.println(numero);
-		System.out.println(codigoPostal);
-		System.out.println(numCuenta);
-		ComunidadDeVecinos cv =comunidadDeVecinosRepository.findBycifComunidadVecinos(cif);
+		ComunidadDeVecinos cv =comunidadDeVecinosRepository.findBycifComunidadVecinos(cifC);
 		if (poblacion!=cv.getPoblacionComunidadVecinos()){
 			cv.setPoblacionComunidadVecinos(poblacion);
 			comunidadDeVecinosRepository.save(cv);
@@ -149,6 +147,67 @@ public class ServiceController {
 		if(numCuenta!=cv.getNumeroCuentaComunidadVecinos()){
 			cv.setNumeroCuentaComunidadVecinos(numCuenta);
 			comunidadDeVecinosRepository.save(cv);
+		}
+		return "index";
+	}
+	
+	
+	@RequestMapping(value="/modifyPropiedad/{com.cifComunidad}/{dniUser}/{prop.portalPropiedad}/{prop.plantaPropiedad}/{prop.letraPropiedad}", method=RequestMethod.POST)
+	public String modificarPropiedad(Model model, @PathVariable ("com.cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("prop.portalPropiedad") String portal, @PathVariable ("prop.plantaPropiedad") String planta, @PathVariable ("prop.letraPropiedad") char letra,
+			@RequestParam("planta") String plantaP, 
+			@RequestParam("letra") char letraP, @RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, 
+			@RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, 
+			@RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
+		Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, planta, letra, cif);
+		Propietario prop = propietarioRepository.findBydniPropietario(dniUser);
+		Direccion dirP = direccionRepository.findBypropietarioDireccion(prop);
+		if (plantaP!=p.getPlantaPropiedad()){
+			p.setPlantaPropiedad(plantaP);
+			propiedadRepository.save(p);
+		}
+		if(letraP!=p.getLetraPropiedad()){
+			p.setLetraPropiedad(letraP);
+			propiedadRepository.save(p);		
+		}
+		if(nombreProp!= prop.getNombrePropietario()){
+			prop.setNombrePropietario(nombreProp);
+			propietarioRepository.save(prop);
+		}
+		if(apellidosProp!=prop.getApellidosPropietarios()){
+			prop.setApellidosPropietarios(apellidosProp);
+			propietarioRepository.save(prop);
+		}
+		if(dni!=prop.getDniPropietario()){
+			prop.setDniPropietario(dni);
+			propietarioRepository.save(prop);
+		}
+		if(telefonoProp!=prop.getTelefonoPropietario()){
+			prop.setTelefonoPropietario(telefonoProp);
+			propietarioRepository.save(prop);
+		}
+		if(calleProp!=dirP.getCalleDireccion()){
+			dirP.setCalleDireccion(calleProp);
+			direccionRepository.save(dirP);
+		}
+		if(portalProp!=dirP.getPortalDireccion()){
+			dirP.setPortalDireccion(portalProp);
+			direccionRepository.save(dirP);
+		}
+		if(letraProp!=dirP.getLetraDireccion()){
+			dirP.setLetraDireccion(letraProp);
+			direccionRepository.save(dirP);
+		}
+		if(plantaProp!=dirP.getPlantaDireccion()){
+			dirP.setPlantaDireccion(plantaProp);
+			direccionRepository.save(dirP);
+		}
+		if(numCuentaProp!=prop.getNumeroCuentaPropietario()){
+			prop.setNumeroCuentaPropietario(numCuentaProp);
+			propietarioRepository.save(prop);
+		}
+		if(porcentaje!=prop.getPorcentajeParticipacionPropietario()){
+			prop.setPorcentajeParticipacionPropietario(porcentaje);
+			propietarioRepository.save(prop);
 		}
 		return "index";
 	}

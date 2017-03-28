@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="col-sm-8">
-                <form th:each="com : ${comunities}" action="/modifyComunidad" method="POST">
+                <form th:each="com : ${comunities}" action="/modifyComunidad/{com.cifComunidad}" method="POST">
                     <div class="panel panel-success positionStyle">
                         <div class="panel-heading">
                             <h3 class="panel-title">Comunidad: </h3><p th:text="${com.cpComunidadVecinos}"></p>
@@ -114,7 +114,7 @@
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">CIF: </span>
-                                <input th:value="*{com.cifComunidadVecinos}" type="text" class="form-control" name="cif" aria-describedby="basic-addon1" disabled="disabled"></input>
+                                <input th:value="*{com.cifComunidadVecinos}" type="text" class="form-control input" name="cif" aria-describedby="basic-addon1" disabled="disabled"></input>
                             </div>
                             <div class="input-group textAreaRight">
                                 <span class="input-group-addon" id="basic-addon1">Población: </span>
