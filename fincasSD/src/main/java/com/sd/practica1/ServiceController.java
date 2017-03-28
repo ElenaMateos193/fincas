@@ -128,6 +128,10 @@ public class ServiceController {
 	public String modificarComunidad(Model model, @PathVariable("com.cifComunidad") String cifC, @RequestParam("cif") String cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, 
 			@RequestParam("codigoPostal") int codigoPostal, @RequestParam("numCuenta") String numCuenta){
 		ComunidadDeVecinos cv =comunidadDeVecinosRepository.findBycifComunidadVecinos(cifC);
+		if(cif!=cv.getCifComunidadVecinos()){
+			cv.setCifComunidadVecinos(cif);
+			comunidadDeVecinosRepository.save(cv);
+		}
 		if (poblacion!=cv.getPoblacionComunidadVecinos()){
 			cv.setPoblacionComunidadVecinos(poblacion);
 			comunidadDeVecinosRepository.save(cv);
