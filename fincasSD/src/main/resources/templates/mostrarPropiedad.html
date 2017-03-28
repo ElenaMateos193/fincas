@@ -62,40 +62,26 @@
         <hr></hr>
         <div class="row">
             <div class="col-sm-9">
-                <form action="/services">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Comunidad: </h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="thumbnail infoPanel infoPanelWidth">
-                                <img src="img/finca1.jpg" alt="" class="imgFincaInfo imgFincaMargin" />
-                            </div>
-                            <div class="input-group textAreaRight">
-                                <span class="input-group-addon" id="basic-addon1">CIF: </span>
-                                <p class="form-control input" th:text="${Comunidad.cifComunidadVecinos}"></p>
-                            </div>
-                            <div class="input-group textAreaRight">
-                                <span class="input-group-addon" id="basic-addon1">Población: </span>
-                                <p class="form-control input" th:text="${Comunidad.poblacionComunidadVecinos}"></p>
-                            </div>
-                            <div class="input-group textAreaRight">
-                                <span class="input-group-addon" id="basic-addon1">Calle: </span>
-                                <p class="form-control input" th:text="${Comunidad.calleComunidadVecinos}"></p>
-                                <span class="input-group-addon" id="basic-addon1">Nº: </span>
-                                <p class="form-control input" th:text="${Comunidad.numeroComunidadVecinos}"></p>
-                            </div>
-                            <div class="input-group textAreaRight">
-                                <span class="input-group-addon" id="basic-addon1">Código postal: </span>
-                                <p class="form-control input" th:text="${Comunidad.cpComunidadVecinos}"></p>
-                            </div>
-                            <div class="input-group textAreaRight">
-                                <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
-                                <p class="form-control input" th:text="${Comunidad.numeroCuentaComunidadVecinos}"></p>
-                            </div>
-                        </div>
-                        <hr></hr>
-                        <input type="submit" class="form-control input bottonSave" name="guardar" value="Ir a servicios"></input> 
+                <form>
+                	<div class="panel panel-success">
+	                    <div class="panel-heading">
+	                        <h3 class="panel-title">Propiedad: </h3>
+	                    </div>
+	                    <div class="panel-body">
+	                        <div class="thumbnail infoPanel infoPanelWidth">
+	                            <img src="img/propiedad1.jpeg" alt="" class="imgFincaInfo imgFincaMargin"/>
+	                        </div>
+	
+	                        <div class="input-group textAreaRight">
+	                            <span class="input-group-addon" id="basic-addon1">Portal </span>
+	                            <p class="form-control input" th:text="${Propiedad.portalPropiedad}"></p>
+	                            <span class="input-group-addon" id="basic-addon1">Planta: </span>
+	                            <p class="form-control input" th:text="${Propiedad.plantaPropiedad}"></p>
+	                            <span class="input-group-addon" id="basic-addon1">Letra: </span>
+	                            <p class="form-control input" th:text="${Propiedad.letraPropiedad}"></p>
+	                        </div>
+	                    </div>
+						<input type="submit" class="form-control input bottonSave" name="guardar" value="Ir a servicios"></input> 
                     </div>
                 </form>
                 <div class="btn-group" role="group" aria-label="...">
@@ -103,7 +89,7 @@
 				  <a href="/aniadirPropiedad"><button type="button" class="btn btn-success aniadir2">Añadir propiedad</button></a>
 				  <a href="/aniadirPropietario"><button type="button" class="btn btn-success aniadir2">Añadir propietario</button></a>
 				</div>
-                </div>
+            </div>
             <div class="col-sm-3"></div>
         </div>
 

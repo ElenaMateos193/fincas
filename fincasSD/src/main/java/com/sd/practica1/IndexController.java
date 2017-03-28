@@ -102,8 +102,9 @@ public class IndexController {
 			@RequestParam("codigoPostal") int codigoPostal, @RequestParam("numCuenta") String numCuenta){
 		ComunidadDeVecinos cv = new ComunidadDeVecinos(cif, calle, numero, codigoPostal, numCuenta, poblacion);
 		comunidadDeVecinosRepository.save(cv);
+		model.addAttribute("Comunidad",cv);
 		
-		return "services";
+		return "mostrar";
 	}
 	@RequestMapping(value="/uploadProperty", method=RequestMethod.POST)
 	public String addPropiedad(Model model,@RequestParam("propietarioSeleccionado") String p, @RequestParam("cif") String cif, @RequestParam("portalPropiedad") String portalPropiedad, @RequestParam("planta") String planta, 
@@ -116,7 +117,9 @@ public class IndexController {
 		Propiedad pd1= new Propiedad(portalPropiedad, planta, letra);
 		p1.addPropiedad(pd1);
 		cv.addPropiedad(pd1);
-		return "services";
+		
+		model.addAttribute("Propiedad",pd1);
+		return "mostrarPropiedad";
 	}
 	@RequestMapping(value="/uploadPropietary", method=RequestMethod.POST)
 	public String addPropietary(Model model,@RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, 
@@ -128,6 +131,8 @@ public class IndexController {
 		Direccion dir = new Direccion(calleProp, portalProp, plantaProp, letraProp);
 		p1.setDireccionPropietario(dir);
 		direccionRepository.save(dir);
-		return "services";
+		model.addAttribute("Direccion",dir);
+		model.addAttribute("Propietario",p1);
+		return "mostrarPropietario";
 	}
 }
