@@ -110,13 +110,14 @@ public class IndexController {
 			@RequestParam("letra") char letra, @RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, 
 			@RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, 
 			@RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
-		
-		String[] s= p.split(" ");
-		System.out.println(cif);
-		ComunidadDeVecinos cv= comunidadDeVecinosRepository.findBycifComunidadVecinos(cif);
+
+		System.out.println("OK");
+		String[] s= p.toString().split(" ");
+		System.out.println(cif.toString());
+		ComunidadDeVecinos cv= comunidadDeVecinosRepository.findBycifComunidadVecinos(cif.toString());
 		Propietario p1;
 		if(nombreProp.equals("")&&apellidosProp.equals("")&&dni.equals("")){
-			p1= propietarioRepository.findBydniPropietario(s[s.length-1]);
+			p1= propietarioRepository.findBydniPropietario(s[s.length-1].toString());
 		}else{
 			p1 = new Propietario(nombreProp, apellidosProp, dni, telefonoProp, porcentaje, numCuentaProp);
 			propietarioRepository.save(p1);
