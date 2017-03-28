@@ -152,4 +152,13 @@ public class ServiceController {
 		}
 		return "index";
 	}
+	
+	@RequestMapping(value="/verTodo")
+	public String seeAll(Model model){
+		model.addAttribute("comunities", comunidadDeVecinosRepository.findAll());
+		model.addAttribute("properties", propiedadRepository.findAll());
+		model.addAttribute("propietaries", propietarioRepository.findAll());
+		return "seeAll";
+	}
+	
 }
