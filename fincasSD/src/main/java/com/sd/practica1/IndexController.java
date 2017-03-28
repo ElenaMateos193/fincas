@@ -109,13 +109,25 @@ public class IndexController {
 	public String addPropiedad(Model model,@RequestParam("propietarioSeleccionado") String p, @RequestParam("cif") String cif, @RequestParam("portalPropiedad") String portalPropiedad, @RequestParam("planta") String planta, 
 			@RequestParam("letra") char letra){
 		
-		System.out.println(cif);
+		
 		String[] s= p.toString().split(" ");
 		ComunidadDeVecinos cv= comunidadDeVecinosRepository.findBycifComunidadVecinos(cif.toString());
 		Propietario p1= propietarioRepository.findBydniPropietario(s[s.length-1].toString());
 		Propiedad pd1= new Propiedad(portalPropiedad, planta, letra);
 		p1.addPropiedad(pd1);
 		cv.addPropiedad(pd1);
+		return "services";
+	}
+	@RequestMapping(value="/uploadPropietary", method=RequestMethod.POST)
+	public String addPropietary(Model model,@RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, 
+			@RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, 
+			@RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
+		
+		Propietario p1 = new Propietario(nombreProp, apellidosProp, dni, telefonoProp, porcentaje, numCuentaProp);
+		propietarioRepository.save(p1);
+		Direccion dir = new Direccion(calleProp, portalProp, plantaProp, letraProp);
+		p1.setDireccionPropietario(dir);
+		direccionRepository.save(dir);
 		return "services";
 	}
 }

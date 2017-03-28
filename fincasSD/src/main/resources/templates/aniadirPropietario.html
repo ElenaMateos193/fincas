@@ -62,33 +62,13 @@
         <hr></hr>
         <div class="row">
             <div class="col-sm-9">
-                <form action="/uploadProperty" method="POST">
+                <form action="/uploadPropietary" method="POST">
                 
-				<a href="/aniadir"><button type="button" class="btn btn-success bAniadirNew">Añadir nueva comunidad</button></a>
-				<p class="entre">o</p>
-                <select class="form-control sAniadirNew" name="cif" id="sel1">
-           			<option th:each="com : ${comunities}" th:text="${com.cifComunidadVecinos}"></option>
-      			</select>
-      			
-                <button type="button" class="btn btn-success bAniadirNew verAniadirPropietario2">Añadir nuevo propietario</button>
-                <p class="entre2">o</p>
-                <select class="form-control sAniadirNew2"  name="propietarioSeleccionado" id="sel1">
-           			<option th:each="prop : ${propietaries}" th:text="${prop.nombrePropietario}+' '+${prop.apellidosPropietarios}+' '+${prop.dniPropietario}"></option>
-      			</select>
                     <div class="panel panel-success">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Propiedad: </h3>
+                                <h3 class="panel-title">Propietario: </h3>
                             </div>
                             <div class="panel-body">
-                                <div class="input-group textAreaRight">
-                                    <span class="input-group-addon" id="basic-addon1">Portal </span>
-                                    <input type="text" class="form-control input" name="portalPropiedad" aria-describedby="basic-addon1"></input>
-                                    <span class="input-group-addon" id="basic-addon1">Planta: </span>
-                                    <input type="text" class="form-control input" name="planta" aria-describedby="basic-addon1"></input>
-                                    <span class="input-group-addon" id="basic-addon1">Letra: </span>
-                                    <input type="text" class="form-control input" name="letra" aria-describedby="basic-addon1"></input>
-                                </div>
-                                <div class="newPropietario">
 	                                <div class="input-group textAreaRight">
 	                                    <span class="input-group-addon" id="basic-addon1">Nombre del propietario: </span>
 	                                    <input type="text" class="form-control input" name="nombreProp" aria-describedby="basic-addon1"></input>
@@ -99,16 +79,16 @@
 	                                    <span class="input-group-addon" id="basic-addon1">DNI del propietario: </span>
 	                                    <input type="text" class="form-control input" name="dni" aria-describedby="basic-addon1"></input>
 	                                    <span class="input-group-addon" id="basic-addon1">Teléfono del propietario: </span>
-	                                    <input type="text" class="form-control input" name="telf" aria-describedby="basic-addon1" value="0"></input>
+	                                    <input type="text" class="form-control input" name="telf" aria-describedby="basic-addon1"></input>
 	                                </div>
 	                                <div class="input-group textAreaRight">
 	                                    <span class="input-group-addon" id="basic-addon1">Dirección del propietario:</span>
 	                                    <span class="input-group-addon" id="basic-addon1">Calle:</span>
 	                                    <input type="text" class="form-control input" name="calleProp" aria-describedby="basic-addon1"></input>
 	                                    <span class="input-group-addon" id="basic-addon1">Portal:</span>
-	                                    <input type="text" class="form-control input" name="portalProp" value="0" aria-describedby="basic-addon1"></input>
+	                                    <input type="text" class="form-control input" name="portalProp" aria-describedby="basic-addon1"></input>
 	                                    <span class="input-group-addon" id="basic-addon1">Planta:</span>
-	                                    <input type="text" class="form-control input" name="plantaProp" value="0" aria-describedby="basic-addon1"></input>
+	                                    <input type="text" class="form-control input" name="plantaProp" aria-describedby="basic-addon1"></input>
 	                                    <span class="input-group-addon" id="basic-addon1">Letra:</span>
 	                                    <input type="text" class="form-control input" name="letraProp" aria-describedby="basic-addon1"></input>
 	                                </div>
@@ -118,12 +98,11 @@
 	                                </div>
 	                                <div class="input-group textAreaRight">
 	                                    <span class="input-group-addon" id="basic-addon1">Porcentaje de participación en los gastos: </span>
-	                                    <input type="text" class="form-control input" name="porcentaje" value="0.0" aria-describedby="basic-addon1"></input>
+	                                    <input type="text" class="form-control input" name="porcentaje" aria-describedby="basic-addon1"></input>
 	                                </div>
-                                </div>
                             </div>
                         </div>
-                       <input type="submit" class="form-control input bottonSave" name="guardar" value="Guardar propiedad"></input>
+                       <input type="submit" class="form-control input bottonSave" name="guardar" value="Guardar propietario"></input>
                 </form>
             </div>
             <div class="col-sm-3"></div>
