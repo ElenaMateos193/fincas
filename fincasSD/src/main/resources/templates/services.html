@@ -100,8 +100,12 @@
                 </div>
             </div>
             <div class="col-sm-8">
+<<<<<<< HEAD
             	<div th:each="com : ${comunities}">
                 <form th:action="@{/modifyComunidad}+'/'+${com.cifComunidadVecinos}" method="POST">
+=======
+                <form th:each="com : ${comunities}" action="@{/modifyComunidad/}+ '/'+ ${com.cifComunidadVecinos}+'/'" method="POST">
+>>>>>>> 1a8c94e71b8c0aa483e74920820df980566528d8
                     <div class="panel panel-success positionStyle">
                         <div class="panel-heading">
                             <h3 class="panel-title">Comunidad: </h3><p th:text="${com.cpComunidadVecinos}"></p>
