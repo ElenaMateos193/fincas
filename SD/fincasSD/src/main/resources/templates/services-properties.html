@@ -100,10 +100,9 @@
                 </div>
             </div>
             <div class="col-sm-8">
-            <div th:object="${propertie}">
-                <form th:action="@{/modifyPropiedad}+'/'+${cifComunidad}+'/'+${dniUser}+'/'+${portalPropiedad}+'/'+${plantaPropiedad}+'/'+${letraPropiedad}" method="POST">
+                <form action="modifyPropiedad/{com.cifComunidad}/{dniUser}/{prop.portalPropiedad}/{prop.plantaPropiedad}/{prop.letraPropiedad}">
                     <div class="panel panel-success positionStyle">
-                        <div class="panel panel-success">
+                        <div class="panel panel-success" th:object="${propertie}">
 		                    <div class="panel-heading">
 		                        <h3 class="panel-title">Propiedad: </h3>
 		                    </div>
@@ -118,15 +117,15 @@
 		                            <span class="input-group-addon" id="basic-addon1">Nº: </span>
 		                            <input th:value="*{portalPropiedad}" type="text" class="form-control input" name="numPropiedad" aria-describedby="basic-addon1" disabled="disabled"></input>
 		                            <span class="input-group-addon" id="basic-addon1">Planta: </span>
-		                            <input th:value="*{plantaPropiedad}" type="text" class="form-control input" name="plantaPropiedad" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <input th:value="*{plantaPropiedad}" type="text" class="form-control input" name="planta" aria-describedby="basic-addon1" disabled="disabled"></input>
 		                            <span class="input-group-addon" id="basic-addon1">Letra: </span>
-		                            <input th:value="*{letraPropiedad}" type="text" class="form-control input" name="letraPropiedad" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <input th:value="*{letraPropiedad}" type="text" class="form-control input" name="letra" aria-describedby="basic-addon1" disabled="disabled"></input>
 		                        </div>
 		                        <div class="input-group textAreaRight">
 		                            <span class="input-group-addon" id="basic-addon1">Nombre</span>
-		                            <input th:value="*{propietarioPropiedad.nombrePropietario}" type="text" class="form-control input" name="nombreProp" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <input th:value="*{propietarioPropiedad.nombrePropietario}" type="text" class="form-control input" name="nombre" aria-describedby="basic-addon1" disabled="disabled"></input>
 		                            <span class="input-group-addon" id="basic-addon1">Apellidos: </span>
-		                            <input th:value="*{propietarioPropiedad.apellidosPropietarios}" type="text" class="form-control input" name="apellidosProp" aria-describedby="basic-addon1" disabled="disabled"></input>
+		                            <input th:value="*{propietarioPropiedad.apellidosPropietarios}" type="text" class="form-control input" name="apellidos" aria-describedby="basic-addon1" disabled="disabled"></input>
 		                        </div>
 		                        <div class="input-group textAreaRight">
 		                            <span class="input-group-addon" id="basic-addon1">DNI: </span>
@@ -159,7 +158,6 @@
                         <input type="submit" class="form-control input bottonSave" name="guardar" value="Guardar"></input>
                     </div>
                 </form>
-                </div>
             </div>
         </div>
 

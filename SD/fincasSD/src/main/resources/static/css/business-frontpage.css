@@ -1,0 +1,165 @@
+/*
+ * Start Bootstrap - Business Frontpage (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+.business-header {
+    height: 400px;
+    background: url('../img/portada_villa.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+/* Customize the text color and shadow color and to optimize text legibility. */
+
+.tagline {
+    text-shadow: 0 0 10px #000;
+    font-size: -webkit-xxx-large;
+    color: #fff;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+footer {
+    margin: 50px 0;
+}
+.icon {
+    width: 120px;
+}
+
+
+
+.watchIt {
+    margin: 17px;
+}
+
+
+
+.infoPanel {
+    float: left;
+}
+
+.textAreaRight {
+    padding-left: 10px;
+    margin-bottom: 3px;
+}
+
+.indexButton {
+    height: 100px;
+    width: 300px;
+}
+
+.rightAlign {
+    float: right;
+    visibility: hidden;
+}
+
+.positionStyle {
+    position: absolute;
+    margin-top:3px;
+}
+
+.bottonSavePos {
+    float: right;
+    margin: 5px;
+    visibility: hidden;
+}
+
+.modifyButton {
+    float: right;
+}
+
+.input {
+    
+}
+
+
+
+.listaPropiedades {
+    
+}
+.bottonSave {
+    margin-top: 5px;
+    background-color: #5cb85c;
+}
+
+.aniadir {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.aniadirP {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.mostrar{
+   
+}
+
+.aniadirPropiedad {
+   visibility: hidden; 
+}
+
+.buscar {
+    padding-right: 600px;
+}
+
+.infoPanelWidth{
+	width:300px;
+}
+
+.imgFincaMargin{
+	margin:0px;
+}
+.resetear{
+	
+}
+.verPropiedad{
+	margin:5px;
+}
+.bAniadirNew{
+	margin-left:10px;
+	float:left;
+}
+.entre{
+	margin:5px;
+	float:left;
+}
+.sAniadirNew{
+	width:200px;
+	margin-bottom:10px;
+}
+.entre2{
+	margin:5px;
+	float:left;
+	margin-top:10px;
+}
+.sAniadirNew2{
+	width:270px;
+	margin-bottom:10px;
+	margin-top:10px;
+}
+.verAniadirPropietario{
+	margin:10px;
+	margin-botton:10px:
+}
+.tamletra{
+	float: right;
+    font-size: 12px;
+}
+
+.aniadir2 {
+    padding-left: 70px;
+    padding-right: 70px;
+}

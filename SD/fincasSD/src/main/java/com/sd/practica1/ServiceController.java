@@ -121,14 +121,12 @@ public class ServiceController {
 		Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, planta, letra, cif);
 		
 		model.addAttribute("propertie", p);
-		model.addAttribute("dniUser", dniUser);
-		model.addAttribute("cifComunidad", cif);
 		return "services-properties";
 	}
 	
-	@RequestMapping(value="/modifyComunidad/{com.cifComunidadVecinos}", method=RequestMethod.POST)
-	public String modificarComunidad(Model model, @PathVariable("com.cifComunidadVecinos") String cifC, @RequestParam("cif") String cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, @RequestParam("codigoPostal") int codigoPostal, @RequestParam("numCuenta") String numCuenta){
-		
+	@RequestMapping(value="/modifyComunidad/{com.cifComunidad}", method=RequestMethod.POST)
+	public String modificarComunidad(Model model, @PathVariable("com.cifComunidad") String cifC, @RequestParam("cif") String cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, 
+			@RequestParam("codigoPostal") int codigoPostal, @RequestParam("numCuenta") String numCuenta){
 		ComunidadDeVecinos cv =comunidadDeVecinosRepository.findBycifComunidadVecinos(cifC);
 		if(cif!=cv.getCifComunidadVecinos()){
 			cv.setCifComunidadVecinos(cif);
@@ -158,10 +156,13 @@ public class ServiceController {
 	}
 	
 	
-	@RequestMapping(value="/modifyPropiedad/{cifComunidad}/{dniUser}/{portalPropiedad}/{plantaPropiedad}/{letraPropiedad}", method=RequestMethod.POST)
-	public String modificarPropiedad(Model model, @PathVariable ("cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("portalPropiedad") String portal, @PathVariable ("plantaPropiedad") String planta, @PathVariable ("letraPropiedad") String letra,@RequestParam("numPropiedad") String numPortal, @RequestParam("plantaPropiedad") String plantaP, @RequestParam("letraPropiedad") char letraP, @RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, @RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, @RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
-		System.out.println("OK");
-		/**Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, planta, letra, cif);
+	@RequestMapping(value="/modifyPropiedad/{com.cifComunidad}/{dniUser}/{prop.portalPropiedad}/{prop.plantaPropiedad}/{prop.letraPropiedad}", method=RequestMethod.POST)
+	public String modificarPropiedad(Model model, @PathVariable ("com.cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("numPropiedad") String portal, @PathVariable ("letra") char letra,
+			@RequestParam("planta") String plantaP, 
+			@RequestParam("letra") char letraP, @RequestParam("nombre") String nombreProp, @RequestParam("apellidos") String apellidosProp, @RequestParam("dni") String dni, 
+			@RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, 
+			@RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
+		Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, plantaP, letra, cif);
 		Propietario prop = propietarioRepository.findBydniPropietario(dniUser);
 		Direccion dirP = direccionRepository.findBypropietarioDireccion(prop);
 		if (plantaP!=p.getPlantaPropiedad()){
@@ -211,7 +212,7 @@ public class ServiceController {
 		if(porcentaje!=prop.getPorcentajeParticipacionPropietario()){
 			prop.setPorcentajeParticipacionPropietario(porcentaje);
 			propietarioRepository.save(prop);
-		}**/
+		}
 		return "index";
 	}
 	@RequestMapping(value="/verTodo")

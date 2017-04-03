@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+
+    <title>Fincas Monreal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet"></link>
+
+    <!-- Custom CSS -->
+    <link href="/css/business-frontpage.css" rel="stylesheet"></link>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/index"><img class="icon" src="img/logo.png" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/nowMore">About</a>
+                    </li>
+                    <li>
+                        <a href="/services">Services</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">Fincas Monreal</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr></hr>
+        <div class="row">
+            <div class="col-sm-9">
+                <form action="/services">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Comunidad: </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="thumbnail infoPanel infoPanelWidth">
+                                <img src="img/finca1.jpg" alt="" class="imgFincaInfo imgFincaMargin" />
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">CIF: </span>
+                                <p class="form-control input" th:text="${Comunidad.cifComunidadVecinos}"></p>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Población: </span>
+                                <p class="form-control input" th:text="${Comunidad.poblacionComunidadVecinos}"></p>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Calle: </span>
+                                <p class="form-control input" th:text="${Comunidad.calleComunidadVecinos}"></p>
+                                <span class="input-group-addon" id="basic-addon1">Nº: </span>
+                                <p class="form-control input" th:text="${Comunidad.numeroComunidadVecinos}"></p>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Código postal: </span>
+                                <p class="form-control input" th:text="${Comunidad.cpComunidadVecinos}"></p>
+                            </div>
+                            <div class="input-group textAreaRight">
+                                <span class="input-group-addon" id="basic-addon1">Nº de cuenta: </span>
+                                <p class="form-control input" th:text="${Comunidad.numeroCuentaComunidadVecinos}"></p>
+                            </div>
+                        </div>
+                        <hr></hr>
+                        <input type="submit" class="form-control input bottonSave" name="guardar" value="Ir a servicios"></input> 
+                    </div>
+                </form>
+                <div class="btn-group" role="group" aria-label="...">
+				  <a href="/aniadir"><button type="button" class="btn btn-success aniadir2">Añadir comunidad</button></a>
+				  <a href="/aniadirPropiedad"><button type="button" class="btn btn-success aniadir2">Añadir propiedad</button></a>
+				  <a href="/aniadirPropietario"><button type="button" class="btn btn-success aniadir2">Añadir propietario</button></a>
+				</div>
+                </div>
+            <div class="col-sm-3"></div>
+        </div>
+
+        <hr/>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+<!--     <script src="/js/javascript.js"></script> -->
+
+</body>
+
+</html>
