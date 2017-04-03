@@ -160,12 +160,13 @@ public class ServiceController {
 	
 	
 	@RequestMapping(value="/modifyPropiedad/{cifComunidad}/{dniUser}/{portalPropiedad}/{plantaPropiedad}/{letraPropiedad}", method=RequestMethod.POST)
-	public String modificarPropiedad(Model model, @PathVariable ("cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("portalPropiedad") String portal, @PathVariable ("plantaPropiedad") String planta, @PathVariable ("letraPropiedad") String letra,@RequestParam("numPropiedad") String numPortal, @RequestParam("plantaPropiedad") String plantaP, @RequestParam("letraPropiedad") char letraP, @RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, @RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, @RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
-		System.out.println("OK");
-		
-		/**Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, planta, letra, cif);
+	//public String modificarPropiedad(Model model, @PathVariable ("cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("portalPropiedad") String portal, @PathVariable ("plantaPropiedad") String planta, @PathVariable ("letraPropiedad") String letra, @RequestParam("plantaProp") String plantaP, @RequestParam("letraProp") char letraP, @RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, @RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, @RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
+	public String modificarPropiedad(Model model, @PathVariable ("cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("portalPropiedad") String portal, @PathVariable ("plantaPropiedad") String planta, @PathVariable ("letraPropiedad") String letra, @RequestParam(required=false,name="portalProperty") String portalP, @RequestParam(required=false,name="plantaProp") String plantaP, @RequestParam(required=false,name="letraProp") String letraP){
+		char[] c= letra.toCharArray();
+		System.out.println(portalP);
+		Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, planta, c[0], cif);
 		Propietario prop = propietarioRepository.findBydniPropietario(dniUser);
-		Direccion dirP = direccionRepository.findBypropietarioDireccion(prop);
+		/**Direccion dirP = direccionRepository.findBypropietarioDireccion(prop);
 		if (plantaP!=p.getPlantaPropiedad()){
 			p.setPlantaPropiedad(plantaP);
 			propiedadRepository.save(p);
