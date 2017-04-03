@@ -162,6 +162,7 @@ public class ServiceController {
 	@RequestMapping(value="/modifyPropiedad/{cifComunidad}/{dniUser}/{portalPropiedad}/{plantaPropiedad}/{letraPropiedad}", method=RequestMethod.POST)
 	public String modificarPropiedad(Model model, @PathVariable ("cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("portalPropiedad") String portal, @PathVariable ("plantaPropiedad") String planta, @PathVariable ("letraPropiedad") String letra,@RequestParam("numPropiedad") String numPortal, @RequestParam("plantaPropiedad") String plantaP, @RequestParam("letraPropiedad") char letraP, @RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, @RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, @RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
 		System.out.println("OK");
+		
 		/**Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, planta, letra, cif);
 		Propietario prop = propietarioRepository.findBydniPropietario(dniUser);
 		Direccion dirP = direccionRepository.findBypropietarioDireccion(prop);
