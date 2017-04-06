@@ -129,7 +129,7 @@ public class ServiceController {
 
 	@RequestMapping(value="/modifyComunidad/{com.cifComunidadVecinos}", method=RequestMethod.POST)
 	public String modificarComunidad(Model model, @PathVariable("com.cifComunidadVecinos") String cifC, @RequestParam("cif") String cif, @RequestParam("poblacion") String poblacion, @RequestParam("calle") String calle, @RequestParam("numero") int numero, @RequestParam("codigoPostal") int codigoPostal, @RequestParam("numCuenta") String numCuenta){
-
+				
 		ComunidadDeVecinos cv =comunidadDeVecinosRepository.findBycifComunidadVecinos(cifC);
 		if(cif!=cv.getCifComunidadVecinos()){
 			cv.setCifComunidadVecinos(cif);
@@ -161,12 +161,16 @@ public class ServiceController {
 	
 	@RequestMapping(value="/modifyPropiedad/{cifComunidad}/{dniUser}/{portalPropiedad}/{plantaPropiedad}/{letraPropiedad}", method=RequestMethod.POST)
 	//public String modificarPropiedad(Model model, @PathVariable ("cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("portalPropiedad") String portal, @PathVariable ("plantaPropiedad") String planta, @PathVariable ("letraPropiedad") String letra, @RequestParam("plantaProp") String plantaP, @RequestParam("letraProp") char letraP, @RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, @RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, @RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
-	public String modificarPropiedad(Model model, @PathVariable ("cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("portalPropiedad") String portal, @PathVariable ("plantaPropiedad") String planta, @PathVariable ("letraPropiedad") String letra, @RequestParam(required=false,name="portalProperty") String portalP, @RequestParam(required=false,name="plantaProp") String plantaP, @RequestParam(required=false,name="letraProp") String letraP){
+	public String modificarPropiedad(Model model, @PathVariable ("cifComunidad") String cif,@PathVariable ("dniUser") String dniUser, @PathVariable ("portalPropiedad") String portal, @PathVariable ("plantaPropiedad") String planta, @PathVariable ("letraPropiedad") String letra, @RequestParam("portalProperty") String portalP, @RequestParam("plantaProp") String plantaP, @RequestParam("letraProp") char letraP, @RequestParam("nombreProp") String nombreProp, @RequestParam("apellidosProp") String apellidosProp, @RequestParam("dni") String dni, @RequestParam("telf") int telefonoProp, @RequestParam("calleProp") String calleProp, @RequestParam("portalProp") int portalProp, @RequestParam("plantaProp") int plantaProp, @RequestParam("letraProp") char letraProp, @RequestParam("numCuentaProp") String numCuentaProp, @RequestParam("porcentaje") double porcentaje){
+				
 		char[] c= letra.toCharArray();
-		System.out.println(portalP);
 		Propiedad p= propiedadRepository.findByportalPropiedadAndPlantaPropiedadAndLetraPropiedadAndComunidadPropiedad_cifComunidadVecinos(portal, planta, c[0], cif);
 		Propietario prop = propietarioRepository.findBydniPropietario(dniUser);
-		/**Direccion dirP = direccionRepository.findBypropietarioDireccion(prop);
+		Direccion dirP = direccionRepository.findBypropietarioDireccion(prop);
+		if(portalP!= p.getPortalPropiedad()){
+			p.setPortalPropiedad(portalP);
+			propiedadRepository.save(p);			
+		}
 		if (plantaP!=p.getPlantaPropiedad()){
 			p.setPlantaPropiedad(plantaP);
 			propiedadRepository.save(p);
@@ -214,7 +218,7 @@ public class ServiceController {
 		if(porcentaje!=prop.getPorcentajeParticipacionPropietario()){
 			prop.setPorcentajeParticipacionPropietario(porcentaje);
 			propietarioRepository.save(prop);
-		}**/
+		}
 		return "index";
 	}
 	@RequestMapping(value="/verTodo")

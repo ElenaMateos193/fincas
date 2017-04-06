@@ -92,6 +92,7 @@ footer {
 .bottonSave {
     margin-top: 5px;
     background-color: #5cb85c;
+    visibility: hidden;
 }
 
 .aniadir {
