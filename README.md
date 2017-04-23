@@ -1,3 +1,11 @@
+# Flickr
+Email: practicaflickr@gmail.com
+Contraseña: sistemas2017
+
+
+
+
+
 # fincas
 Práctica 1 de SD
 
