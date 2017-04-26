@@ -3,7 +3,12 @@ Email: practicaflickr@gmail.com
 Contraseña: sistemas2017
 
 
+	PracticaSD
+Clave: (api -key)
+6d73d4c0046c4f434718560d307d81b2
 
+Secreto:
+accc3a3b59a51a82
 
 
 # fincas
