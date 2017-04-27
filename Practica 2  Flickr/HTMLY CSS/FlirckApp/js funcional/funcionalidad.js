@@ -1,9 +1,9 @@
-$(function (){
+$(function () {
     
     var textoABuscar = "";
 
-    $('#enviarBoton').click(function(){
-        textoABuscar = $('#textoRecoger').val;
+    $('#enviarBoton').click(function () {
+        textoABuscar = $('#textoRecoger').val();
         console.log(textoABuscar);
     });
     /**
