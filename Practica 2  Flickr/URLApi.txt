@@ -1,0 +1,30 @@
+Search "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+ apiKey + "&text=" + texto + "&format=json&nojsoncallback=1&api_sig=35c39ef7d08de7c0ed23b691e57ccd9d"
+	
+	id, owner, secret, server, farm, title, ispublic, isfriend, isfamily
+
+
+getContext URL: https://api.flickr.com/services/rest/?method=flickr.photos.getContext&api_key=" + apiKey + "&photo_id=" + photo_id + "&format=json&nojsoncallback=1&api_sig=cc6851dc4357f88cb525403e1285fddf
+
+	{ "count": { "_content": "669" },
+	 "prevphoto": 
+		{ id, owner, secret, server, farma, title, url, thumb, license, media}
+	 "nextphoto": { id, owner, secret, server, farm, title, url, thumb,license, media}
+	 "stat": "ok" }
+
+
+getInfo URL: https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=" + apiKey + "&photo_id=" + photo_id +"&secret=" + secret (opcional) + "&format=json&nojsoncallback=1&api_sig=8b1a87798f984ff30bde84f4825e3399"
+
+	photo: {id, secret, server, farm, dateuploaded, isfavorite, license, safety_level, rotation, originalsecret, originalformat
+	owner {nsid, username, realname, location, iconserver, iconfarm, path_alias},
+	title {_content},
+	description {_content},
+	visibility{ ispublic, isfriend, isfamily},
+	dates{posted, taken, takengranularity, takenunknown, lastupdate},
+	views,
+	editability {cancomment, canaddmeta},
+	publiceditability {cancomment, canaddmeta};
+	usage{candownload, canblog, canprint, canshare}
+	comments {_content},
+	notes{ note [], people {haspeople}, tags {tag [id, author, authorname, raw,_content, machine_tag]}, urls{url[{type,_content,}], media, stat}}
+	}
+	
