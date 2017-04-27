@@ -1,12 +1,16 @@
-var textoABuscar = "";
+$(function (){
+    
+    var textoABuscar = "";
 
-$('#enviarBoton').click(function(){
-    textoABuscar = $('#textoRecoger').val;
-    console.log(textoABuscar);
+    $('#enviarBoton').click(function(){
+        textoABuscar = $('#textoRecoger').val;
+        console.log(textoABuscar);
+    });
+    /**
+    $.getJSON(url, descripcion,
+        function(data) {
+
+     });
+     **/
+
 });
-/**
-$.getJSON(url, descripcion,
-    function(data) {
-     
- });
- **/
