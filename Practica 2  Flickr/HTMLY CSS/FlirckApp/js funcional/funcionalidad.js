@@ -1,7 +1,8 @@
 function getHtml(url_img, msg) {
     var html = "<li class=\"masonry-item grid\">" + "\n"
+                + "<input type=\"checkbox\" class=\"listItem\" name=\"lista\">" + "\n"
                 + "<figure class=\"effect-sarah\">" + "\n"
-                    + "<img src= \"" + url_img + "\"alt=\"\" />" + "\n"
+                    + "<img class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n"
                         + "<figcaption>" + "\n"
                             + "<h2>" + msg.substring(0, 30) + " ..." + "</h2>" + "\n"
                             + "<a href=\"details.html\">View more</a>" + "\n"
