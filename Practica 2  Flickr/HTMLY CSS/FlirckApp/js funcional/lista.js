@@ -13,5 +13,5 @@ $(document).ready(function () {
         
         $('#content').append('<p>' + listImages[i].src() + '</p>');
 
-    })
-})
+    });
+});

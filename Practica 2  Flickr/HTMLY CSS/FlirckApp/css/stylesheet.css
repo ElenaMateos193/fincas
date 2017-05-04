@@ -1,0 +1,13 @@
+
+.centrado {
+    display: flex;
+    justify-content: center;
+}
+
+.margin {
+    margin-left: 10px;
+}
+
+
+
+

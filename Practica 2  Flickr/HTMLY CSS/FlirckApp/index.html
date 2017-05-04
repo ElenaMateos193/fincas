@@ -16,9 +16,10 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <title>Picxa</title>
-
+    
+    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
     <!-- Normalize -->
-
+    
     <link rel="stylesheet" href="css/assets/normalize.css" type="text/css">
 
     <!-- Bootstrap -->
@@ -66,10 +67,10 @@
 
                 <nav>
                     <!--Barra de búsqueda-->
-                    <form class="navbar-form navbar-left">
-                        <!--Cuadro donde introducir el texto-->
+                    <form class="navbar-form navbar-left" style="margin-left:10px; margin-top:0px">
+                        
                         <input type="text" id="textoRecoger" class="form-control" placeholder="Search for...">
-                        <!--Botón de lupa-->
+                        
                         <button id="enviarBoton" type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
                     </form>
                     <div class="menu-expanded">
@@ -85,13 +86,6 @@
                             </ul>
                         </div>
                     </div>
-                    <div>
-                        <h5>Lista: Seleccione las fotos que quiere añadir a su lista y pulse el boton</h5>
-                        <div id="#content">
-                        
-                        </div>
-                        <button><a id="#add-images">Añadir a  la lista</a></button>
-                    </div>
                 </nav>
 
                 <!-- nav -->
@@ -102,7 +96,14 @@
 
     <!-- header -->
     <main class="main-wrapper" id="container">
+        
+        <div class="centrado">
+            <h5>Lista: Seleccione las fotos que quiere añadir a su lista y pulse el boton</h5>
+            <div id="#content">
 
+            </div>
+            <button class="margin"><a id="#add-images">Añadir a  la lista</a></button>
+        </div>
         <div class="wrapper">
             <div class="">
                 <ul id="muro" class="small-block-grid-2 medium-block-grid-3 large-block-grid-5 masonry">
@@ -115,19 +116,14 @@
     <!-- Image Gallery -->
     <!-- footer -->
 
-    <footer class="footer" style="position:fixed">
+    <!--<footer class="footer" style="position:fixed">
         <h3>Stay connected with us</h3>
         <div class="container footer-bot">
             <div class="row">
 
-                <!-- logo -->
-
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"> <img src="images/footer-logo.png" alt="Picxa" title="Picxa" />
                 </div>
 
-                <!-- logo -->
-
-                <!-- address -->
 
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 padding-top">
                     <address>
@@ -136,18 +132,10 @@
         </address>
                 </div>
 
-                <!-- address -->
-
-                <!-- email -->
-
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 padding-top">
                     <p><a href="mailto:contact@Picxa.com">contact@Picxa.com</a></p>
                     <p>01 (2) 34 56 78</p>
                 </div>
-
-                <!-- email -->
-
-                <!-- social -->
 
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 padding-top">
                     <ul class="social">
@@ -162,11 +150,9 @@
                         <p>
                 </div>
 
-                <!-- social -->
-
             </div>
         </div>
-    </footer>
+    </footer>-->
     <!-- footer -->
 
     <!-- jQuery -->
