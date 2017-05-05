@@ -6,7 +6,7 @@ function getHtml(url_img, msg, id, secret) {
                     + "<img class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n"
                         + "<figcaption>" + "\n"
                             + "<h2>" + msg.substring(0, 30) + " ..." + "</h2>" + "\n"
-                            + "<a href=\"details.html\" onclick=\"content('" + url_img + "','" + id + "','" + secret + "')\">View more</a>" + "\n"
+                            + "<a href=\"details.html\" onclick=\"content('" + url_img + "','" + id + "','" + secret + "');\">View more</a>" + "\n"
                         + "</figcaption>" + "\n"
                 + "</figure>" + "\n"
             + "</li>";
@@ -15,29 +15,31 @@ function getHtml(url_img, msg, id, secret) {
 
 
 function content(url_img, id, secret) {
+    
     var url = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=" + api_key + "&photo_id=" + id + "&secret=" + secret +  "&format=json&nojsoncallback=1";
+    
     $.getJSON(url, function (data) {
-        console.log("dentro");
-        console.log(data.photo.title);
+        console.log("Dentro");
+        $.each(data.photos.photo, function (i, photo) {
+            
+        });
     });
 }
 
 function searchPhotos() {
-        console.log("Dentro");
-        
+    
         $(".foto").remove();
     
         var textoABuscar = $('#textoRecoger').val();
-        
-        console.log(textoABuscar);
-    
-        api(textoABuscar);
+            
+        apiPhotos(textoABuscar);
         
 }
 
-function api(textoABuscar){
+function apiPhotos(textoABuscar){
        
     var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + api_key + "&text=" + textoABuscar + "&format=json&nojsoncallback=1";
+    
     $.getJSON(url, function (data) {
         $.each(data.photos.photo, function (i, photo) {
             var msg = photo.title;
@@ -53,7 +55,7 @@ function api(textoABuscar){
 
 $(document).ready(function () {
     
-    api("flowers");
+    apiPhotos("flowers");
     
      $('#enviarBoton').click(function (event) {
             event.preventDefault();
