@@ -19,12 +19,24 @@ $(document).ready(function () {
         $('#title').append("<p>" + data.photo.title._content + "</p>");
     });
     
-    url="https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key +"&photo_id=" + id + "&format=json&nojsoncallback=1";
+    /*var url_context="https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key +"&photo_id=" + id + "&format=json&nojsoncallback=1";
     
-    $.getJSON(url, function (data) {
-        /*$.each(data, function (i, data) {            
+    $.getJSON(url_context, function (data) {
+        $.each(data, function (i, data) {            
             console.log(data.pool);
             //$('#sets').append("<a href=\"#\" class=\"list-group-item\">" + set.title + "</a>");
-        });*/
+        });
+    });*/
+    
+    var url_galleries="https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + id + "&format=json&nojsoncallback=1";
+    
+    $.getJSON(url_galleries, function (data) {
+        if(data.galleries.total!=0) {
+            $.each(data.galleries.gallery, function (i, gallery) {
+                $('#galleries').append("<a href=\"#\" class=\"list-group-item\">" + gallery.title._content + "</a>");
+            });
+        } else {
+            $('#galleries').append("<a href=\"#\" class=\"list-group-item\">No está en ninguna galleria</a>");
+        }
     });
 });
