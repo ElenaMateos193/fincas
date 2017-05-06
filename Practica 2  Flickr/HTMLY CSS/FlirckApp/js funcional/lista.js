@@ -1,5 +1,5 @@
 var listImages = [];
-$(document).ready(function () {
+function addImages() {
     $('add-images').click(function (e) {
         e.preventDefault();
         console.log("entré");
@@ -14,4 +14,4 @@ $(document).ready(function () {
         $('#content').append('<p>' + listImages[i].src() + '</p>');
 
     });
-});
+}
