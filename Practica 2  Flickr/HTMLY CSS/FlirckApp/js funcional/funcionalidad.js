@@ -1,14 +1,16 @@
 
 function getHtmlInit(url_img, msg, id, secret) {
     var html = "<li class=\"masonry-item grid foto\">" + "\n"
-                + "<input type=\"checkbox\" class=\"listItem\" name=\"lista\">" + "\n"
-                + "<figure class=\"effect-sarah\">" + "\n"
-                    + "<img class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n"
-                        + "<figcaption>" + "\n"
-                            + "<h2>" + msg.substring(0, 30) + " ..." + "</h2>" + "\n"
-                            + "<a href=\"javascript:pasarParam('details.html', '" + "id, " + id + ", " + "secret, " + secret + "')\">View more</a>" + "\n"
-                        + "</figcaption>" + "\n"
-                + "</figure>" + "\n"
+                + "<div class=\"listItem\">" +"\n"
+                    + "<input type=\"checkbox\" name=\"lista\">" + "\n"
+                    + "<figure class=\"effect-sarah\">" + "\n"
+                        + "<img class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n"
+                            + "<figcaption>" + "\n"
+                                + "<h2>" + msg.substring(0, 30) + " ..." + "</h2>" + "\n"
+                                + "<a href=\"javascript:pasarParam('details.html', '" + "id, " + id + ", " + "secret, " + secret + "')\">View more</a>" + "\n"
+                            + "</figcaption>" + "\n"
+                    + "</figure>" + "\n"
+                + "</div>" + "\n"
             + "</li>";
     return html;
 }

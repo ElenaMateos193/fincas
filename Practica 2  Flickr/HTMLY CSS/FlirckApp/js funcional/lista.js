@@ -1,17 +1,16 @@
 var listImages = [];
-function addImages() {
-    $('add-images').click(function (e) {
-        e.preventDefault();
-        console.log("entré");
-        var elements = document.getElementsByClassName("listItem");
-        for (var i = 0, len = elements.length; i < len; i++) {
-            if (elements[i].val() === true) {
-                console.log(listImages.push(elements[i].parentElement().children().namedItem("figure").children().namedItem("img"))); //guardo los imgs
+console.log("Entro en el js por lo menos");
+$('#add-images').click(function () {
+    
+    var elements = document.getElementsByClassName("listImage");
+    var i;
+    for (i = 0; i < elements.length;  i++) {
+        if (elements[i].children('input').isChecked) {
+            listImages.push(elements[i].children('figure').children('img').attr('src'));
 
-            }
         }
-        
-        $('#content').append('<p>' + listImages[i].src() + '</p>');
+    }
 
-    });
-}
+    $('#content').append('<img src="' + listImages[i] + '">' + '</img>');
+    
+});
