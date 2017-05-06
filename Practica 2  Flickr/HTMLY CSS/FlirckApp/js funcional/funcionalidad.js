@@ -17,7 +17,6 @@ function getHtmlInit(url_img, msg, id, secret) {
 $(document).ready(function () {
     
      var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + api_key + "&text=" + "flowers" + "&format=json&nojsoncallback=1";
-    
     $.getJSON(url, function (data) {
         $.each(data.photos.photo, function (i, photo) {
             var msg = photo.title;
@@ -38,6 +37,8 @@ $(document).ready(function () {
         event.preventDefault();
          console.log("se ejecuta");
     });
-    
+    $('#add-images').click(function (e) {
+        e.preventDefault();   
+    });
 
 });
