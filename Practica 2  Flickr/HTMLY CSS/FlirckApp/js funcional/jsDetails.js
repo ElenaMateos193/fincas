@@ -19,14 +19,24 @@ $(document).ready(function () {
         $('#title').append("<p>" + data.photo.title._content + "</p>");
     });
     
-    /*var url_context="https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key +"&photo_id=" + id + "&format=json&nojsoncallback=1";
+    var url_context="https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key +"&photo_id=" + id + "&format=json&nojsoncallback=1";
     
     $.getJSON(url_context, function (data) {
-        $.each(data, function (i, data) {            
-            console.log(data.pool);
-            //$('#sets').append("<a href=\"#\" class=\"list-group-item\">" + set.title + "</a>");
-        });
-    });*/
+            if(data.set){
+                $.each(data.set, function (i, set) {
+                    $('#sets').append("<a href=\"#\" class=\"list-group-item\">" + set.title + "</a>");
+                });
+            } else {
+                $('#sets').append("<a href=\"#\" class=\"list-group-item\">No está en ningún album</a>");
+            }
+            if(data.pool){
+                $.each(data.pool, function (i, pool) {
+                    $('#pools').append("<a href=\"#\" class=\"list-group-item\">" + pool.title + "</a>");
+                });
+            } else {
+                $('#pools').append("<a href=\"#\" class=\"list-group-item\">No está en ningún grupo</a>");
+            }
+    });
     
     var url_galleries="https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + id + "&format=json&nojsoncallback=1";
     
