@@ -13,7 +13,7 @@ function addImages() {
             listImages.push(elements[i].src);
             console.log(elements[i].src);
             console.log(listImages[pos]);
-            $('#content').append('<h5><a href="'+ listImages[pos]+ '">Imagen</a></h5>' + '\n');
+            $('#content').append('<h5><a href="'+ listImages[pos]+ '">Imagen '+(pos +1)+'</a></h5>' + '\n');
             pos++;
         }
 
