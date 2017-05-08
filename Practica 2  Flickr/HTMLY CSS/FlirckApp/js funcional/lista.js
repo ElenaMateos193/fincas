@@ -13,8 +13,10 @@ function addImages() {
             listImages.push(elements[i].src);
             console.log(elements[i].src);
             console.log(listImages[pos]);
-            $('#content').append('<h5><a href="'+ listImages[pos]+ '">Imagen '+(pos +1)+'</a></h5>' + '\n');
+            $('#content').append('<h5><a onclick="addPopUp('+ listImages[pos] + ');">Imagen '+(pos +1)+'</a></h5>' + '\n');
             pos++;
+            //Este es el que hay que poner de verdad para que salga el popup en la lista, pero sale un error en consola si lo pongo
+            // $('#content').append('<button id="#popUpImagen" onclick="addPopUp("'+ listImages[pos] + '");" type="button" data-toggle="modal" data-target="#myModal">Ver Imagen' + (pos + 1)'</button>' + '\n');
         }
 
     }

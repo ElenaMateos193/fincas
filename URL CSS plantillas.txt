@@ -4,3 +4,9 @@ http://es.wix.com/website/templates/html/design/1
 http://www.taringa.net/post/hazlo-tu-mismo/18683462/20-Disenos-de-formularios-de-inicio-de-sesion.html
 http://www.trazos-web.com/2015/02/11/38-plantillas-html-css-gratuitas/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+TrazosWeb+(Trazos+Web)
 http://extremisimo.com/29-menus-desplegables-en-html5-y-css3-gratuitos/
+
+Popup- El que he puesto
+https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_modal&stacked=h
+PAgina de wschool dode habla de el y pone mas ejemplos:
+https://www.w3schools.com/bootstrap/bootstrap_modal.asp
+

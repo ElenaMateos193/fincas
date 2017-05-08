@@ -6,6 +6,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -103,14 +110,126 @@
             <h5>Lista: Seleccione las fotos que quiere añadir a su lista y pulse el boton </h5>
             <button class="margin" id="add-images" onclick="addImages();">Añadir a  la lista</button>
         </div>
-        <div id="content" class="centrado">
+        <div>
+            <div id="content" class="centrado">
 
             </div>
+            <!-- Modal-->
+                    <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div id="imagenGrande2" class="modal-body">
+
+                        </div>
+                        <div class="details-content">
+                            <!-- left -->
+                            <section class="inner-left">
+                                <header>
+                                    <h3 id="date"></h3>
+                                    <h4 id="realName"></h4>
+                                    <h5 id="alias"></h5>
+                                </header>
+                            </section>
+                            <!-- left -->
+                            <!-- right -->
+                            <section class="inner-right" id="title">
+
+                            </section>
+                            <!-- right -->
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Albums</div>
+                            <div class="panel-body">
+                                <div class="list-group" id="sets"></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Grupos</div>
+                            <div class="panel-body">
+                                <div class="list-group" id="pools">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Galerías</div>
+                            <div class="panel-body">
+                                <div class="list-group" id="galleries"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
         <div class="wrapper">
             <div class="">
                 <ul id="muro" class="small-block-grid-2 medium-block-grid-3 large-block-grid-5 masonry">
 
                 </ul>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div id="imagenGrande" class="modal-body">
+
+                        </div>
+                        <div class="details-content">
+                            <!-- left -->
+                            <section class="inner-left">
+                                <header>
+                                    <h3 id="date"></h3>
+                                    <h4 id="realName"></h4>
+                                    <h5 id="alias"></h5>
+                                </header>
+                            </section>
+                            <!-- left -->
+                            <!-- right -->
+                            <section class="inner-right" id="title">
+
+                            </section>
+                            <!-- right -->
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Albums</div>
+                            <div class="panel-body">
+                                <div class="list-group" id="sets"></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Grupos</div>
+                            <div class="panel-body">
+                                <div class="list-group" id="pools">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Galerías</div>
+                            <div class="panel-body">
+                                <div class="list-group" id="galleries"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </main>

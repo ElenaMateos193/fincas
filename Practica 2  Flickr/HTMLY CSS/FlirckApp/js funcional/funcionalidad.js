@@ -5,14 +5,21 @@ function getHtmlInit(url_img, msg, id, secret) {
                     + "<input type=\"checkbox\" name=\"lista\">" + "\n"
                     + "<figure class=\"effect-sarah\">" + "\n"
                         + "<img class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n"
-                            + "<figcaption>" + "\n"
-                                + "<h2>" + msg.substring(0, 30) + " ..." + "</h2>" + "\n"
-                                + "<a href=\"javascript:pasarParam('details.html', '" + "id, " + id + ", " + "secret, " + secret + "')\">View more</a>" + "\n"
-                            + "</figcaption>" + "\n"
+                        + "<button id=\"#popUpImagen\" onclick=\"addPopUp("+ url_img + ");\" type=\"button\" data-toggle=\"modal\" data-target=\"#myModal\">Ver Imagen</button>" + "\n"
                     + "</figure>" + "\n"
                 + "</div>" + "\n"
             + "</li>";
     return html;
+}
+function addPopUp(url){
+    console.log("Entre en el popup");
+    var imagen = "<img src=\"" + url + "\"/>";
+    $("#imagenGrande").append(imagen);
+}
+function addPopUp2(url){
+    console.log("Entre en el popup");
+    var imagen = "<img src=\"" + url + "\"/>";
+    $("#imagenGrande2").append(imagen);
 }
 $(document).ready(function () {
     
@@ -38,6 +45,9 @@ $(document).ready(function () {
          console.log("se ejecuta");
     });
     $('#add-images').click(function (e) {
+        e.preventDefault();   
+    });
+    $('#popUpImagen').click(function (e) {
         e.preventDefault();   
     });
 
