@@ -24,14 +24,18 @@ $(document).ready(function () {
     $.getJSON(url_context, function (data) {
             if(data.set){
                 $.each(data.set, function (i, set) {
-                    $('#sets').append("<a href=\"#\" class=\"list-group-item\">" + set.title + "</a>");
+                    var idSet = set.id;
+                    var urlSet = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" + api_key + "&photoset_id=" + idSet + "&format=json&nojsoncallback=1";
+                    console.log(set);
+                    $('#sets').append("<a href=\"#\" class=\"list-group-item\">" + set.title + "</a>"+ "\n" +"<input type=\"checkbox\" name=\"lista\">");
+                    //$("#addSet").append("<button class=\"margin\" id=\"add-images\" onclick=\"addImages2(" + idSet+");\">Añadir a  la lista</button>");
                 });
             } else {
                 $('#sets').append("<a href=\"#\" class=\"list-group-item\">No está en ningún album</a>");
             }
             if(data.pool){
                 $.each(data.pool, function (i, pool) {
-                    $('#pools').append("<a href=\"#\" class=\"list-group-item\">" + pool.title + "</a>");
+                    $('#pools').append("<a href=\"#\" class=\"list-group-item\">" + pool.title + "</a>"+ "\n" +"<input type=\"checkbox\" name=\"lista\">");
                 });
             } else {
                 $('#pools').append("<a href=\"#\" class=\"list-group-item\">No está en ningún grupo</a>");
@@ -43,7 +47,7 @@ $(document).ready(function () {
     $.getJSON(url_galleries, function (data) {
         if(data.galleries.total!=0) {
             $.each(data.galleries.gallery, function (i, gallery) {
-                $('#galleries').append("<a href=\"#\" class=\"list-group-item\">" + gallery.title._content + "</a>");
+                $('#galleries').append("<a href=\"#\" class=\"list-group-item\">" + gallery.title._content + "</a>"+ "\n" +"<input type=\"checkbox\" name=\"lista\">");
             });
         } else {
             $('#galleries').append("<a href=\"#\" class=\"list-group-item\">No está en ninguna galleria</a>");
