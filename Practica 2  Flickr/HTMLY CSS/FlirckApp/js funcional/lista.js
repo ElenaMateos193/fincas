@@ -1,19 +1,19 @@
 var listImages = [];
-console.log("Entro en el js por lo menos");
 
 function addImages() {
-    console.log("Entro en el js por lo menos 2");
     var elements = document.getElementsByClassName("listImage");
     var checkeds = document.getElementsByName("lista");
     var i;
     var pos=0;
     for (i = 0; i < elements.length; i++) {
         if (checkeds[i].checked) {
-            console.log("if");
             listImages.push(elements[i].src);
-            console.log(elements[i].src);
+            var elems= listImages[pos].split('/');
+            var variables= elems[4].split('_');
+            var id= variables[0];
+            var secret= variables[1];
             console.log(listImages[pos]);
-            $('#content').append('<h5><a href="'+ listImages[pos]+ '">Imagen</a></h5>' + '\n');
+            $('#content').append("<h5><a  id=\"enlace\" onclick=\"showDetails(\'" + id + "\', \'" + secret + "\');\">Imagen</a></h5>" + '\n');
             pos++;
         }
 
