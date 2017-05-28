@@ -1,6 +1,7 @@
 var textoABuscar;
 var text;
 var listaPhoto = [];
+var cont;
 
 function crearPhotoBusqueda(url, m, i, s) {
     var Photo = {
@@ -158,6 +159,8 @@ function searchPhotosAux(text) {
 }
 
 function apiPhotos(textoABuscar) {
+    listaPhoto = [];
+    listaPhoto.length = 0;
 
     saveText(textoABuscar);
 
@@ -172,17 +175,37 @@ function apiPhotos(textoABuscar) {
             var aux = crearPhotoBusqueda(url_img, msg, id, secret);
             listaPhoto.push(aux);
         });
-        
+
         var j;
-        for (j = 0; j < listaPhoto.length; j++) {
+        for (j = 0;
+            ((j < listaPhoto.length) && (j < 10)); j++) {
             var html = getHtml(listaPhoto[j].url_img, listaPhoto[j].msg, listaPhoto[j].id, listaPhoto[j].secret);
 
             $('#muro').append(html);
 
+        }        
+        cont = 1;
+        $('#previous').addClass('disabled');
+        $('#next').removeClass('disabled');
+        $('#pre').text("");
+        $('#now').text("1");
+        if(listaPhoto.length > 10){
+            $('#pos').text(cont + 1);
         }
-        
-        listaPhoto=[];
-        listaPhoto.length=0;
-        
+
     });
+}
+function previous() {}
+
+function next() {
+    $('#previous').removeClass('disabled');
+    cont++;
+    $('#pre').text(cont - 1);
+    $('#now').text(cont);
+    if (list.length > (cont*10)) {
+        $('#pos').text(cont + 1);
+    }else{
+        $('#pos').text("");
+        $('#next').addClass('disabled');
+    }
 }

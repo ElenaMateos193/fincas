@@ -2,6 +2,7 @@ var id;
 var secret;
 var url_img;
 var list = [];
+var cont;
 
 function crearPhoto(url, m, i, s) {
     var Photo = {
@@ -11,7 +12,7 @@ function crearPhoto(url, m, i, s) {
         secret: s,
         toString: function () {}
     };
-    
+
     return Photo;
 }
 
@@ -30,6 +31,21 @@ function getHtmlInit(url_img, msg, id, secret) {
         "</li>";
     return html;
 }
+
+function previous() {}
+
+function next() {
+    $('#previous').removeClass('disabled');
+    cont++;
+    $('#pre').text(cont - 1);
+    $('#now').text(cont);
+    if (list.length > (cont*10)) {
+        $('#pos').text(cont + 1);
+    }else{
+        $('#pos').text("");
+        $('#next').addClass('disabled');
+    }
+}
 $(document).ready(function () {
 
     var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + api_key + "&text=" + "flowers" + "&format=json&nojsoncallback=1";
@@ -44,10 +60,18 @@ $(document).ready(function () {
 
         });
         var i;
-        for (i = 0; i < list.length; i++) {
+        for (i = 0;
+            ((i < list.length) && (i < 10)); i++) {
             var html = getHtmlInit(list[i].url_img, list[i].msg, list[i].id, list[i].secret);
             $('#muro').append(html);
 
+        }
+        cont = 1;
+        $('#previous').addClass('disabled');
+        $('#next').removeClass('disabled');
+        $('#now').text(cont);
+        if (list.length > 10) {
+            $('#pos').text(cont + 1);
         }
     });
 
@@ -64,5 +88,12 @@ $(document).ready(function () {
     $('#back').click(function (event) {
         event.preventDefault();
     });
+    $('#previous').click(function (event) {
+        event.preventDefault();
+    });
+    $('#next').click(function (event) {
+        event.preventDefault();
+    });
+
 
 });

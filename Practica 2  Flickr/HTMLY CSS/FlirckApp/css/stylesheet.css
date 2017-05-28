@@ -15,3 +15,15 @@
 .tamanio {
     width: 900px;
 }
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+.text {
+    
+    font-size: 20px;
+    font-weight: 500;
+}
