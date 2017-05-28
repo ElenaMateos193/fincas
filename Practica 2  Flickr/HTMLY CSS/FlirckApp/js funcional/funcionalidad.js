@@ -1,6 +1,19 @@
 var id;
 var secret;
 var url_img;
+var list = [];
+
+function crearPhoto(url, m, i, s) {
+    var Photo = {
+        url_img: url,
+        msg: m,
+        id: i,
+        secret: s,
+        toString: function () {}
+    };
+    
+    return Photo;
+}
 
 function getHtmlInit(url_img, msg, id, secret) {
     var html = "<li class=\"masonry-item grid foto\">" + "\n" +
@@ -26,10 +39,16 @@ $(document).ready(function () {
             id = photo.id;
             secret = photo.secret;
             url_img = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_h.jpg";
-            var html = getHtmlInit(url_img, msg, id, secret);
-            
-            $('#muro').append(html);
+            var aux = crearPhoto(url_img, msg, id, secret);
+            list.push(aux);
+
         });
+        var i;
+        for (i = 0; i < list.length; i++) {
+            var html = getHtmlInit(list[i].url_img, list[i].msg, list[i].id, list[i].secret);
+            $('#muro').append(html);
+
+        }
     });
 
     $('#enviarBoton').click(function (event) {

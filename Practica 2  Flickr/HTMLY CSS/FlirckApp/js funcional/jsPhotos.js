@@ -1,5 +1,18 @@
 var textoABuscar;
 var text;
+var listaPhoto = [];
+
+function crearPhotoBusqueda(url, m, i, s) {
+    var Photo = {
+        url_img: url,
+        msg: m,
+        id: i,
+        secret: s,
+        toString: function () {}
+    };
+
+    return Photo;
+}
 
 function getHtml(url_img, msg, id, secret) {
     var html = "<li class=\"masonry-item grid foto\">" + "\n" +
@@ -16,7 +29,7 @@ function getHtml(url_img, msg, id, secret) {
 }
 
 function getHtmlDetails() {
-    var html = "<div id=\"destroy\">"+
+    var html = "<div id=\"destroy\">" +
         "<button id=\"back\" type=\"submit\" onclick=\"restaurar();\">Atrás</button>" +
         "<div class=\"wrapper-inner\">" +
         "<figure class=\"details-image\" id=\"selectedImg\">" +
@@ -51,22 +64,22 @@ function getHtmlDetails() {
         "<div class=\"list-group\" id=\"galleries\"></div>" +
         "</div>" +
         "</div>" +
-        "</div>"+
+        "</div>" +
         "</div>";
 
     return html;
 }
 
 function restaurar() {
-    if(text!== undefined){
+    if (text !== undefined) {
         searchPhotosAux(text);
-    }else{
+    } else {
         searchPhotosAux("flowers");
     }
 }
 
-function saveText(textx){
-    text=textx;
+function saveText(textx) {
+    text = textx;
 }
 
 function showDetails(id, secret) {
@@ -138,14 +151,14 @@ function searchPhotos() {
 
 }
 
-function searchPhotosAux(text){
+function searchPhotosAux(text) {
     $('#destroy').remove();
 
     apiPhotos(text);
 }
 
 function apiPhotos(textoABuscar) {
-    
+
     saveText(textoABuscar);
 
     var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + api_key + "&text=" + textoABuscar + "&format=json&nojsoncallback=1";
@@ -156,9 +169,20 @@ function apiPhotos(textoABuscar) {
             id = photo.id;
             secret = photo.secret;
             url_img = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_h.jpg";
-            var html = getHtml(url_img, msg, id, secret);
+            var aux = crearPhotoBusqueda(url_img, msg, id, secret);
+            listaPhoto.push(aux);
+        });
+        
+        var j;
+        for (j = 0; j < listaPhoto.length; j++) {
+            var html = getHtml(listaPhoto[j].url_img, listaPhoto[j].msg, listaPhoto[j].id, listaPhoto[j].secret);
 
             $('#muro').append(html);
-        });
+
+        }
+        
+        listaPhoto=[];
+        listaPhoto.length=0;
+        
     });
 }
