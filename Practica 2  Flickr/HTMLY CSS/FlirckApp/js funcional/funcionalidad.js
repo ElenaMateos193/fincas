@@ -32,19 +32,12 @@ function getHtmlInit(url_img, msg, id, secret) {
     return html;
 }
 
-function previous() {}
-
-function next() {
-    $('#previous').removeClass('disabled');
-    cont++;
-    $('#pre').text(cont - 1);
-    $('#now').text(cont);
-    if (list.length > (cont*10)) {
-        $('#pos').text(cont + 1);
-    }else{
-        $('#pos').text("");
-        $('#next').addClass('disabled');
-    }
+function navigate(pos) {
+    var elem = document.getElementById(cont - 1);
+    elem.removeAttribute("class");
+    var e = document.getElementById(pos);
+    e.className = "selected";
+    cont = pos + 1;
 }
 $(document).ready(function () {
 
@@ -60,19 +53,26 @@ $(document).ready(function () {
 
         });
         var i;
-        for (i = 0;
-            ((i < list.length) && (i < 10)); i++) {
+        for (i = 0; ((i < list.length) && (i < 10)); i++) {
             var html = getHtmlInit(list[i].url_img, list[i].msg, list[i].id, list[i].secret);
             $('#muro').append(html);
 
         }
+        
         cont = 1;
-        $('#previous').addClass('disabled');
-        $('#next').removeClass('disabled');
-        $('#now').text(cont);
-        if (list.length > 10) {
-            $('#pos').text(cont + 1);
+        var pos;
+        if ((list.length % 10) === 0) {
+            pos = (list.length / 10);
+        } else {
+            pos = Math.trunc(list.length / 10) + 1;
         }
+        var x;
+        var sum;
+        for (x = 0; x < pos; x++) {
+            sum = x + 1;
+            $('#pag').append("<li><a id=\"" + x + "\" onclick=\"navigate(" + x + ");\">" + sum + "</a></li>");
+        }
+        $('#0').addClass('selected');
     });
 
     $('#enviarBoton').click(function (event) {
@@ -86,12 +86,6 @@ $(document).ready(function () {
         e.preventDefault();
     });
     $('#back').click(function (event) {
-        event.preventDefault();
-    });
-    $('#previous').click(function (event) {
-        event.preventDefault();
-    });
-    $('#next').click(function (event) {
         event.preventDefault();
     });
 

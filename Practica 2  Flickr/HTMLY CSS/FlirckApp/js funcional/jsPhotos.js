@@ -150,6 +150,7 @@ function searchPhotos() {
 
     apiPhotos(textoABuscar);
 
+
 }
 
 function searchPhotosAux(text) {
@@ -183,29 +184,19 @@ function apiPhotos(textoABuscar) {
 
             $('#muro').append(html);
 
-        }        
-        cont = 1;
-        $('#previous').addClass('disabled');
-        $('#next').removeClass('disabled');
-        $('#pre').text("");
-        $('#now').text("1");
-        if(listaPhoto.length > 10){
-            $('#pos').text(cont + 1);
         }
+        cont = 1;
+        var elem = document.getElementsByClassName("selected");
+        elem[0].removeAttribute("class");        
+        $('#0').addClass('selected');
 
     });
 }
-function previous() {}
 
-function next() {
-    $('#previous').removeClass('disabled');
-    cont++;
-    $('#pre').text(cont - 1);
-    $('#now').text(cont);
-    if (list.length > (cont*10)) {
-        $('#pos').text(cont + 1);
-    }else{
-        $('#pos').text("");
-        $('#next').addClass('disabled');
-    }
+function navigate(pos) {
+    var elem = document.getElementById(cont - 1);
+    elem.removeAttribute("class");
+    var e = document.getElementById(pos);
+    e.className = "selected";
+    cont = pos + 1;
 }
