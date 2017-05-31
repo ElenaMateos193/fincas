@@ -17,17 +17,15 @@ function crearPhoto(url, m, i, s) {
 }
 
 function getHtmlInit(url_img, msg, id, secret) {
-    var html = "<li class=\"masonry-item grid foto\">" + "\n" +
-        "<div class=\"listItem\">" + "\n" +
+    var html = "<li style=\"width:378px;height:300px\" class=\"masonry-item grid foto\">" + "\n" +
         "<input type=\"checkbox\" name=\"lista\">" + "\n" +
         "<figure class=\"effect-sarah\">" + "\n" +
-        "<img class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n" +
+        "<img class=\"listImage\" style=\"width:378px\" src= \"" + url_img + "\"alt=\"\" />" + "\n" +
         "<figcaption>" + "\n" +
         "<h2>" + msg.substring(0, 30) + " ..." + "</h2>" + "\n" +
         "<a id=\"enlace\" onclick=\"showDetails(\'" + id + "\', \'" + secret + "\');\">View more</a>" + "\n" +
         "</figcaption>" + "\n" +
         "</figure>" + "\n" +
-        "</div>" + "\n" +
         "</li>";
     return html;
 }
