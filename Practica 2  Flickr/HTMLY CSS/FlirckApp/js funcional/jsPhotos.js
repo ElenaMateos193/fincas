@@ -160,8 +160,8 @@ function searchPhotosAux(text) {
 }
 
 function apiPhotos(textoABuscar) {
-    listaPhoto = [];
-    listaPhoto.length = 0;
+    list = [];
+    list.length = 0;
 
     saveText(textoABuscar);
 
@@ -174,13 +174,12 @@ function apiPhotos(textoABuscar) {
             secret = photo.secret;
             url_img = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_h.jpg";
             var aux = crearPhotoBusqueda(url_img, msg, id, secret);
-            listaPhoto.push(aux);
+            list.push(aux);
         });
 
         var j;
-        for (j = 0;
-            ((j < listaPhoto.length) && (j < 10)); j++) {
-            var html = getHtml(listaPhoto[j].url_img, listaPhoto[j].msg, listaPhoto[j].id, listaPhoto[j].secret);
+        for (j = 0; ((j < list.length) && (j < 10)); j++) {
+            var html = getHtml(list[j].url_img, list[j].msg, list[j].id, list[j].secret);
 
             $('#muro').append(html);
 
@@ -193,10 +192,10 @@ function apiPhotos(textoABuscar) {
     });
 }
 
-function navigate(pos) {
+/*function navigate(pos) {
     var elem = document.getElementById(cont - 1);
     elem.removeAttribute("class");
     var e = document.getElementById(pos);
     e.className = "selected";
     cont = pos + 1;
-}
+}*/

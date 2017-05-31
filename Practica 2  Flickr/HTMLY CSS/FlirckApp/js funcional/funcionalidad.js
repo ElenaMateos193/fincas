@@ -29,12 +29,20 @@ function getHtmlInit(url_img, msg, id, secret) {
         "</li>";
     return html;
 }
-
 function navigate(pos) {
     var elem = document.getElementById(cont - 1);
     elem.removeAttribute("class");
     var e = document.getElementById(pos);
     e.className = "selected";
+    $(".foto").remove();
+    var i;
+    for (i = (pos * 10 + 1); (i <= ((pos + 1) * 10)); i++) {
+        var html = getHtmlInit(list[i].url_img, list[i].msg, list[i].id, list[i].secret);
+        $('#muro').append(html);
+
+    }
+
+
     cont = pos + 1;
 }
 $(document).ready(function () {
@@ -56,7 +64,7 @@ $(document).ready(function () {
             $('#muro').append(html);
 
         }
-        
+
         cont = 1;
         var pos;
         if ((list.length % 10) === 0) {
