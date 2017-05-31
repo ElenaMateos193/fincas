@@ -29,3 +29,14 @@
     cursor: default;
     opacity: 0.6;
 }
+.addToList{    
+    float: right;
+    margin: 10px;
+    background-color: white;    
+    border: 1px solid #9c9b9b;
+    border-radius: 5px;
+}
+.addToList:hover{
+    background-color: #ddd;
+    border-color: #828282;
+}

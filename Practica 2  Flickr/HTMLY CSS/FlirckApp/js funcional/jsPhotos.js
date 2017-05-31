@@ -16,8 +16,7 @@ function crearPhotoBusqueda(url, m, i, s) {
 }
 
 function getHtml(url_img, msg, id, secret) {
-    var html = "<li style=\"width:378px;height:300px\" class=\"masonry-item grid foto\">" + "\n" +
-        "<input type=\"checkbox\" class=\"listItem\" name=\"lista\">" + "\n" +
+    var html = "<li style=\"width:378px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
         "<figure class=\"effect-sarah\">" + "\n" +
         "<img style=\"width:378px\" class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n" +
         "<figcaption>" + "\n" +
@@ -25,7 +24,7 @@ function getHtml(url_img, msg, id, secret) {
         "<a id=\"enlace\" onclick=\"showDetails(\'" + id + "\', \'" + secret + "\');\">View more</a>" + "\n" +
         "</figcaption>" + "\n" +
         "</figure>" + "\n" +
-        "</li>";
+        "<button class=\"addToList listItem\" name=\"lista\">Añadir</button></li>";
     return html;
 }
 
