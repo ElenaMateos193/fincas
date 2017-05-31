@@ -191,10 +191,38 @@ function apiPhotos(textoABuscar) {
     });
 }
 
-/*function navigate(pos) {
-    var elem = document.getElementById(cont - 1);
-    elem.removeAttribute("class");
-    var e = document.getElementById(pos);
-    e.className = "selected";
-    cont = pos + 1;
-}*/
+function listaDeFotos() {
+    $(".foto").remove();
+    $('#index').removeClass("active");
+    $('#listaDeAlbum').removeClass("active");
+    $('#listaDeGrupo').removeClass("active");
+    $('#listaDeGaleria').removeClass("active");
+    $('#listaDeFotos').addClass("active");
+}
+
+function listaDeAlbum() {
+    $(".foto").remove();
+    $('#index').removeClass("active");
+    $('#listaDeFotos').removeClass("active");
+    $('#listaDeGrupo').removeClass("active");
+    $('#listaDeGaleria').removeClass("active");
+    $('#listaDeAlbum').addClass("active");
+}
+
+function listaDeGrupo() {
+    $(".foto").remove();
+    $('#index').removeClass("active");
+    $('#listaDeFotos').removeClass("active");
+    $('#listaDeAlbum').removeClass("active");
+    $('#listaDeGaleria').removeClass("active");
+    $('#listaDeGrupo').addClass("active");
+}
+
+function listaDeGaleria() {
+    $(".foto").remove();
+    $('#index').removeClass("active");
+    $('#listaDeFotos').removeClass("active");
+    $('#listaDeAlbum').removeClass("active");
+    $('#listaDeGrupo').removeClass("active");
+    $('#listaDeGaleria').addClass("active");
+}
