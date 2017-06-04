@@ -40,3 +40,38 @@
     background-color: #ddd;
     border-color: #828282;
 }
+.border{    
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.buttonClear{
+    margin: 100px;
+    float: right;
+    font-size: large;
+    background-color: white;    
+    border: 1px solid #9c9b9b;
+    border-radius: 5px;    
+}
+.buttonClear:hover{
+    background-color: #ddd;
+    border-color: #828282;    
+}
+
+.buttonBack{    
+    float: left;
+    margin: 10px;
+    background-color: white;    
+    border: 1px solid #9c9b9b;
+    border-radius: 5px;
+    font-size: large;
+    
+}
+.buttonBack:hover{
+    background-color: #ddd;
+    border-color: #828282;    
+}
+
+.esconder{
+    visibility: hidden;
+}

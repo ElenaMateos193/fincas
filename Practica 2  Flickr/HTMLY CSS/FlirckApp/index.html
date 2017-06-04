@@ -102,18 +102,15 @@
 
     <!-- header -->
     <main class="main-wrapper" id="container">
-
-        <div class="centrado">
-            <h5>Lista: Seleccione las fotos que quiere añadir a su lista y pulse el boton </h5>
-            <div id="content">
-
-            </div>
-            <button class="margin" id="add-images" onclick="addImages();">Añadir a  la lista</button>
+        <div class="alert alert-info alert-dismissible border" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Info!</strong> Para ver las listas de fotos, albunes, grupos y galerias vaya al menu de la esquina derecha superior.
         </div>
-        <nav class="centrado" aria-label="Page navigation">
+        <nav id="paginas" class="centrado" aria-label="Page navigation">
             <ul id="pag" class="pagination">
             </ul>
         </nav>
+        <div id="back"><button id="back" class="buttonBack" type="submit" onclick="restaurar();">Atrás</button></div>
         <div class="wrapper">
             <div id="details">
             </div>
@@ -123,7 +120,9 @@
                 </ul>
             </div>
         </div>
+        <div id="eliminar"><button class="buttonClear" onclick="limpiar();">Limpiar lista</button></div>
     </main>
+    
     <!-- Image Gallery -->
     <!-- footer -->
 
