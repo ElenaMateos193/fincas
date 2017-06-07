@@ -29,12 +29,11 @@ function getHtml(url_img, msg, id, secret, i) {
 
 //Me devuelve un string con el código html que tenemos que poner para ver los detalles de la foto pulsada
 function getHtmlDetails() {
-    var html = "<div id=\"destroy\">" +
-        "<button id=\"back\" class=\"buttonBack\" type=\"submit\" onclick=\"restaurar();\">Atrás</button>" +
-        "<div class=\"wrapper-inner\">" +
+    var html = "<div id=\"destroy\">" + "<button id=\"back\" class=\"buttonBack\" type=\"submit\" onclick=\"restaurar();\">Atrás</button>" +
+        "<div>" +
         "<figure class=\"details-image\" id=\"selectedImg\">" +
         "</figure>" +
-        "<div class=\"details-content\">" +
+        "<div class=\"contents\">" +
         "<section class=\"inner-left\">" +
         "<header>" +
         "<h3 id=\"date\"></h3>" +
@@ -45,20 +44,20 @@ function getHtmlDetails() {
         "<section class=\"inner-right\" id=\"title\">" +
         "</section>" +
         "</div>" +
-        "<div class=\"panel panel-default\">" +
+        "<div class=\"panel panel-default panels\">" +
         "<div class=\"panel-heading\">Albums</div>" +
         "<div class=\"panel-body\">" +
         "<div class=\"list-group\" id=\"sets\"></div>" +
         "</div>" +
         "</div>" +
-        "<div class=\"panel panel-default\">" +
+        "<div class=\"panel panel-default panels\">" +
         "<div class=\"panel-heading\">Grupos</div>" +
         "<div class=\"panel-body\">" +
         "<div class=\"list-group\" id=\"pools\">" +
         "</div>" +
         "</div>" +
         "</div>" +
-        "<div class=\"panel panel-default\">" +
+        "<div class=\"panel panel-default panels\">" +
         "<div class=\"panel-heading\">Galerías</div>" +
         "<div class=\"panel-body\">" +
         "<div class=\"list-group\" id=\"galleries\"></div>" +
@@ -66,13 +65,14 @@ function getHtmlDetails() {
         "</div>" +
         "</div>" +
         "</div>";
-
+    
     return html;
 }
 
 //Cuando se pulse a un botón que pongá atrás me restaurará la información de búsqueda (ya sean las flores por defecto o la busqueda nuestra) empezando desde la página 1
 function restaurar() {
     $('#eliminar').addClass("esconder");
+    $('#paginas').removeClass("esconder");
     $('#back').addClass("esconder");
     $(".foto").remove();
     
@@ -97,6 +97,7 @@ function saveText(textx) {
 function showDetails(id, secret) {
 
     $(".foto").remove();
+    $('#paginas').addClass("esconder");
     $('#eliminar').addClass("esconder");
     $('#back').addClass("esconder");
     $('#destroy').remove();

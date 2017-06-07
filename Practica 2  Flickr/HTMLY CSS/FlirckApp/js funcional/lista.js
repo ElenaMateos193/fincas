@@ -15,12 +15,20 @@ function getHtmlListaFotos(url_img, msg, id, secret, i) {
 }
 //Nos elimina una imagen de la lista de fotos seleccionadas
 function removeImages(x) {
-    listImages.splice(x,1);
+    listImages.splice(x, 1);
     console.log(listImages.length);
     listaFotosAux();
 }
+function restaurarList() {
+    $('#eliminar').addClass("esconder");
+    $('#paginas').removeClass("esconder");
+    $('#back').addClass("esconder");
+    $(".foto").remove();
+        
+    listaFotosAux();
+}
 //Nos ayuda a mostrar las fotos de la lista una vez eliminada solamente una foto
-function listaFotosAux() {    
+function listaFotosAux() {
     $(".foto").remove();
     var j;
     for (j = 0; j < listImages.length; j++) {
@@ -44,6 +52,7 @@ function limpiar() {
 //Me muestra todas la imágenes que hemos guardado en la lista de fotos
 function listaDeFotos() {
     $(".foto").remove();
+    $('#paginas').addClass("esconder");
     $('#eliminar').removeClass("esconder");
     $('#back').removeClass("esconder");
     
@@ -64,6 +73,7 @@ function listaDeFotos() {
 
 function listaDeAlbum() {
     $(".foto").remove();
+    $('#paginas').addClass("esconder");
     $('#eliminar').removeClass("esconder");
     $('#back').removeClass("esconder");
     $('#index').removeClass("active");
@@ -75,6 +85,7 @@ function listaDeAlbum() {
 
 function listaDeGrupo() {
     $(".foto").remove();
+    $('#paginas').addClass("esconder");
     $('#eliminar').removeClass("esconder");
     $('#back').removeClass("esconder");
     $('#index').removeClass("active");
@@ -86,6 +97,7 @@ function listaDeGrupo() {
 
 function listaDeGaleria() {
     $(".foto").remove();
+    $('#paginas').addClass("esconder");
     $('#eliminar').removeClass("esconder");
     $('#back').removeClass("esconder");
     $('#index').removeClass("active");
