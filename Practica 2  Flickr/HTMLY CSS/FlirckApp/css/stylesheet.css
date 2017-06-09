@@ -86,3 +86,22 @@
     margin: 10px;
     width: 750px;
 }
+.scroll{
+    overflow-y: scroll;
+    height: 200px;
+}
+.scroll2{
+    overflow-y: scroll;
+    height: 400px;
+    width: 800px;
+}
+.addTo{    
+    float: right;
+    background-color: white;    
+    border: 1px solid #9c9b9b;
+    border-radius: 5px;
+}
+.addTo:hover{
+    background-color: #ddd;
+    border-color: #828282;
+}

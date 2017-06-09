@@ -1,4 +1,5 @@
 var listImages = [];
+var listaGalleria = [];
 var pos = 0;
 
 function getHtmlListaFotos(url_img, msg, id, secret, i) {
@@ -13,11 +14,29 @@ function getHtmlListaFotos(url_img, msg, id, secret, i) {
         "<button id=\"button" + i + "\" class=\"addToList\" onclick=\"removeImages(" + i + ");\">Eliminar</button></li>";
     return html;
 }
+function getHtmlListaGalerias(url_img, id, title, i) {
+    var html = "<li style=\"width:378px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
+        "<figure class=\"effect-sarah\">" + "\n" +
+        "<img style=\"width:378px\" class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n" +
+        "<figcaption>" + "\n" +
+        "<h2>" + title.substring(0, 30) + " ..." + "</h2>" + "\n" +
+        "<a id=\"enlace\" onclick=\"showDetailsGallery(\'" + id + "\');\">View more</a>" + "\n" +
+        "</figcaption>" + "\n" +
+        "</figure>" + "\n" +
+        "<button id=\"buttonGalleryRemove" + i + "\" class=\"addToList\" onclick=\"removeGallery(" + i + ");\">Eliminar</button></li>";
+    return html;
+}
+
 //Nos elimina una imagen de la lista de fotos seleccionadas
 function removeImages(x) {
     listImages.splice(x, 1);
     console.log(listImages.length);
     listaFotosAux();
+}
+//Nos elimina una galeria de la lista de galerias seleccionadas
+function removeGallery(x) {
+    listaGalleria.splice(x, 1);
+    listaGalleriesAux();
 }
 function restaurarList() {
     $('#eliminar').addClass("esconder");
@@ -36,6 +55,22 @@ function listaFotosAux() {
 
         $('#muro').append(html);
     }    
+}
+//Nos ayuda a mostrar las galerias de la lista una vez eliminada solamente una galeria
+function listaGalleriesAux() {
+    $(".foto").remove();
+    var j;
+    for (j = 0; j < listImages.length; j++) {
+        var html = getHtmlListaGalerias(listaGalleria[j].url_img, listaGalleria[j].id, listaGalleria[j].title, j);
+
+        $('#muro').append(html);
+    }    
+}
+//Me añade galerias a la lista de galerias
+function addGalleries(x) {
+    listaGalleria.push(listGallery[x]);
+    $('#buttonGallery' + x).addClass("selected");
+    $('#badgeGaleria').text(listGallery.length);
 }
 //Me añade imágenes a la lista de fotos
 function addImages(x) {
@@ -64,7 +99,7 @@ function listaDeFotos() {
     $('#listaDeFotos').addClass("active");
     
     var j;
-    for (j = 0; ((j < listImages.length) && (j < 10)); j++) {
+    for (j = 0; j < listImages.length; j++) {
         var html = getHtmlListaFotos(listImages[j].url_img, listImages[j].msg, listImages[j].id, listImages[j].secret, j);
 
         $('#muro').append(html);
@@ -97,12 +132,22 @@ function listaDeGrupo() {
 
 function listaDeGaleria() {
     $(".foto").remove();
+    $('#destroy').remove();
     $('#paginas').addClass("esconder");
     $('#eliminar').removeClass("esconder");
     $('#back').removeClass("esconder");
+    
     $('#index').removeClass("active");
     $('#listaDeFotos').removeClass("active");
     $('#listaDeAlbum').removeClass("active");
     $('#listaDeGrupo').removeClass("active");
     $('#listaDeGaleria').addClass("active");
+    
+    var j;
+    for (j = 0; j < listaGalleria.length; j++) {
+        var html = getHtmlListaGalerias(listaGalleria[j].url_img, listaGalleria[j].id, listaGalleria[j].title, j);
+
+        $('#muro').append(html);
+    }
+    
 }

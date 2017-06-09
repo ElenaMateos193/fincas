@@ -1,6 +1,18 @@
 var textoABuscar;
 var text;
 var cont;
+var listGallery = [];
+
+function crearGallery(url, i, t) {
+    var Gallery = {
+        url_img: url,
+        id: i,
+        title: t,
+        toString: function () {}
+    };
+
+    return Gallery;
+}
 
 function crearPhotoBusqueda(url, m, i, s) {
     var Photo = {
@@ -41,10 +53,13 @@ function getHtmlDetails() {
         "<h5 id=\"alias\"></h5>" +
         "</header>" +
         "</section>" +
-        "<section class=\"inner-right\" id=\"title\">" +
+        "<div class=\"scroll\"><section class=\"inner-right\" id=\"title\">" +
         "</section>" +
+        "<br/>" +
+        "<section class=\"inner-right\" id=\"description\">" +
+        "</section></div>" +
         "</div>" +
-        "<div class=\"panel panel-default panels\">" +
+        "<div class=\"panels scroll2\"><div class=\"panel panel-default panels\">" +
         "<div class=\"panel-heading\">Albums</div>" +
         "<div class=\"panel-body\">" +
         "<div class=\"list-group\" id=\"sets\"></div>" +
@@ -62,10 +77,10 @@ function getHtmlDetails() {
         "<div class=\"panel-body\">" +
         "<div class=\"list-group\" id=\"galleries\"></div>" +
         "</div>" +
-        "</div>" +
+        "</div></div>" +
         "</div>" +
         "</div>";
-    
+
     return html;
 }
 
@@ -75,13 +90,13 @@ function restaurar() {
     $('#paginas').removeClass("esconder");
     $('#back').addClass("esconder");
     $(".foto").remove();
-    
+
     $('#index').addClass("active");
     $('#listaDeAlbum').removeClass("active");
     $('#listaDeGrupo').removeClass("active");
     $('#listaDeGaleria').removeClass("active");
     $('#listaDeFotos').removeClass("active");
-    
+
     if (text !== undefined) {
         searchPhotosAux(text);
     } else {
@@ -122,7 +137,8 @@ function chargeDetails(id, secret) {
         $('#date').append(data.photo.dates.taken);
         $('#realName').append(data.photo.owner.realname);
         $('#alias').append("Alias: " + data.photo.owner.path_alias);
-        $('#title').append("<p>" + data.photo.title._content + "</p>");
+        $('#title').append("Title:<p>" + data.photo.title._content + "</p>");
+        $('#description').append("Description:<p>" + data.photo.description._content + "</p>");
     });
 
     var url_context = "https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key + "&photo_id=" + id + "&format=json&nojsoncallback=1";
@@ -144,15 +160,27 @@ function chargeDetails(id, secret) {
         }
     });
 
-    var url_galleries = "https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + id + "&format=json&nojsoncallback=1";
+    var url_galleries = "https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + "3448374524" + "&format=json&nojsoncallback=1";
 
     $.getJSON(url_galleries, function (data) {
         if (data.galleries.total != 0) {
             $.each(data.galleries.gallery, function (i, gallery) {
-                $('#galleries').append("<a href=\"#\" class=\"list-group-item\">" + gallery.title._content + "</a>");
+                var url = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=" + api_key + "&photo_id=" +  gallery.primary_photo_id + "&format=json&nojsoncallback=1";
+                var urlAux;
+                $.getJSON(url, function (data) {
+                    urlAux = "https://farm" + data.photo.farm + ".staticflickr.com/" + data.photo.server + "/" + data.photo.id + "_" + data.photo.secret + "_h.jpg";
+                });
+                var aux = crearGallery(urlAux, gallery.id, gallery.title._content);
+                console.log(urlAux);
+                listGallery.push(aux);
             });
         } else {
             $('#galleries').append("<a href=\"#\" class=\"list-group-item\">No está en ninguna galleria</a>");
+        }
+    
+        var z;
+        for (z = 0; z < listGallery.length; z++){
+                $('#galleries').append("<p class=\"list-group-item\">" + listGallery[z].title + "<button id=\"buttonGallery" + z + "\" class=\"addTo\" onclick=\"addGalleries(" + z + ");\">Añadir</button></p>");
         }
     });
 }
@@ -207,7 +235,7 @@ function apiPhotos(textoABuscar) {
         }
         cont = 1;
         var elem = document.getElementsByClassName("selected");
-        elem[0].removeAttribute("class");        
+        elem[0].removeAttribute("class");
         $('#0').addClass('selected');
 
     });
