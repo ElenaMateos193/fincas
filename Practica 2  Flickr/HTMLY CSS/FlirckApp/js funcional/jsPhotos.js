@@ -3,9 +3,8 @@ var text;
 var cont;
 var listGallery = [];
 
-function crearGallery(url, i, t) {
+function crearGallery(i, t) {
     var Gallery = {
-        url_img: url,
         id: i,
         title: t,
         toString: function () {}
@@ -110,7 +109,9 @@ function saveText(textx) {
 
 //Me muestra los detalles de una foto al pulsar sobre ella
 function showDetails(id, secret) {
-
+    listGallery=[];
+    listGallery.length=0;
+    
     $(".foto").remove();
     $('#paginas').addClass("esconder");
     $('#eliminar').addClass("esconder");
@@ -160,26 +161,20 @@ function chargeDetails(id, secret) {
         }
     });
 
-    var url_galleries = "https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + "3448374524" + "&format=json&nojsoncallback=1";
+    var url_galleries = "https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + id + "&format=json&nojsoncallback=1";
 
     $.getJSON(url_galleries, function (data) {
         if (data.galleries.total != 0) {
             $.each(data.galleries.gallery, function (i, gallery) {
-                var url = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=" + api_key + "&photo_id=" +  gallery.primary_photo_id + "&format=json&nojsoncallback=1";
-                var urlAux;
-                $.getJSON(url, function (data) {
-                    urlAux = "https://farm" + data.photo.farm + ".staticflickr.com/" + data.photo.server + "/" + data.photo.id + "_" + data.photo.secret + "_h.jpg";
-                });
-                var aux = crearGallery(urlAux, gallery.id, gallery.title._content);
-                console.log(urlAux);
+                var aux = crearGallery(gallery.id, gallery.title._content);
                 listGallery.push(aux);
             });
         } else {
-            $('#galleries').append("<a href=\"#\" class=\"list-group-item\">No está en ninguna galleria</a>");
+            $('#galleries').append("<p class=\"list-group-item\">No está en ninguna galleria</p>");
         }
     
         var z;
-        for (z = 0; z < listGallery.length; z++){
+        for (z = 0; z < listGallery.length; z++) {
                 $('#galleries').append("<p class=\"list-group-item\">" + listGallery[z].title + "<button id=\"buttonGallery" + z + "\" class=\"addTo\" onclick=\"addGalleries(" + z + ");\">Añadir</button></p>");
         }
     });
@@ -237,6 +232,8 @@ function apiPhotos(textoABuscar) {
         var elem = document.getElementsByClassName("selected");
         elem[0].removeAttribute("class");
         $('#0').addClass('selected');
+        $(".numeros").remove();
+        paginas();
 
     });
 }

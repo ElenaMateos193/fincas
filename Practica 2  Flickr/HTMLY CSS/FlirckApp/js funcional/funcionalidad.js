@@ -64,7 +64,7 @@ function paginas() {
         var sum;
         for (x = 0; x < pos; x++) {
             sum = x + 1;
-            $('#pag').append("<li><a id=\"" + x + "\" onclick=\"navigate(" + x + ");\">" + sum + "</a></li>");
+            $('#pag').append("<li class=\"numeros\"><a id=\"" + x + "\" onclick=\"navigate(" + x + ");\">" + sum + "</a></li>");
         }
     //Nos mantenemos en la página 1 por defecto y para ello le damos un estilo diferente al resto.
         $('#0').addClass('selected');
@@ -84,7 +84,6 @@ $(document).ready(function () {
             url_img = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_h.jpg";
             var aux = crearPhoto(url_img, msg, id, secret);
             list.push(aux);
-
         });
         //Cogemos cada una de las fotos guardada en la lista y las imprimimos de diez en diez
         var i;

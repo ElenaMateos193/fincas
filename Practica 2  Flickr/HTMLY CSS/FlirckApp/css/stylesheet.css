@@ -6,7 +6,9 @@
 .margin {
     margin-left: 10px;
 }
-
+.marginTop{
+    margin-top: 100px;
+}
 .tamanio {
     width: 900px;
 }
