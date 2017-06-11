@@ -47,7 +47,7 @@ function listaFotosAux() {
     $(".foto").remove();
     var j;
     for (j = 0; j < listImages.length; j++) {
-        var html = getHtmlListaFotos(listImages[j].msg, listImages[j].id, listImages[j].secret, j);
+        var html = getHtmlListaFotos(listImages[j].url_img, listImages[j].msg, listImages[j].id, listImages[j].secret, j);
 
         $('#muro').append(html);
     }
@@ -151,8 +151,47 @@ function listaDeGaleria() {
     $('#muro').append("</div>");
 
 }
+function paginasLista() {
+    //Organizaremos las páginas de 10 en 10. Cada número de la página será un enlace que me mostrará las 10 fotos correspondientes a esa sección. P.e si pulsamos el 1 se mostrarán de la foto 1 a la 10 y si pulsamos
+    //el 3 se mostrarán desde la foto 31 a la 40
+    c = 1;
+    var pos;
+    //Si tenemos un número multiplo de 10 entonces nos aseguramos que si tenemos 40 fotos solo haya botones del 1 al 3 pues el 3 me mostraría las fotos 31 y 40. Mientras que si el número no es múltiplo de 10 nos aseguramos
+    //que si ahi 31 fotos haya botones del 1 al 3 y no se quede en solo 2
+    if ((listImagesLists.length % 10) === 0) {
+        pos = (listImagesLists.length / 10);
+    } else {
+        pos = Math.trunc(listImagesLists.length / 10) + 1;
+    }
+    var x, sum;
+    for (x = 0; x < pos; x++) {
+        sum = x + 1;
+        $('#pag').append("<li><a id=\"" + x + "\" onclick=\"navigate(" + x + ");\">" + sum + "</a></li>");
+    }
+//Nos mantenemos en la página 1 por defecto y para ello le damos un estilo diferente al resto.
+    $('#0').addClass('selected');
+    
+}
+/*function navigate(pos) {
+    //Cada vez que se pulse una página se ejecuta este método que me cambiará las fotos de la página por las correspondientes a la página pulsada y me seleccionará el número pulsado para informarnos de la página
+    //en la que estamos
+    var elem = document.getElementById(c - 1);
+    elem.removeAttribute("class");
+    var e = document.getElementById(pos);
+    e.className = "selected";
+    $(".foto").remove();
+    $('#eliminar').addClass("esconder");
+    var f;
+    for (f = (pos * 10 + 1); (f <= ((pos + 1) * 10)); f++) {
+        var html = getHtml(listImagesLists[f].url_img, listImagesLists[f].msg, listImagesLists[f].id, listImagesLists[f].secret, f);
+        $('#muro').append(html);
 
-function showPhotos(id) {
+    }
+
+
+    c = pos + 1;
+}*/
+/*function showPhotos(id) {
     $(".foto").remove();
     $('#destroy').remove();
     $('#paginas').removeClass("esconder");
@@ -168,8 +207,8 @@ function showPhotos(id) {
             id = photo.id;
             secret = photo.secret;
             url_img = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_h.jpg";
-            var aux = crearPhoto(url_img, msg, id, secret);
-            listImagesLists.push(aux);
+            var auxp = crearPhoto(url_img, msg, id, secret);
+            listImagesLists.push(auxp);
 
         });
         //Cogemos cada una de las fotos guardada en la lista y las imprimimos de diez en diez
@@ -183,45 +222,5 @@ function showPhotos(id) {
         $(".numeros").remove();
         paginasLista();
     });
-}
-function paginasLista() {
-    //Organizaremos las páginas de 10 en 10. Cada número de la página será un enlace que me mostrará las 10 fotos correspondientes a esa sección. P.e si pulsamos el 1 se mostrarán de la foto 1 a la 10 y si pulsamos
-    //el 3 se mostrarán desde la foto 31 a la 40
-        c = 1;
-        var pos;
-    //Si tenemos un número multiplo de 10 entonces nos aseguramos que si tenemos 40 fotos solo haya botones del 1 al 3 pues el 3 me mostraría las fotos 31 y 40. Mientras que si el número no es múltiplo de 10 nos aseguramos
-    //que si ahi 31 fotos haya botones del 1 al 3 y no se quede en solo 2
-        if ((listImagesLists.length % 10) === 0) {
-            pos = (listImagesLists.length / 10);
-        } else {
-            pos = Math.trunc(listImagesLists.length / 10) + 1;
-        }
-        var x;
-        var sum;
-        for (x = 0; x < pos; x++) {
-            sum = x + 1;
-            $('#pag').append("<li><a id=\"" + x + "\" onclick=\"navigate(" + x + ");\">" + sum + "</a></li>");
-        }
-    //Nos mantenemos en la página 1 por defecto y para ello le damos un estilo diferente al resto.
-        $('#0').addClass('selected');
-    
-}
-function navigate(pos) {
-    //Cada vez que se pulse una página se ejecuta este método que me cambiará las fotos de la página por las correspondientes a la página pulsada y me seleccionará el número pulsado para informarnos de la página
-    //en la que estamos
-    var elem = document.getElementById(c - 1);
-    elem.removeAttribute("class");
-    var e = document.getElementById(pos);
-    e.className = "selected";
-    $(".foto").remove();
-    $('#eliminar').addClass("esconder");
-    var i;
-    for (i = (pos * 10 + 1); (i <= ((pos + 1) * 10)); i++) {
-        var html = getHtmlInit(listImagesLists[i].url_img, listImagesLists[i].msg, listImagesLists[i].id, listImagesLists[i].secret, i);
-        $('#muro').append(html);
+}*/
 
-    }
-
-
-    c = pos + 1;
-}
