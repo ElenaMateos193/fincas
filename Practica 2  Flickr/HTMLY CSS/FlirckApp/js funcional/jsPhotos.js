@@ -2,6 +2,8 @@ var textoABuscar;
 var text;
 var cont;
 var listGallery = [];
+var listAlbum = [];
+var listGroup = [];
 
 function crearGallery(i, t) {
     var Gallery = {
@@ -11,6 +13,24 @@ function crearGallery(i, t) {
     };
 
     return Gallery;
+}
+function crearAlbum(i, t) {
+    var Album = {
+        id: i,
+        title: t,
+        toString: function () {}
+    };
+
+    return Album;
+}
+function crearGrupo(i, t) {
+    var Grupo = {
+        id: i,
+        title: t,
+        toString: function () {}
+    };
+
+    return Grupo;
 }
 
 function crearPhotoBusqueda(url, m, i, s) {
@@ -26,7 +46,7 @@ function crearPhotoBusqueda(url, m, i, s) {
 }
 
 function getHtml(url_img, msg, id, secret, i) {
-    var html = "<li style=\"width:378px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
+    var html = "<li style=\"width:370px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
         "<figure class=\"effect-sarah\">" + "\n" +
         "<img style=\"width:378px\" class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n" +
         "<figcaption>" + "\n" +
@@ -89,6 +109,7 @@ function restaurar() {
     $('#paginas').removeClass("esconder");
     $('#back').addClass("esconder");
     $(".foto").remove();
+    $(".buttonRemove").remove();
 
     $('#index').addClass("active");
     $('#listaDeAlbum').removeClass("active");
@@ -109,14 +130,19 @@ function saveText(textx) {
 
 //Me muestra los detalles de una foto al pulsar sobre ella
 function showDetails(id, secret) {
-    listGallery=[];
-    listGallery.length=0;
+    listGallery = [];
+    listGallery.length = 0;
+    listAlbum = [];
+    listaAlbum.length = 0;
+    listGroup = [];
+    listGroup.length = 0;
     
     $(".foto").remove();
     $('#paginas').addClass("esconder");
     $('#eliminar').addClass("esconder");
     $('#back').addClass("esconder");
     $('#destroy').remove();
+    $(".marginBottom").remove();
 
     var html = getHtmlDetails();
 
@@ -147,17 +173,27 @@ function chargeDetails(id, secret) {
     $.getJSON(url_context, function (data) {
         if (data.set) {
             $.each(data.set, function (i, set) {
-                $('#sets').append("<a href=\"#\" class=\"list-group-item\">" + set.title + "</a>");
+                var aux = crearAlbum(set.id, set.title);
+                listAlbum.push(aux);
             });
         } else {
             $('#sets').append("<a href=\"#\" class=\"list-group-item\">No está en ningún album</a>");
         }
+        var a;
+        for (a = 0; a < listAlbum.length; a++) {
+                $('#sets').append("<p class=\"list-group-item\">" + listAlbum[a].title + "<button id=\"buttonAlbum" + a + "\" class=\"addTo\" onclick=\"addAlbum(" + a + ");\">Añadir</button></p>");
+        }
         if (data.pool) {
             $.each(data.pool, function (i, pool) {
-                $('#pools').append("<a href=\"#\" class=\"list-group-item\">" + pool.title + "</a>");
+                var aux = crearGrupo(pool.id, pool.title);
+                listGroup.push(aux);
             });
         } else {
             $('#pools').append("<a href=\"#\" class=\"list-group-item\">No está en ningún grupo</a>");
+        }
+        var b;
+        for (b = 0; b < listGroup.length; b++) {
+                $('#pools').append("<p class=\"list-group-item\">" + listGroup[b].title + "<button id=\"buttonGroup" + b + "\" class=\"addTo\" onclick=\"addGroup(" + b + ");\">Añadir</button></p>");
         }
     });
 
@@ -186,6 +222,7 @@ function searchPhotos() {
     $(".foto").remove();
     $('#eliminar').addClass("esconder");
     $('#back').addClass("esconder");
+    $(".buttonRemove").remove();
 
     var textoABuscar = $('#textoRecoger').val();
 

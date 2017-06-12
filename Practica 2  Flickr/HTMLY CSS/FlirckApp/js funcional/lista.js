@@ -1,5 +1,7 @@
 var listImages = [];
 var listaGalleria = [];
+var listaAlbum = [];
+var listaGroup = [];
 var listImagesLists = [];
 var pos = 0;
 var c;
@@ -18,20 +20,45 @@ function getHtmlListaFotos(url_img, msg, id, secret, i) {
 }
 
 function getHtmlListaGalerias(id, title, i) {
-    var html = "<a onclick=\"showPhotos(\'" + id + "\');\" class=\"list-group-item foto\">" + title + "</a><button id=\"buttonGalleryRemove" + i + "\" class=\"addToList buttonRemove\" onclick=\"removeGallery(" + i + ");\">Eliminar</button>";
+    var html = "<div class=\"marginBottom\"><a onclick=\"showPhotos(\'" + id + "\');\" class=\"list-group-item foto\">" + title + "</a><button id=\"buttonGalleryRemove" + i + "\" class=\"addToList buttonRemove\" onclick=\"removeGallery(" + i + ");\">Eliminar</button></div>";
+    return html;
+}
+function getHtmlListaAlbum(id, title, i) {
+    var html = "<div class=\"marginBottom\"><a onclick=\"showPhotosAlbum(\'" + id + "\');\" class=\"list-group-item foto\">" + title + "</a><button id=\"buttonAlbumRemove" + i + "\" class=\"addToList buttonRemove\" onclick=\"removeAlbum(" + i + ");\">Eliminar</button></div>";
+    return html;
+}
+function getHtmlListaGrupo(id, title, i) {
+    var html = "<div class=\"marginBottom\"><a onclick=\"showPhotosGrupo(\'" + id + "\');\" class=\"list-group-item foto\">" + title + "</a><button id=\"buttonGroupRemove" + i + "\" class=\"addToList buttonRemove\" onclick=\"removeGroup(" + i + ");\">Eliminar</button></div>";
     return html;
 }
 
 //Nos elimina una imagen de la lista de fotos seleccionadas
 function removeImages(x) {
     listImages.splice(x, 1);
+    $('#badgeFoto').text(listImages.length);
     listaFotosAux();
 }
 //Nos elimina una galeria de la lista de galerias seleccionadas
 function removeGallery(x) {
     listaGalleria.splice(x, 1);
-    listaGalleriesAux();
     $('#buttonGalleryRemove' + x).remove();
+    
+    listaGalleriesAux();
+    $('#badgeGaleria').text(listaGalleria.length);
+}
+function removeAlbum(x) {
+    listaAlbum.splice(x, 1);
+    $('#buttonAlbumRemove' + x).remove();
+    
+    listaAlbumAux();
+    $('#badgeAlbum').text(listaAlbum.length);
+}
+function removeGroup(x) {
+    listaGroup.splice(x, 1);
+    $('#buttonGroupRemove' + x).remove();
+    
+    listaGroupsAux();
+    $('#badgeGrupo').text(listaGroup.length);
 }
 
 function restaurarList() {
@@ -55,10 +82,38 @@ function listaFotosAux() {
 //Nos ayuda a mostrar las galerias de la lista una vez eliminada solamente una galeria
 function listaGalleriesAux() {
     $(".foto").remove();
+    $(".marginBottom").remove();
+    $(".buttonRemove").remove();
     $('#muro').append("<div class=\"marginTop foto\">");
     var j;
-    for (j = 0; j < listImages.length; j++) {
+    for (j = 0; j < listaGalleria.length; j++) {
         var html = getHtmlListaGalerias(listaGalleria[j].id, listaGalleria[j].title, j);
+
+        $('#muro').append(html);
+    }
+    $('#muro').append("</div>");
+}
+function listaAlbumAux() {
+    $(".foto").remove();
+    $(".marginBottom").remove();
+    $(".buttonRemove").remove();
+    $('#muro').append("<div class=\"marginTop foto\">");
+    var j;
+    for (j = 0; j < listaAlbum.length; j++) {
+        var html = getHtmlListaAlbum(listaAlbum[j].id, listaAlbum[j].title, j);
+
+        $('#muro').append(html);
+    }
+    $('#muro').append("</div>");
+}
+function listaGroupsAux() {
+    $(".foto").remove();
+    $(".marginBottom").remove();
+    $(".buttonRemove").remove();
+    $('#muro').append("<div class=\"marginTop foto\">");
+    var j;
+    for (j = 0; j < listaGroup.length; j++) {
+        var html = getHtmlListaGrupo(listaGroup[j].id, listaGroup[j].title, j);
 
         $('#muro').append(html);
     }
@@ -70,6 +125,16 @@ function addGalleries(x) {
     $('#buttonGallery' + x).addClass("selected");
     $('#badgeGaleria').text(listaGalleria.length);
 }
+function addAlbum(x) {
+    listaAlbum.push(listAlbum[x]);
+    $('#buttonAlbum' + x).addClass("selected");
+    $('#badgeAlbum').text(listaAlbum.length);
+}
+function addGroup(x) {
+    listaGroup.push(listGroup[x]);
+    $('#buttonGroup' + x).addClass("selected");
+    $('#badgeGrupo').text(listaGroup.length);
+}
 //Me añade imágenes a la lista de fotos
 function addImages(x) {
     listImages.push(list[x]);
@@ -80,8 +145,19 @@ function addImages(x) {
 function limpiar() {
     listImages = [];
     listImages.length = 0;
+    listaGalleria = [];
+    listaGalleria.length=0;
+    listaAlbum = [];
+    listaAlbum.length = 0;
+    listaGroup = [];
+    listaGroup.length = 0;
+    
     $(".foto").remove();
     $(".buttonRemove").remove();
+    $('#badgeFoto').text(listImages.length);
+    $('#badgeGaleria').text(listaGalleria.length);
+    $('#badgeAlbum').text(listaAlbum.length);
+    $('#badgeGrupo').text(listaGroup.length);
 }
 //Me muestra todas la imágenes que hemos guardado en la lista de fotos
 function listaDeFotos() {
@@ -107,26 +183,48 @@ function listaDeFotos() {
 
 function listaDeAlbum() {
     $(".foto").remove();
+    $('#destroy').remove();
     $('#paginas').addClass("esconder");
     $('#eliminar').removeClass("esconder");
     $('#back').removeClass("esconder");
+    $(".buttonRemove").remove();
+    
     $('#index').removeClass("active");
     $('#listaDeFotos').removeClass("active");
     $('#listaDeGrupo').removeClass("active");
     $('#listaDeGaleria').removeClass("active");
     $('#listaDeAlbum').addClass("active");
+    
+    $('#muro').append("<div class=\"marginTop foto\">");
+    var j;
+    for (j = 0; j < listaAlbum.length; j++) {
+        var html = getHtmlListaAlbum(listaAlbum[j].id, listaAlbum[j].title, j);
+        $('#muro').append(html);
+    }
+    $('#muro').append("</div>");
 }
 
 function listaDeGrupo() {
     $(".foto").remove();
+    $('#destroy').remove();
     $('#paginas').addClass("esconder");
     $('#eliminar').removeClass("esconder");
     $('#back').removeClass("esconder");
+    $(".buttonRemove").remove();
+    
     $('#index').removeClass("active");
     $('#listaDeFotos').removeClass("active");
     $('#listaDeAlbum').removeClass("active");
     $('#listaDeGaleria').removeClass("active");
     $('#listaDeGrupo').addClass("active");
+    
+    $('#muro').append("<div class=\"marginTop foto\">");
+    var j;
+    for (j = 0; j < listaGroup.length; j++) {
+        var html = getHtmlListaGrupo(listaGroup[j].id, listaGroup[j].title, j);
+        $('#muro').append(html);
+    }
+    $('#muro').append("</div>");
 }
 
 function listaDeGaleria() {
@@ -135,6 +233,7 @@ function listaDeGaleria() {
     $('#paginas').addClass("esconder");
     $('#eliminar').removeClass("esconder");
     $('#back').removeClass("esconder");
+    $(".buttonRemove").remove();
 
     $('#index').removeClass("active");
     $('#listaDeFotos').removeClass("active");
@@ -156,6 +255,7 @@ function paginasLista() {
     //el 3 se mostrarán desde la foto 31 a la 40
     c = 1;
     var pos;
+    $(".buttonRemove").remove();
     //Si tenemos un número multiplo de 10 entonces nos aseguramos que si tenemos 40 fotos solo haya botones del 1 al 3 pues el 3 me mostraría las fotos 31 y 40. Mientras que si el número no es múltiplo de 10 nos aseguramos
     //que si ahi 31 fotos haya botones del 1 al 3 y no se quede en solo 2
     if ((listImagesLists.length % 10) === 0) {
@@ -172,7 +272,7 @@ function paginasLista() {
     $('#0').addClass('selected');
     
 }
-/*function navigate(pos) {
+function navigate(pos) {
     //Cada vez que se pulse una página se ejecuta este método que me cambiará las fotos de la página por las correspondientes a la página pulsada y me seleccionará el número pulsado para informarnos de la página
     //en la que estamos
     var elem = document.getElementById(c - 1);
@@ -190,8 +290,11 @@ function paginasLista() {
 
 
     c = pos + 1;
-}*/
-/*function showPhotos(id) {
+}
+function showPhotos(id) {
+    listImagesLists = [];
+    listImagesLists.length = 0;
+    
     $(".foto").remove();
     $('#destroy').remove();
     $('#paginas').removeClass("esconder");
@@ -222,5 +325,75 @@ function paginasLista() {
         $(".numeros").remove();
         paginasLista();
     });
-}*/
+}
+function showPhotosAlbum(id) {
+    listImagesLists = [];
+    listImagesLists.length = 0;
+    
+    $(".foto").remove();
+    $('#destroy').remove();
+    $('#paginas').removeClass("esconder");
+    $('#eliminar').addClass("esconder");
+    
+    //Llamada a la api para conseguir la lista de fotos, en un principio por defecto, de flores y guardará ciertos datos en una estructura llamada Photos que se añadirá a una lista de fotospara poder acceder luego a ella
+    var url = " https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" + api_key + "&photoset_id=" + id + "&format=json&nojsoncallback=1";
+    
+    $.getJSON(url, function (data) {
+        console.log(data);
+        $.each(data.photoset.photo, function (i, photo) {
+            var msg = photo.title;
+            id = photo.id;
+            secret = photo.secret;
+            url_img = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_h.jpg";
+            var auxp = crearPhoto(url_img, msg, id, secret);
+            listImagesLists.push(auxp);
+
+        });
+        //Cogemos cada una de las fotos guardada en la lista y las imprimimos de diez en diez
+        var i;
+        for (i = 0; ((i < listImagesLists.length) && (i < 10)); i++) {
+            //metodo que me devuelve un string con la estructura en html de cada foto
+            var html = getHtmlInit(listImagesLists[i].url_img, listImagesLists[i].msg, listImagesLists[i].id, listImagesLists[i].secret, i);
+            $('#muro').append(html);
+
+        }
+        $(".numeros").remove();
+        paginasLista();
+    });
+}
+function showPhotosGrupo(id) {
+    listImagesLists = [];
+    listImagesLists.length = 0;
+    
+    $(".foto").remove();
+    $('#destroy').remove();
+    $('#paginas').removeClass("esconder");
+    $('#eliminar').addClass("esconder");
+    
+    //Llamada a la api para conseguir la lista de fotos, en un principio por defecto, de flores y guardará ciertos datos en una estructura llamada Photos que se añadirá a una lista de fotospara poder acceder luego a ella
+    var url = " https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=" + api_key + "&group_id=" + id + "&format=json&nojsoncallback=1";
+    
+    $.getJSON(url, function (data) {
+        console.log(data);
+        $.each(data.photos.photo, function (i, photo) {
+            var msg = photo.title;
+            id = photo.id;
+            secret = photo.secret;
+            url_img = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_h.jpg";
+            var auxp = crearPhoto(url_img, msg, id, secret);
+            listImagesLists.push(auxp);
+
+        });
+        //Cogemos cada una de las fotos guardada en la lista y las imprimimos de diez en diez
+        var i;
+        for (i = 0; ((i < listImagesLists.length) && (i < 10)); i++) {
+            //metodo que me devuelve un string con la estructura en html de cada foto
+            var html = getHtmlInit(listImagesLists[i].url_img, listImagesLists[i].msg, listImagesLists[i].id, listImagesLists[i].secret, i);
+            $('#muro').append(html);
+
+        }
+        $(".numeros").remove();
+        paginasLista();
+    });
+}
 

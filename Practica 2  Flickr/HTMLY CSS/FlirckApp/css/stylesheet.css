@@ -97,6 +97,10 @@
     height: 400px;
     width: 800px;
 }
+.scroll3{
+    overflow-y: scroll;
+    height: 1000px;
+}
 .addTo{    
     float: right;
     background-color: white;    
@@ -106,4 +110,7 @@
 .addTo:hover{
     background-color: #ddd;
     border-color: #828282;
+}
+.marginBottom {
+    margin-bottom: 50px;
 }

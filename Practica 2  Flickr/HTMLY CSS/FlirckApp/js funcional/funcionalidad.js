@@ -17,7 +17,7 @@ function crearPhoto(url, m, i, s) {
 }
 
 function getHtmlInit(url_img, msg, id, secret, i) {
-    var html = "<li style=\"width:378px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
+    var html = "<li style=\"width:370px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
         "<figure class=\"effect-sarah\">" + "\n" +
         "<img class=\"listImage\" style=\"width:378px\" src= \"" + url_img + "\"alt=\"\" />" + "\n" +
         "<figcaption>" + "\n" +
@@ -109,6 +109,9 @@ $(document).ready(function () {
         e.preventDefault();
     });
     $('#back').click(function (event) {
+        event.preventDefault();
+    });
+    $('#indice').click(function (event) {
         event.preventDefault();
     });
 
