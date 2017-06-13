@@ -16,13 +16,13 @@ function crearPhoto(url, m, i, s) {
     return Photo;
 }
 
-function getHtmlInit(url_img, msg, id, secret, i) {
+function getHtmlInit(url_img, msg, id, secret, i, x) {
     var html = "<li style=\"width:370px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
         "<figure class=\"effect-sarah\">" + "\n" +
         "<img class=\"listImage\" style=\"width:378px\" src= \"" + url_img + "\"alt=\"\" />" + "\n" +
         "<figcaption>" + "\n" +
         "<h2>" + msg.substring(0, 30) + " ..." + "</h2>" + "\n" +
-        "<a id=\"enlace\" onclick=\"showDetails(\'" + id + "\', \'" + secret + "\');\">View more</a>" + "\n" +
+        "<a id=\"enlace\" onclick=\"showDetails(\'" + id + "\', \'" + secret + "\', \'" + x + "\');\">View more</a>" + "\n" +
         "</figcaption>" + "\n" +
         "</figure>" + "\n" +
         "<button id=\"button" + i + "\" class=\"addToList\" onclick=\"addImages(" + i + ");\">Añadir</button></li>";
@@ -37,10 +37,9 @@ function navigate(pos) {
     e.className = "selected";
     $(".foto").remove();
     $('#eliminar').addClass("esconder");
-    $('#back').addClass("esconder");
     var i;
     for (i = (pos * 10 + 1); (i <= ((pos + 1) * 10)); i++) {
-        var html = getHtmlInit(list[i].url_img, list[i].msg, list[i].id, list[i].secret, i);
+        var html = getHtmlInit(list[i].url_img, list[i].msg, list[i].id, list[i].secret, i, 1);
         $('#muro').append(html);
 
     }
@@ -72,7 +71,6 @@ function paginas() {
 }
 $(document).ready(function () {
     $('#eliminar').addClass("esconder");
-    $('#back').addClass("esconder");
 
     //Llamada a la api para conseguir la lista de fotos, en un principio por defecto, de flores y guardará ciertos datos en una estructura llamada Photos que se añadirá a una lista de fotospara poder acceder luego a ella
     var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + api_key + "&text=" + "flowers" + "&format=json&nojsoncallback=1";
@@ -89,7 +87,7 @@ $(document).ready(function () {
         var i;
         for (i = 0; ((i < list.length) && (i < 10)); i++) {
             //metodo que me devuelve un string con la estructura en html de cada foto
-            var html = getHtmlInit(list[i].url_img, list[i].msg, list[i].id, list[i].secret, i);
+            var html = getHtmlInit(list[i].url_img, list[i].msg, list[i].id, list[i].secret, i, 1);
             $('#muro').append(html);
 
         }

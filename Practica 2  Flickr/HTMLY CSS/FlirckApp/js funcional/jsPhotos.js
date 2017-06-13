@@ -4,6 +4,11 @@ var cont;
 var listGallery = [];
 var listAlbum = [];
 var listGroup = [];
+var listImages = [];
+var listaGalleria = [];
+var listaAlbum = [];
+var listaGroup = [];
+var listImagesLists = [];
 
 function crearGallery(i, t) {
     var Gallery = {
@@ -45,13 +50,13 @@ function crearPhotoBusqueda(url, m, i, s) {
     return Photo;
 }
 
-function getHtml(url_img, msg, id, secret, i) {
+function getHtml(url_img, msg, id, secret, i, x) {
     var html = "<li style=\"width:370px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
         "<figure class=\"effect-sarah\">" + "\n" +
         "<img style=\"width:378px\" class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n" +
         "<figcaption>" + "\n" +
         "<h2>" + msg.substring(0, 30) + " ..." + "</h2>" + "\n" +
-        "<a id=\"enlace\" onclick=\"showDetails(\'" + id + "\', \'" + secret + "\');\">View more</a>" + "\n" +
+        "<a id=\"enlace\" onclick=\"showDetails(\'" + id + "\', \'" + secret + "\', \'" + x + "\');\">View more</a>" + "\n" +
         "</figcaption>" + "\n" +
         "</figure>" + "\n" +
         "<button id=\"button" + i + "\" class=\"addToList\" onclick=\"addImages(" + i + ");\">Añadir</button></li>";
@@ -59,8 +64,8 @@ function getHtml(url_img, msg, id, secret, i) {
 }
 
 //Me devuelve un string con el código html que tenemos que poner para ver los detalles de la foto pulsada
-function getHtmlDetails() {
-    var html = "<div id=\"destroy\">" + "<button id=\"back\" class=\"buttonBack\" type=\"submit\" onclick=\"restaurar();\">Atrás</button>" +
+function getHtmlDetails(x) {
+    var html = "<div id=\"destroy\">" + "<button id=\"back\" class=\"buttonBack\" type=\"submit\" onclick=\"restaurar(\'" + x + "\');\">Atrás</button>" +
         "<div>" +
         "<figure class=\"details-image\" id=\"selectedImg\">" +
         "</figure>" +
@@ -104,32 +109,67 @@ function getHtmlDetails() {
 }
 
 //Cuando se pulse a un botón que pongá atrás me restaurará la información de búsqueda (ya sean las flores por defecto o la busqueda nuestra) empezando desde la página 1
-function restaurar() {
+function restaurar(x) {
     $('#eliminar').addClass("esconder");
     $('#paginas').removeClass("esconder");
-    $('#back').addClass("esconder");
     $(".foto").remove();
-    $(".buttonRemove").remove();
+    $(".buttonRemove").remove();    
+    $(".buttonBack").remove();
+    
+    if(x==='1'){
+        $('#index').addClass("active");
+        $('#listaDeAlbum').removeClass("active");
+        $('#listaDeGrupo').removeClass("active");
+        $('#listaDeGaleria').removeClass("active");
+        $('#listaDeFotos').removeClass("active");
 
-    $('#index').addClass("active");
-    $('#listaDeAlbum').removeClass("active");
-    $('#listaDeGrupo').removeClass("active");
-    $('#listaDeGaleria').removeClass("active");
-    $('#listaDeFotos').removeClass("active");
-
-    if (text !== undefined) {
-        searchPhotosAux(text);
-    } else {
-        searchPhotosAux("flowers");
+        if (text !== undefined) {
+            searchPhotosAux(text);
+        } else {
+            searchPhotosAux("flowers");
+        }
+    }else if(x==='2'){
+        $('#index').removeClass("active");
+        $('#listaDeAlbum').removeClass("active");
+        $('#listaDeGrupo').removeClass("active");
+        $('#listaDeGaleria').removeClass("active");
+        $('#listaDeFotos').addClass("active");
+        
+        listaDeFotos();         
+    }else if(x==='6'){
+        $('#index').removeClass("active");
+        $('#listaDeAlbum').removeClass("active");
+        $('#listaDeGrupo').removeClass("active");
+        $('#listaDeGaleria').addClass("active");
+        $('#listaDeFotos').removeClass("active");
+        
+        listaDeGaleria();  
+    }else if(x==='7'){        
+        $('#index').removeClass("active");
+        $('#listaDeAlbum').addClass("active");
+        $('#listaDeGrupo').removeClass("active");
+        $('#listaDeGaleria').removeClass("active");
+        $('#listaDeFotos').removeClass("active");
+        
+        listaDeAlbum();        
+    }else if(x==='8'){
+        $('#index').removeClass("active");
+        $('#listaDeAlbum').removeClass("active");
+        $('#listaDeGrupo').addClass("active");
+        $('#listaDeGaleria').removeClass("active");
+        $('#listaDeFotos').removeClass("active");
+        
+        listaDeGrupo();       
     }
 }
+
 
 function saveText(textx) {
     text = textx;
 }
 
 //Me muestra los detalles de una foto al pulsar sobre ella
-function showDetails(id, secret) {
+function showDetails(id, secret, x) {
     listGallery = [];
     listGallery.length = 0;
     listAlbum = [];
@@ -140,11 +180,10 @@ function showDetails(id, secret) {
     $(".foto").remove();
     $('#paginas').addClass("esconder");
     $('#eliminar').addClass("esconder");
-    $('#back').addClass("esconder");
     $('#destroy').remove();
     $(".marginBottom").remove();
 
-    var html = getHtmlDetails();
+    var html = getHtmlDetails(x);
 
     $('#details').append(html);
 
@@ -168,7 +207,7 @@ function chargeDetails(id, secret) {
         $('#description').append("Description:<p>" + data.photo.description._content + "</p>");
     });
 
-    var url_context = "https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key + "&photo_id=" + id + "&format=json&nojsoncallback=1";
+    var url_context = "https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key + "&photo_id=" + "2402594277" + "&format=json&nojsoncallback=1";
 
     $.getJSON(url_context, function (data) {
         if (data.set) {
@@ -197,7 +236,7 @@ function chargeDetails(id, secret) {
         }
     });
 
-    var url_galleries = "https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + id + "&format=json&nojsoncallback=1";
+    var url_galleries = "https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + "13118008555" + "&format=json&nojsoncallback=1";
 
     $.getJSON(url_galleries, function (data) {
         if (data.galleries.total != 0) {
@@ -221,7 +260,6 @@ function searchPhotos() {
 
     $(".foto").remove();
     $('#eliminar').addClass("esconder");
-    $('#back').addClass("esconder");
     $(".buttonRemove").remove();
 
     var textoABuscar = $('#textoRecoger').val();
@@ -234,7 +272,6 @@ function searchPhotos() {
 function searchPhotosAux(text) {
     $('#destroy').remove();
     $('#eliminar').addClass("esconder");
-    $('#back').addClass("esconder");
 
     apiPhotos(text);
 }
@@ -260,16 +297,16 @@ function apiPhotos(textoABuscar) {
 
         var j;
         for (j = 0; ((j < list.length) && (j < 10)); j++) {
-            var html = getHtml(list[j].url_img, list[j].msg, list[j].id, list[j].secret, j);
+            var html = getHtml(list[j].url_img, list[j].msg, list[j].id, list[j].secret, j, 1);
 
             $('#muro').append(html);
 
         }
+        $(".numeros").remove();
         cont = 1;
         var elem = document.getElementsByClassName("selected");
         elem[0].removeAttribute("class");
         $('#0').addClass('selected');
-        $(".numeros").remove();
         paginas();
 
     });
