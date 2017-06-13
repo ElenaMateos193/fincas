@@ -207,7 +207,8 @@ function chargeDetails(id, secret) {
         $('#description').append("Description:<p>" + data.photo.description._content + "</p>");
     });
 
-    var url_context = "https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key + "&photo_id=" + "2402594277" + "&format=json&nojsoncallback=1";
+    //var url_context = "https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key + "&photo_id=" + "2402594277" + "&format=json&nojsoncallback=1";
+    var url_context = "https://api.flickr.com/services/rest/?method=flickr.photos.getAllContexts&api_key=" + api_key + "&photo_id=" + id + "&format=json&nojsoncallback=1";
 
     $.getJSON(url_context, function (data) {
         if (data.set) {
@@ -236,7 +237,8 @@ function chargeDetails(id, secret) {
         }
     });
 
-    var url_galleries = "https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + "13118008555" + "&format=json&nojsoncallback=1";
+    //var url_galleries = "https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + "13118008555" + "&format=json&nojsoncallback=1";
+    var url_galleries = "https://api.flickr.com/services/rest/?method=flickr.galleries.getListForPhoto&api_key=" + api_key + "&photo_id=" + id + "&format=json&nojsoncallback=1";
 
     $.getJSON(url_galleries, function (data) {
         if (data.galleries.total != 0) {
