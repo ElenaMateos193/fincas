@@ -2,7 +2,7 @@ var pos = 0;
 var c;
 
 function getHtmlListaFotos(url_img, msg, id, secret, i, x) {
-    var html = "<li style=\"width:378px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
+    var html = "<li style=\"width:370px;height:300px;margin-bottom:50px\" class=\"masonry-item grid foto\">" + "\n" +
         "<figure class=\"effect-sarah\">" + "\n" +
         "<img style=\"width:378px\" class=\"listImage\" src= \"" + url_img + "\"alt=\"\" />" + "\n" +
         "<figcaption>" + "\n" +
@@ -272,24 +272,24 @@ function paginasLista() {
     var x, sum;
     for (x = 0; x < pos; x++) {
         sum = x + 1;
-        $('#pag').append("<li><a id=\"" + x + "\" onclick=\"navigate(" + x + ");\">" + sum + "</a></li>");
+        $('#pag').append("<li class=\"numeros\"><a id=\"" + x + "\" onclick=\"navigateAux(" + x + ");\">" + sum + "</a></li>");
     }
 //Nos mantenemos en la página 1 por defecto y para ello le damos un estilo diferente al resto.
     $('#0').addClass('selected');
     
 }
-function navigate(pos) {
+function navigateAux(pos) {
     //Cada vez que se pulse una página se ejecuta este método que me cambiará las fotos de la página por las correspondientes a la página pulsada y me seleccionará el número pulsado para informarnos de la página
     //en la que estamos
-    var elem = document.getElementById(c - 1);
-    elem.removeAttribute("class");
+    var z= c -1;
+    $('#'+z).removeClass('selected');
     var e = document.getElementById(pos);
     e.className = "selected";
     $(".foto").remove();
     $('#eliminar').addClass("esconder");
-    var f;
-    for (f = (pos * 10 + 1); (f <= ((pos + 1) * 10)); f++) {
-        var html = getHtml(listImagesLists[f].url_img, listImagesLists[f].msg, listImagesLists[f].id, listImagesLists[f].secret, f);
+    var i;
+    for (i = (pos * 10 + 1); (i <= ((pos + 1) * 10)); i++) {
+        var html = getHtmlInit(listImagesLists[i].url_img, listImagesLists[i].msg, listImagesLists[i].id, listImagesLists[i].secret, i, 1);
         $('#muro').append(html);
 
     }
@@ -306,6 +306,7 @@ function showPhotos(id) {
     $('#paginas').removeClass("esconder");
     $('#eliminar').addClass("esconder");
     $(".buttonBack").remove();
+    $(".numeros").remove();
     
     //Llamada a la api para conseguir la lista de fotos, en un principio por defecto, de flores y guardará ciertos datos en una estructura llamada Photos que se añadirá a una lista de fotospara poder acceder luego a ella
     var url = "https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=" + api_key + "&gallery_id=" + id + "&format=json&nojsoncallback=1";
@@ -320,8 +321,7 @@ function showPhotos(id) {
             listImagesLists.push(auxp);
 
         });
-        $(".numeros").remove();
-        $('#muro').append("<button id=\"back\" class=\"buttonBack\" type=\"submit\" onclick=\"restaurar(\'" + 6 + "\');\">Atrás</button>");
+        $('#muro').append("<button id=\"galeria\" class=\"buttonBack\" onclick=\"listaDeGaleria();\">Lista de galeria</button>");
         //Cogemos cada una de las fotos guardada en la lista y las imprimimos de diez en diez
         var i;
         for (i = 0; ((i < listImagesLists.length) && (i < 10)); i++) {
@@ -342,6 +342,7 @@ function showPhotosAlbum(id) {
     $('#paginas').removeClass("esconder");
     $('#eliminar').addClass("esconder");
     $(".buttonBack").remove();
+    $(".numeros").remove();
     
     //Llamada a la api para conseguir la lista de fotos, en un principio por defecto, de flores y guardará ciertos datos en una estructura llamada Photos que se añadirá a una lista de fotospara poder acceder luego a ella
     var url = " https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" + api_key + "&photoset_id=" + id + "&format=json&nojsoncallback=1";
@@ -356,8 +357,7 @@ function showPhotosAlbum(id) {
             listImagesLists.push(auxp);
 
         });
-        $(".numeros").remove();
-        $('#muro').append("<button id=\"back\" class=\"buttonBack\" type=\"submit\" onclick=\"restaurar(\'" + 7 + "\');\">Atrás</button>");
+        $('#muro').append("<button id=\"album\" class=\"buttonBack\" onclick=\"listaDeAlbum();\">Lista de album</button>");
         //Cogemos cada una de las fotos guardada en la lista y las imprimimos de diez en diez
         var i;
         for (i = 0; ((i < listImagesLists.length) && (i < 10)); i++) {
@@ -378,6 +378,7 @@ function showPhotosGrupo(id) {
     $('#paginas').removeClass("esconder");
     $('#eliminar').addClass("esconder");
     $(".buttonBack").remove();
+    $(".numeros").remove();
     
     //Llamada a la api para conseguir la lista de fotos, en un principio por defecto, de flores y guardará ciertos datos en una estructura llamada Photos que se añadirá a una lista de fotospara poder acceder luego a ella
     var url = " https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=" + api_key + "&group_id=" + id + "&format=json&nojsoncallback=1";
@@ -392,8 +393,7 @@ function showPhotosGrupo(id) {
             listImagesLists.push(auxp);
 
         });
-        $(".numeros").remove();
-        $('#muro').append("<button id=\"back\" class=\"buttonBack\" type=\"submit\" onclick=\"restaurar(\'" + 8 + "\');\">Atrás</button>");
+        $('#muro').append("<button id=\"grupo\" class=\"buttonBack\" onclick=\"listaDeGrupo();\">Lista de grupo</button>");
         //Cogemos cada una de las fotos guardada en la lista y las imprimimos de diez en diez
         var i;
         for (i = 0; ((i < listImagesLists.length) && (i < 10)); i++) {
@@ -471,18 +471,15 @@ function getHtmlDetailsAux(x) {
     return html;
 }
 function showDetailsAux(id, secret, x) {
-    listGallery = [];
-    listGallery.length = 0;
-    listAlbum = [];
-    listaAlbum.length = 0;
-    listGroup = [];
-    listGroup.length = 0;
     
     $(".foto").remove();
     $('#paginas').addClass("esconder");
     $('#eliminar').addClass("esconder");
     $('#destroy').remove();
     $(".marginBottom").remove();
+    $('#galeria').remove();
+    $('#album').remove();
+    $('#grupo').remove();
 
     var html = getHtmlDetailsAux(x);
 

@@ -31,8 +31,8 @@ function getHtmlInit(url_img, msg, id, secret, i, x) {
 function navigate(pos) {
     //Cada vez que se pulse una página se ejecuta este método que me cambiará las fotos de la página por las correspondientes a la página pulsada y me seleccionará el número pulsado para informarnos de la página
     //en la que estamos
-    var elem = document.getElementById(cont - 1);
-    elem.removeAttribute("class");
+    var c= cont -1;
+    $('#'+c).removeClass('selected');
     var e = document.getElementById(pos);
     e.className = "selected";
     $(".foto").remove();

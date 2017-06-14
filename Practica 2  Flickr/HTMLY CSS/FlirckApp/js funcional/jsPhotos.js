@@ -306,8 +306,7 @@ function apiPhotos(textoABuscar) {
         }
         $(".numeros").remove();
         cont = 1;
-        var elem = document.getElementsByClassName("selected");
-        elem[0].removeAttribute("class");
+        $(".selected").removeClass("selected");
         $('#0').addClass('selected');
         paginas();
 
