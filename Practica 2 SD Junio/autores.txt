@@ -1,0 +1,6 @@
+Elena Mateos Martín 48203289G
+Miguel Ángel Monreal 06597297T
+Helena García González 54032293A
+
+Miguel Ángel Monreal HTML y CSS
+Helena García González y Elena Mateos Martin imlementación de la api rest mediante javascript y jquery .
